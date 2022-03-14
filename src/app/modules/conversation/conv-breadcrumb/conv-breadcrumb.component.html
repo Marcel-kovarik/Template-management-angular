@@ -1,0 +1,86 @@
+<div class="content-header d-flex justify-content-between align-items-center">
+  <div class="content-menu-list d-flex align-items-center">
+    <button class="btn btn-with-icon btn-back" (click)="backClicked()">
+      <i class="icon-back"></i>
+      <span>{{ 'BUTTONS.BACK' | translate }}</span>
+    </button>
+    |
+    <div class="menu-item cursor-pointer" (click)="addNewNode()">
+      <i class="icon-add-round"></i>
+      <span>{{ 'BUTTONS.NEW_NODE' | translate }}</span>
+    </div>
+
+    <div class="menu-item cursor-pointer" (click)="showVoiceSelector()">
+      <i class="icon-speak"></i>
+      <span>{{ 'BUTTONS.CHOOSE_VOICE' | translate }}</span>
+      <div *ngIf="isChooseVoice" class="sub-list">
+        <div class="layout">
+          <ul>
+            <li *ngFor="let voice of voiceList | orderBy: 'languageCode': 'DESC'">
+              <label class="custom-radio-btn horizontal d-flex align-items-center">
+                <input type="radio" name="voice" [checked]="voice.voiceId === voiceId" value="list.id"
+                       (change)="chooseVoiceChanged(voice)">
+                <span class="checkmark"></span>
+                <span class="label-name">{{ voice.gender }} - {{ voice.voiceId }} ({{ voice.languageCode }})</span>
+              </label>
+              <i [ngClass]="{'playing': (playing === voice.voiceId)}"
+                 class="icon-play cursor-pointer" (click)="playVoice($event, voice)"></i>
+            </li>
+          </ul>
+          <div class="modal-footer modal-btn-group w-100 d-flex">
+            <div class="btn-save-section">
+              <button type="button" class="btn btn-with-icon w-100 justify-content-center"
+                      (click)="closeVoiceSelector()">
+                  <span class="w-100 d-flex justify-content-center align-items-center">
+                    <i class="icon-sent big-icon"></i>
+                    <span>{{ 'BUTTONS.OK' | translate }}</span>
+                  </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item cursor-pointer" (click)="toggleSettings()">
+      <i class="icon-settings"></i>
+      <span>{{ 'BUTTONS.ADVANCED_SETTINGS' | translate }}</span>
+    </div>
+  </div>
+
+  <div class="edit-save-section d-flex">
+    <div>
+      <button *ngIf="!saving" class="btn btn-with-icon btn-save cursor-pointer" [ngClass]="{'disabled': !saveButtonActive}"
+              (click)="saveAction()">
+        <i class="icon-save"></i>
+        <span>{{ 'BUTTONS.SAVE' | translate }}</span>
+      </button>
+      <div *ngIf="saving" class="adnai-loader loader-sm mr-4"></div>
+    </div>
+    <div>
+      <button *ngIf="!previewing" class="btn btn-with-icon btn-save cursor-pointer" [ngClass]="{'disabled': !previewButtonActive}"
+              (click)="previewAction()" (mouseover)="displayErrors((previewButtonActive ? false: true))"
+              (mouseleave)="displayErrors(false)">
+        <i class="icon-see"></i>
+        <span>{{ 'BUTTONS.PREVIEW' | translate }}</span>
+      </button>
+      <div *ngIf="previewing" class="adnai-loader loader-sm mr-4"></div>
+    </div>
+    <div>
+      <button *ngIf="!publishing" class="btn btn-with-icon btn-save border cursor-pointer" [ngClass]="{'disabled': publishButtonActive.length}"
+              (click)="publishAction()" (mouseover)="displayErrors(true)" (mouseleave)="displayErrors(false)">
+        <i class="icon-publish"></i>
+        <span>{{ 'BUTTONS.PUBLISH' | translate }}</span>
+      </button>
+      <div *ngIf="publishing" class="adnai-loader loader-sm mr-4"></div>
+      <div *ngIf="displayErrorContainer && publishButtonActive.length" class="errors-list-container">
+        <ul>
+          <li *ngFor="let error of publishButtonActive" [innerHTML]="error | translate"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-conversation-advanced-settings *ngIf="advancedSettings" (setUpdate)="setUpdate($event)"
+                                    (closeMe)="toggleSettings()"></app-conversation-advanced-settings>

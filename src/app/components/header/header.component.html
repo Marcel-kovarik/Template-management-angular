@@ -1,0 +1,50 @@
+<div id="header" class="container-fluid">
+  <div class="row">
+    <div class="logo">
+      <a [routerLink]="'/home'" [attr.aria-label]="'ARIA_LABEL.HEAD_LOGO_LINK' | translate">
+        <img src="assets/img/talkin-logo.svg" alt="{{'IMG_ALT.ADNAI_LOGO' | translate}}">
+      </a>
+    </div>
+    <div class="center-header d-flex justify-content-end align-items-end">
+      <i *ngIf="!logoutState" class="icon-list d-sm-none" (click)="showMenu()"></i>
+    </div>
+    <div *ngIf="logoutState && !internal" class="sign-up">
+      <p>{{'NEW_TO_TALK-I' | translate}}</p>
+      <button class="btn-rounded-outline-secondary">{{'BUTTONS.SIGN_UP' | translate}}</button>
+    </div>
+    <div *ngIf="!logoutState && personalInfo" class="userInfo d-sm-flex align-items-center position-relative d-none"
+         [ngClass]="{'custom-bg-color' : isDropDownMenu}">
+      <a (click)="showDropDownMenu()" class="user-avatar">
+        <img [src]="personalInfo.avatar ? personalInfo.avatar : 'assets/img/default-avatar.png'" alt="avatar">
+        <span class="name">{{ personalInfo.firstNameLastName }}</span>
+      </a>
+      <ul *ngIf="isDropDownMenu" class="dropdown-menu-p">
+<!--        <li class="d-flex align-ites-center">-->
+<!--          <a class="d-flex align-items-center" (click)="editProfile()">-->
+<!--            <i class="icon-edit"></i>-->
+<!--            <span>{{ 'EDIT_PROFILE' | translate }}</span>-->
+<!--          </a>-->
+<!--        </li>-->
+        <li *ngIf="personalInfo.userType !== 'INTERNE'" class="d-flex align-ites-center">
+          <a class="d-flex align-items-center" [routerLink]="'/profile/password'">
+            <i class="icon-lock"></i>
+            <span>{{ 'UPDATE_PASSWORD' | translate }}</span>
+          </a>
+        </li>
+        <li class="d-flex align-ites-center">
+          <a class="d-flex align-items-center" (click)="logout()">
+            <i class="icon-upload cw-90"></i>
+            <span>{{ 'LOGOUT' | translate }}</span>
+          </a>
+        </li>
+        <li class="d-flex align-ites-center">
+          <select class="form-control" id="conversationSelect" (click)="$event.stopPropagation()"
+                  (change)="updateLang($event.target)">
+            <option *ngFor="let lang of languages" [value]="lang.code"
+                    [selected]="lang.code === translate.defaultLang">{{lang.label | translate}}</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

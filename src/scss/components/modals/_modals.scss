@@ -1,0 +1,144 @@
+/**
+  Modal style
+*/
+.modal {
+  z-index: 1200;
+  &.show .modal-dialog {
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+  }
+
+  &.show .modal-dialog {
+    max-width: 600px !important;
+    z-index: 1090;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    position: relative;
+    padding: 20px;
+
+    button.close {
+      padding: 0;
+      i {
+        color: $color__grey;
+      }
+      &:hover {
+        background: none;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      border-bottom: 1px solid $color__light-grey;
+      width: calc(100% - 40px);
+      transform: translateX(-50%);
+      bottom: 0px;
+      left: 50%;
+    }
+
+    .modal-title {
+      @include fonts(1.375, $font__secondary, 500);
+      color: $color__dark;
+    }
+  }
+
+  .modal-body {
+    padding: 40px 20px;
+    .input-group{
+      .input-label {
+        @include fonts(0.75, $font__main, 400);
+        color: $color__dark;
+      }
+    }
+  }
+
+  .modal-answers {
+    padding-bottom: 10px;
+    > button {
+      margin: 0 5px;
+    }
+  }
+}
+
+/** STYLE USED OUT OF A MODAL BOX FOR NODE EDITOR **/
+.modal-btn-group{
+  background-color: $color__primary;
+  height: 50px;
+  padding: 0px;
+  flex-wrap: nowrap;
+
+  &>div {
+    flex: 1;
+    margin: 0px;
+    height: 100%;
+
+    .btn{
+      outline: none;
+      @include fonts(0.75, $font__main, 400);
+      color: $color__light-grey;
+      height: 100%;
+      padding: 15px 0px;
+      background-color: $color__primary;
+      border-color: $color__primary;
+
+      .big-icon {
+        margin-right: 7px;
+        font-size: 24px;
+      }
+      &:hover {
+        background-color: lighten($btn-bg-color, 6%);
+        border-color: $color__primary;
+      }
+
+      .btn-left-border{
+        border-right: 2px solid $color__light-grey;
+      }
+    }
+  }
+}
+/** confirm modal  **/
+.confirm-modal {
+  &.show {
+    .modal-dialog {
+      max-width: 400px !important;
+    }
+    .confirm-modal-content {
+      .modal-header {
+        text-align: center;
+        .icon-send-round {
+          color: $color__success;
+          font-size: 60px;
+        }
+        &::after {
+          border-bottom:none;
+        }
+      }
+      .modal-body {
+        padding: 0 20px;
+        font-size: 12px;
+      }
+      .modal-footer {
+        justify-content: center;
+        border-top: none;
+        padding-top:35px;
+        button {
+          background-color: $color__primary;
+          &.confirm-btn {
+            border-radius: 10px !important;
+            padding: 8px 30px;
+            i {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

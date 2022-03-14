@@ -1,0 +1,38 @@
+<div class="text-panel">
+  <textarea placeholder="Type your text here" [(ngModel)]="textSection.text" #ctrlTxt="ngModel" required></textarea>
+  <div *ngIf="ctrlTxt.valid">
+    <div class="custom-voice">
+      <!-- LOADING -->
+      <div *ngIf="audionLoading" class="text-center"><span class="adnai-loader loader-sm"></span></div>
+      <!-- LOADING END-->
+
+      <!-- MP3 UPLOAD -->
+      <label *ngIf="(textSection.audSrc === null || textSection.audSrc === '') && !audionLoading"
+             class="voice-upload d-flex align-items-center mb-0 cursor-pointer">
+        <input type="file" class="d-none" accept=".mp3" (change)="addAudio($event)">
+        <i class="icon-upload"></i>
+        <span>{{ 'UPLOAD_CUSTOM_VOICE' | translate }} ({{ 'MP3_ONLY_3MO_MAX' | translate }})</span>
+      </label>
+      <div *ngIf="textSection.audSrc !== null && textSection.audSrc !== ''"
+           class="audio-section d-flex align-items-center justify-content-between">
+        <span>{{ textSection.audName }}</span>
+        <i class="icon-delete" (click)="deleteAudio()"></i>
+      </div>
+      <audio [src]="textSection.audSrc"></audio>
+    </div>
+    <div class="text-action-list row">
+      <div class="offset-4 col-md-4 col-4 d-flex align-items-center border-R cursor-pointer" (click)="removeText()">
+        <i class="{{removeButton.icon}}"></i>
+        <span>{{ removeButton.text | translate }}</span>
+      </div>
+      <!--          <div class="col-md-4 col-4 d-flex align-items-center border-R cursor-pointer">-->
+      <!--            <i class="icon-sound"></i>-->
+      <!--            <span>{{ 'PREVIEW' | translate | titlecase }}</span>-->
+      <!--          </div>-->
+      <div class=" col-md-4 col-4 d-flex align-items-center cursor-pointer" (click)="addText()">
+        <i class="icon-sent-big"></i>
+        <span>{{ 'DONE' | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

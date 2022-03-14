@@ -1,0 +1,102 @@
+#header {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid $color__light-grey;
+    position: fixed;
+    top: 0px;
+    z-index: 700;
+    background-color: $body-bg-color;
+  > .row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    .logo {
+      padding: 5px 10px;
+    }
+    .center-header {
+      flex-grow: 1;
+      > i.icon-list {
+        color: $color__primary;
+        font-size: 48px;
+      }
+    }
+    .sign-up {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      padding: 0 10px;
+
+      p {
+        margin: 0px;
+        @include fonts(0.75, $font__main, 400);
+      }
+    }
+    .userInfo {
+      & > a {
+        cursor: pointer;
+        padding: 11px 20px;
+        & > img {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+        }
+        & > .name {
+          @include fonts(0.75, $font__main, 400);
+          color: $color__dark;
+          margin-left: 12px;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:hover {
+        background-color: $table-active-bg;
+      }
+      &.custom-bg-color {
+        background-color: $table-active-bg;
+      }
+      .dropdown-menu-p {
+        width: max-content;
+        min-width: 100%;
+        display: block;
+        padding: 0px !important;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+        background-color: white;
+        border: none !important;
+        position: absolute;
+        z-index: 1000;
+        top: 50px;
+        right: 0;
+        > li {
+          a {
+            cursor: pointer;
+            padding: 8px;
+            &:hover {
+              text-decoration: none;
+            }
+            > i {
+              top: -2px;
+              font-size: 22px;
+            }
+            > span {
+              @include fonts(0.75, $font__main, 400);
+              color: $color__dark;
+            }
+          }
+          &:hover {
+            background-color: $table-active-bg;
+          }
+          select {
+            border-width: 1px 0 0 0!important;
+            border-color: $color__light-grey!important;
+            font-size: 0.85rem;
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,27 @@
+h1, .h1 {
+  @include fonts(1.875, $font__secondary, 500);
+  color: $text-main-color;
+  line-height: 38px;
+  margin: 0 0 35px;
+}
+
+h2, .h2{
+  @include fonts(1.375, $font__secondary, 500);
+  color: $text-secondary-color;
+  line-height: 28px;
+  margin: 0 0 30px;
+}
+
+h3, .h3 {
+  @include fonts(1.125, $font__secondary, 500);
+  color: $text-main-color;
+  line-height: 23px;
+  margin: 0 0 28px;
+}
+
+h4, .h4 {
+  @include fonts(1, $font__secondary, 500);
+  color: $text-main-color;
+  line-height: 18px;
+  margin: 0 0 20px;
+}

@@ -1,0 +1,27 @@
+.errors-list-container {
+  position: absolute;
+  max-width: 40vw;
+  max-height: 225px;
+  overflow: auto;
+  top:42px;
+  right: 10px;
+  padding: 15px 30px;
+  box-shadow: 1px 1px 5px #AAA;
+  background-color: white;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none inside;
+    li {
+      padding: 5px 0;
+      @include fonts(.85, $font__secondary);
+      color: $color__danger;
+      &:before {
+        content: '- ';
+        display: inline-block;
+        position: absolute;
+        margin-left: -12px;
+      }
+    }
+  }
+}

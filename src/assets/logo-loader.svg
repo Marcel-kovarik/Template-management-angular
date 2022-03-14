@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+     y="0px"
+     viewBox="0 0 370 252" style="enable-background:new 0 0 370 252;" xml:space="preserve">
+<style type="text/css">
+	.st0 {
+    fill: #022838;
+  }
+
+  .st1 {
+    fill: #ED570C;
+  }
+
+  #cercle1 {
+    animation: 1.8s infinite ease-in-out cercle1anim;
+  }
+
+  @keyframes cercle1anim {
+    0% {
+      transform: rotate (90deg);
+      transform-origin: center;
+    }
+    33% {
+      transform: rotate(180deg);
+      transform-origin: center;
+    }
+    100% {
+      transform: rotate(180deg);
+      transform-origin: center;
+    }
+  }
+
+  #cercle2 {
+    animation: 1.8s infinite ease-in-out cercle2anim;
+  }
+
+  @keyframes cercle2anim {
+    0% {
+      transform: rotate (-90deg);
+      transform-origin: center;
+    }
+    33% {
+      transform: rotate(-180deg);
+      transform-origin: center;
+    }
+    100% {
+      transform: rotate(-180deg);
+      transform-origin: center;
+    }
+  }
+
+  #a1 {
+    opacity: 0;
+    animation: 1.8s 0.4s infinite ease-in letteranim;
+    animation-fill-mode: forwards;
+  }
+
+  #d {
+    opacity: 0;
+    animation: 1.8s 0.5s infinite ease-in letteranim;
+    animation-fill-mode: forwards;
+  }
+
+  #n {
+    opacity: 0;
+    animation: 1.8s 0.575s infinite ease-in letteranim;
+    animation-fill-mode: forwards;
+  }
+
+  #a2 {
+    opacity: 0;
+    animation: 1.8s 0.625s infinite ease-in letteranim;
+    animation-fill-mode: forwards;
+  }
+
+  #dot {
+    opacity: 0;
+    animation: 1.8s 0.650s infinite ease-in letteranim;
+    animation-fill-mode: forwards;
+  }
+
+  #i {
+    opacity: 0;
+    animation: 1.8s 0.660s infinite ease-in letteranim;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes letteranim {
+    0% {
+      opacity: 0
+    }
+    40% {
+      opacity: 100%
+    }
+    60% {
+      opacity: 100%
+    }
+    61% {
+      opacity: 0
+    }
+    100% {
+      opacity: 0
+    }
+  }
+
+  #bits {
+    opacity: 0;
+    animation: 1.8s 0.660s infinite ease-in bitsanim;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes bitsanim {
+    0% {
+      opacity: 0
+    }
+    50% {
+      opacity: 100%
+    }
+    55% {
+      opacity: 100%
+    }
+    56% {
+      opacity: 0
+    }
+    100% {
+      opacity: 0
+    }
+  }
+</style>
+  <g id="cercle2">
+	<path class="st0" d="M247.3,78.8c-1.4,0-2.8-0.6-3.7-1.7C229,59.7,207.7,49.7,185,49.7s-44,10-58.6,27.4c-1.7,2.1-4.8,2.3-6.8,0.6
+		c-2.1-1.7-2.3-4.8-0.6-6.8C135.4,51.3,159.5,40,185,40s49.6,11.3,66,30.9c1.7,2.1,1.4,5.1-0.6,6.8
+		C249.5,78.5,248.4,78.8,247.3,78.8z"/>
+    <path class="st0" d="M185,212c-26,0-50.4-11.6-66.8-31.9c-1.7-2.1-1.4-5.1,0.7-6.8c2.1-1.7,5.1-1.4,6.8,0.7
+		c14.6,18,36.2,28.3,59.3,28.3s44.7-10.3,59.3-28.3c1.7-2.1,4.8-2.4,6.8-0.7c2.1,1.7,2.4,4.8,0.7,6.8C235.4,200.4,211,212,185,212z"
+    />
+</g>
+  <g id="cercle1">
+	<path class="st0" d="M282.3,78.9c-1.7,0-3.4-0.9-4.3-2.6c-18.4-34.4-54.1-55.8-93.1-55.8s-74.6,21.4-93.1,55.8
+		c-1.3,2.4-4.2,3.3-6.6,2c-2.4-1.3-3.3-4.2-2-6.6c20.1-37.6,59-60.9,101.6-60.9s81.5,23.3,101.6,60.9c1.3,2.4,0.4,5.3-2,6.6
+		C283.9,78.7,283.1,78.9,282.3,78.9z"/>
+    <path class="st0" d="M185,241.2c-42.6,0-81.5-23.3-101.6-60.9c-1.3-2.4-0.4-5.3,2-6.6c2.4-1.3,5.3-0.4,6.6,2
+		c18.4,34.4,54.1,55.8,93.1,55.8s74.6-21.4,93.1-55.8c1.3-2.4,4.2-3.3,6.6-2s3.3,4.2,2,6.6C266.5,217.8,227.6,241.2,185,241.2z"/>
+</g>
+  <g id="bits" class="st1">
+	<path class="st2" d="M22.2,130.9H9.9c-2.7,0-4.9-2.2-4.9-4.9s2.2-4.9,4.9-4.9h12.4c2.7,0,4.9,2.2,4.9,4.9
+		C27.1,128.7,24.9,130.9,22.2,130.9z"/>
+    <path class="st2" d="M360.1,130.9h-12.4c-2.7,0-4.9-2.2-4.9-4.9s2.2-4.9,4.9-4.9h12.4c2.7,0,4.9,2.2,4.9,4.9
+		S362.8,130.9,360.1,130.9z"/>
+</g>
+  <g id="letters">
+	<path id="a1" class="st0" d="M88.7,97.7c-2.5,0-4.5,2-4.5,4.5v3.1c-5.1-4.7-11.8-7.6-19.3-7.6c-15.6,0-28.3,12.7-28.3,28.3
+		s12.7,28.3,28.3,28.3c7.4,0,14.2-2.9,19.3-7.6v3.1c0,2.5,2,4.5,4.5,4.5s4.5-2,4.5-4.5v-47.5C93.2,99.7,91.1,97.7,88.7,97.7z
+		 M64.9,145.3c-10.6,0-19.3-8.6-19.3-19.3c0-10.6,8.6-19.3,19.3-19.3c10.6,0,19.3,8.6,19.3,19.3C84.1,136.6,75.5,145.3,64.9,145.3z"
+  />
+    <path id="d" class="st0" d="M157.2,77.3c-2.5,0-4.5,2-4.5,4.5v23.5c-5.1-4.7-11.8-7.6-19.3-7.6c-15.6,0-28.3,12.7-28.3,28.3
+		s12.7,28.3,28.3,28.3c7.4,0,14.2-2.9,19.3-7.6v3.1c0,2.5,2,4.5,4.5,4.5s4.5-2,4.5-4.5V81.9C161.8,79.3,159.7,77.3,157.2,77.3z
+		 M133.5,145.3c-10.6,0-19.3-8.6-19.3-19.3c0-10.6,8.6-19.3,19.3-19.3c10.6,0,19.3,8.6,19.3,19.3
+		C152.7,136.6,144.1,145.3,133.5,145.3z"/>
+    <path id="n" class="st0" d="M202.9,97.7c-7.4,0-14.2,2.9-19.3,7.6v-3.1c0-2.5-2-4.5-4.5-4.5s-4.5,2-4.5,4.5v47.5
+		c0,2.5,2,4.5,4.5,4.5s4.5-2,4.5-4.5V126c0-10.6,8.6-19.3,19.3-19.3c10.6,0,19.3,8.6,19.3,19.3v23.8c0,2.5,2,4.5,4.5,4.5
+		s4.5-2,4.5-4.5V126C231.2,110.4,218.5,97.7,202.9,97.7z"/>
+    <circle id="dot" class="st1" cx="242.6" cy="149.7" r="4.5"/>
+    <path id="a2" class="st0" d="M302.5,97.7c-2.5,0-4.5,2-4.5,4.5v3.1c-5.1-4.7-11.8-7.6-19.3-7.6c-15.6,0-28.3,12.7-28.3,28.3
+		s12.7,28.3,28.3,28.3c7.4,0,14.2-2.9,19.3-7.6v3.1c0,2.5,2,4.5,4.5,4.5s4.5-2,4.5-4.5v-47.5C307,99.7,305,97.7,302.5,97.7z
+		 M278.8,145.3c-10.6,0-19.3-8.6-19.3-19.3c0-10.6,8.6-19.3,19.3-19.3c10.6,0,19.3,8.6,19.3,19.3C298,136.6,289.4,145.3,278.8,145.3
+		z"/>
+    <g id="i" class="st0">
+		<path class="st0" d="M324.6,97.7c-2.5,0-4.5,2-4.5,4.5v47.5c0,2.5,2,4.5,4.5,4.5s4.5-2,4.5-4.5v-47.5
+			C329.1,99.7,327,97.7,324.6,97.7z"/>
+      <circle class="st0" cx="324.6" cy="85.4" r="4.5"/>
+	</g>
+</g>
+</svg>

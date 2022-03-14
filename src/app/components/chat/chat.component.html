@@ -1,0 +1,20 @@
+<ul class="chat-flow">
+  <ng-container *ngFor="let e of data">
+    <li *ngIf="e.type === 'standard'" [ngClass]="e.class">
+      <span *ngIf="e.class.split(' ').includes('server')" class="avatar"></span>
+      <i class="adnai-loader loader-sm" *ngIf="e.class.split(' ').includes('waiting')"></i>
+      <p [innerHTML]="e.text | translate"></p>
+      <span *ngIf="!e.class.split(' ').includes('server')" class="avatar"></span>
+      <app-recorder *ngIf="e.class.split(' ').includes('recorder')" (message)="setRecorderMessage($event)"></app-recorder>
+    </li>
+    <li *ngIf="e.type === 'metadata'" [ngClass]="e.class" [innerHTML]="e.text"></li>
+    <li *ngIf="e.suggestions !== undefined && e.suggestions.length > 0" class="sent-suggestion"
+        [ngClass]="{'img-suggestion': hasImage(e.suggestions)}">
+      <div class="scroll-suggest" (wheel)="scrollListener($event)">
+        <button *ngFor="let suggestion of e.suggestions" (click)="triggerSuggestion(suggestion)">
+          <img *ngIf="suggestion.image" class="player-suggestion-img" src="{{suggestion.image}}"/>
+          {{suggestion.text}}</button>
+      </div>
+    </li>
+  </ng-container>
+</ul>

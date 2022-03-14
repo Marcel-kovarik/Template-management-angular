@@ -1,0 +1,122 @@
+<div class="answer-edit-content">
+  <h2 class="answer-edit-title">{{ 'EDIT_YOUR_ANSWER' | translate }}</h2>
+  <p>{{ 'ANSWER_EDIT_DESCRIPTION' | translate }}</p>
+  <div class="answer-text-edit">
+    <input  #answerRef type="text" class="round-input w-100"
+            [(ngModel)]="answerText" (ngModelChange)="answerChanged()" [attr.maxlength]="25">
+    <div *ngIf="answerRef.value.length > 24" class="invalid-feedback">
+      <div>{{ 'FORM_ERRORS.MAX_LENGTH' | translate | transParams : {length: '25'} }}</div>
+    </div>
+  </div>
+  <div class="answer-edit-list">
+
+    <!-- SYNONYMS SECTION -->
+    <div class="synonyms-section">
+      <div class="d-flex align-items-center title-section select-none" (click)="synonyms.toggle()"
+        [attr.aria-expanded]="!collapsedStatus.isSynonyms">
+        <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isSynonyms}"></i>
+        <h3 class="m-0">{{ 'SYNONYMS' | translate }}</h3>
+      </div>
+      <div #synonyms="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isSynonyms" class="content">
+        <p class="description">{{ 'SYNONYMS_DESCRIPTION' | translate }}</p>
+        <div class="btn-section">
+          <button *ngFor="let suggestion of synonymSuggestions"
+                  [ngClass]="{'synonym-btn': true, 'active':isIncludeText(suggestion)}"
+                  (click)="synonymsBtnEvent(suggestion)">{{ suggestion }}</button>
+        </div>
+        <div *ngFor="let item of answerEdit.synonyms.SynonymsItem"
+          class="completed-synonyms-item d-flex align-items-center justify-content-between">
+          <i class="icon-list"></i>
+          <div class="content">{{ item.Text }}</div>
+          <i class="icon-delete cursor-pointer" (click)="removeSynonymsItem(item.SynonymsId)"></i>
+        </div>
+        <div class="synonyms-item d-flex align-items-center justify-content-between" *ngIf="synonymsCreat.isCancel">
+          <i class="icon-cancel-big cursor-pointer" (click)="synonymsInputRemove()"></i>
+          <div class="content">
+            <input type="text" class="round-input w-100" #synonymsRef [(ngModel)]="synonymsCreat.text"
+              (keyup)="answerSaveByKeyUp($event)">
+          </div>
+          <div class="save-icon-section" (click)="addSynonymItem()">
+            <i class="icon-sent-big cursor-pointer" *ngIf="synonymsCreat.text!=''"></i>
+          </div>
+        </div>
+        <div *ngIf="!synonymsCreat.isCancel" class="d-flex align-items-center add-synonym cursor-pointer select-none"
+          (click)="addSynCreateDisplay()">
+          <i class="icon-add"></i>
+          <span>{{ 'ADD_A_NEW_SYNONYMS' | translate }}</span>
+        </div>
+      </div>
+    </div>
+    <!-- SYNONYMS SECTION END -->
+
+    <!-- IMAGE SECTION -->
+    <div class="image-section">
+      <div class="d-flex align-items-center title-section select-none" (click)="image.toggle()"
+        [attr.aria-expanded]="!collapsedStatus.isImage">
+        <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isImage}"></i>
+        <h3 class="m-0">{{ 'IMAGE' | translate }}</h3>
+      </div>
+      <div #image="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isImage" class="content">
+        <p class="description">{{ 'IMG_DESCRIPTION' | translate }}</p>
+        <div *ngIf="answerEdit.image.src===null || answerEdit.image.src===''" class="image-input">
+          <div class="image-file-selection d-flex align-items-center justify-content-between">
+            <label class="d-flex justify-content-center align-items-center h-100 m-0">
+              {{ 'CHOOSE_A_FILE' | translate }}
+              <input type="file" class="d-none" accept=".jpg, .jpeg, .png" (change)="updateFile($event)">
+            </label>
+            <i class="icon-cancel-big cursor-pointer" (click)="image.toggle()"></i>
+          </div>
+          <div class="d-flex justify-content-center allow-types">
+            <span>{{ 'JPG_PNG_FILE_WITH_MAX_SIZES_WEIGHT' | translate | transParams : {max: '200x200px & 10ko'} }}</span>
+          </div>
+          <div *ngIf="imageLoading" class="text-center"><span class="adnai-loader loader-sm"></span></div>
+        </div>
+        <div *ngIf="answerEdit.image.src!==null && answerEdit.image.src!==''" class="image-display position-relative d-flex justify-content-center align-items-center">
+          <div class="image" [ngStyle]="{'background-image': 'url('+ answerEdit.image.src + ')'}"></div>
+          <i class="icon-delete cursor-pointer position-absolute" (click)="imageRemove()"></i>
+        </div>
+      </div>
+    </div>
+    <!-- IMAGE SECTION END-->
+
+    <!-- STYLES SECTION -->
+<!--    <div class="styles-section">-->
+<!--      <div class="d-flex align-items-center title-section select-none" (click)="styles.toggle()"-->
+<!--        [attr.aria-expanded]="!collapsedStatus.isStyles">-->
+<!--        <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isStyles}"></i>-->
+<!--        <h3 class="m-0">{{ 'STYLES' | translate }}</h3>-->
+<!--      </div>-->
+
+<!--      <div #styles="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isStyles" class="content">-->
+<!--        <p class="description">{{ 'STYLES_DESCRIPTION' | translate }}</p>-->
+<!--        <div class="header-logo-popover">-->
+<!--          <div class="icon-bg-switch w-100 d-flex align-items-center">-->
+<!--            <div class="d-flex justify-content-center align-items-center cursor-pointer"-->
+<!--              [ngClass]="{'border-active': (currentPickerActive === 0)}" (click)="colorPickerInit(0)">-->
+<!--              {{ 'TEXT' | translate }}</div>-->
+<!--            <div class="d-flex justify-content-center align-items-center cursor-pointer"-->
+<!--              [ngClass]="{'border-active': (currentPickerActive === 1)}" (click)="colorPickerInit(1)">-->
+<!--              {{ 'BACKGROUND_COLOR' | translate }}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div *ngIf="currentPickerActive === 0" class="d-flex flex-column align-items-center justify-content-center">-->
+<!--            <div id="colorPicker0"></div>-->
+<!--            <div class="d-flex picker-value">-->
+<!--              <span>{{ 'CODE_HEX' | translate }}</span>-->
+<!--              <input type="text" (change)="backgroundColorUpdate($event)" [value]="answerEdit.styles.textColor">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div *ngIf="currentPickerActive === 1" class="d-flex flex-column align-items-center justify-content-center">-->
+<!--            <div id="colorPicker1"></div>-->
+<!--            <div class="d-flex picker-value">-->
+<!--              <span>{{ 'CODE_HEX' | translate }}</span>-->
+<!--              <input type="text" (change)="backgroundColorUpdate($event)" [value]="answerEdit.styles.bgColor">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!-- STYLES SECTION END -->
+
+  </div>
+</div>

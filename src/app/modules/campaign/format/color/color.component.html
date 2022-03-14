@@ -1,0 +1,33 @@
+<div class="header-logo-popover" (click)="$event.stopPropagation()">
+  <h2 class="title">{{ title | translate }}</h2>
+  <div *ngIf="dual" class="icon-bg-switch w-100 d-flex align-items-center">
+    <div class="d-flex justify-content-center align-items-center cursor-pointer"
+         [ngClass]="{'border-active': (currentPickerActive === 0)}" (click)="colorPickerInit(0)">
+      {{ leftTabTitle | translate }}</div>
+    <div class="d-flex justify-content-center align-items-center cursor-pointer"
+         [ngClass]="{'border-active': (currentPickerActive === 1)}" (click)="colorPickerInit(1)">
+      {{ 'BACKGROUND_COLOR' | translate }}
+    </div>
+  </div>
+  <div *ngIf="currentPickerActive === 0" class="d-flex flex-column align-items-center justify-content-center">
+    <div id="colorPicker0"></div>
+    <div class="d-flex picker-value">
+      <span>{{ 'CODE_HEX' | translate }}</span>
+      <input type="text" (change)="backgroundColorUpdate($event)" [value]="inputHex[0]">
+    </div>
+  </div>
+  <div *ngIf="currentPickerActive === 1" class="d-flex flex-column align-items-center justify-content-center">
+    <div id="colorPicker1"></div>
+    <div class="d-flex picker-value">
+      <span>{{ 'CODE_HEX' | translate }}</span>
+      <input type="text" (change)="backgroundColorUpdate($event)" [value]="inputHex[1]">
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center validate-btn-section">
+    <button type="button" class="btn-rounded-outline-secondary btn-with-icon"
+            (click)="closeTrigger()">
+      <i class="icon-sent"></i>
+      {{ 'VALIDATE' | translate | titlecase }}
+    </button>
+  </div>
+</div>

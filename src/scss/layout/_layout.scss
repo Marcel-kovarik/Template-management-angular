@@ -1,0 +1,50 @@
+@import "header";
+
+@import "footer";
+
+/**
+  MAIN STRUCTURE
+ */
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  &.main-wrapper {
+    margin-top: 50px;
+  }
+}
+#content {
+  width: 100%;
+  .main-container {
+    min-height: calc(100vh - 140px);
+  }
+}
+
+.scroll-container {
+  height: calc(100vh - 50px);
+  overflow: auto;
+}
+
+/**
+  GENERAL CLASSES AND/OR ELEMENTS
+ */
+// Used to remo
+.no-margin {
+  margin: 0 !important;
+}
+
+.p-main-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.full-page-wrapper {
+  padding: 0px;
+}
+
+@media (max-width: 576px) {
+  .p-main-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

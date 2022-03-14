@@ -1,0 +1,54 @@
+<div class="login-container">
+
+  <!-- Login Form -->
+  <div class="login-form">
+    <p class="form-title">{{(resetPassword ? 'FORGOT_YOUR_PASSWORD' : 'LOGIN_TO_TALK-I') | translate}}</p>
+    <p *ngIf="!internal" class="tag-line">{{(resetPassword ? 'DONT_WORRY_FORGOT_PASSWORD' : 'ENTER_YOUR_DETAILS_BELOW')
+      | translate}}</p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!internal">
+      <div class="form-group">
+        <label for="email">{{'EMAIL_ADDRESS' | translate}}</label>
+        <input id="email" type="email" [formControlName]="'email'" class="form-control" placeholder="">
+        <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+          <div *ngIf="loginForm.controls.email.errors.required">{{'YOUR_EMAIL_REQUIRED' | translate}}</div>
+          <div *ngIf="loginForm.controls.email.errors.email">{{'EMAIL_FORMAT_REQUIRED' | translate}}</div>
+        </div>
+      </div>
+      <div *ngIf="!resetPassword" class="form-group">
+        <div class="wrapper-label">
+          <label for="password">{{'PASSWORD' | translate}}</label>
+          <a (click)="triggerReset()">{{'FORGOT_YOUR_PASSWORD' | translate}}</a>
+        </div>
+        <input id="password" type="password" [formControlName]="'password'" class="form-control">
+        <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+          <div *ngIf="loginForm.controls.password.errors.required">{{'YOUR_PASSWORD_REQUIRED' | translate}}</div>
+        </div>
+      </div>
+      <div class="wrapper-login-btn">
+        <button class="btn-rounded-outline-secondary">
+          {{(resetPassword ? 'BUTTONS.RESET_PASSWORD' : 'BUTTONS.LOG_IN') | translate}}</button>
+      </div>
+      <a *ngIf="resetPassword" class="back-btn" (click)="triggerReset()">
+        <i class="icon-back"></i>{{'BACK' | translate}}
+      </a>
+    </form>
+    <div class="text-center mt-3" *ngIf="internal">
+      <p align="text-center"><i class="fas fa-sign-in-alt"></i>&nbsp;Connexion avec le compte Google Adn.ai</p>
+      <p align="text-center">
+        <app-sign-in-with-google [clientId]="myClientId"></app-sign-in-with-google>
+      </p>
+    </div>
+  </div>
+
+  <!-- Email Sent Form -->
+  <div *ngIf="formState.emailSentForm" class="email-sent-form">
+    <p class="form-title">{{'LOGIN_TO_TALK-I' | translate}}</p>
+    <p class="tag-line">{{'AN_EMAIL_SENT' | translate}}</p>
+  </div>
+
+  <!-- Powered by -->
+  <div class="powered-by">
+    <span>{{'POWERED_BY' | translate}}</span>
+    <img src="assets/img/adnai-logo-w.svg" alt="{{'IMG_ALT.ADNAI_LOGO' | translate}}">
+  </div>
+</div>

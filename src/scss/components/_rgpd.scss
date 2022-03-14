@@ -1,0 +1,67 @@
+/*
+RGPD form generator
+**/
+.rgpd-form-generator {
+  .page-header {
+    @include fonts(0.5625, $font__main, 400);
+    color: $color__primary;
+    margin-top: 5px;
+    a {
+      > i {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .card {
+    margin-top: 22px;
+
+    label, textarea {
+      @include fonts(0.75, $font__main, 400);
+      &.input-label {
+        margin-top: 20px;
+      }
+    }
+
+    select {
+      @include fonts(0.75, $font__main, 400);
+    }
+
+    .description {
+      @include fonts(0.75, $font__main, 400);
+      color: $color__dark;
+      margin: 10px 0px 0px 0px;
+    }
+
+    .sub-title {
+      @include fonts(1, $font__main, 500);
+      color: $color__dark;
+      margin: 40px 0px 0px 0px;
+    }
+    .custom-radio-btn {
+      &.child {
+        margin-left: 27px;
+      }
+    }
+
+    .customize-check-box {
+      margin: 0px 0px 15px 0px;
+      &.child {
+        margin: 15px 0px 15px 27px;
+        padding-right: 20px!important;
+      }
+    }
+
+    .dashed-border-left {
+      border: 1px dashed $color__grey;
+      border-width: 0 0 0 1px;
+      @media (max-width: 767.9px) {
+        border-width: 0 0 1px 0;
+      }
+    }
+
+    .submit-btn-section {
+      margin-top: 40px;
+    }
+  }
+}

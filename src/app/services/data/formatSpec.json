@@ -1,0 +1,1209 @@
+{
+  "300x600": [
+    {
+      "id": 1,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 560,
+      "maxWeight": 50,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ],
+  "300x600-split": [
+    {
+      "id": 1,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 250,
+      "maxWeight": 30,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "background conversation",
+      "description": "under your conversation, keep it light",
+      "resourceType": "IMG_COLOR",
+      "mandatory": false,
+      "width": 300,
+      "height": 310,
+      "maxWeight": 25,
+      "maxLength": null,
+      "opener": "conversationBg",
+      "settingsKeys": [
+        "body.bottom.image",
+        "body.bottom.backgroundColor"
+      ]
+    }
+  ],
+  "300x250": [
+    {
+      "id": 1,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 210,
+      "maxWeight": 25,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ],
+  "1800x1000": [
+    {
+      "id": 1,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 1800,
+      "height": 1000,
+      "maxWeight": 150,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ],
+  "responsive": [
+    {
+      "id": 1,
+      "name": "background color",
+      "description": "if you don’t need background image",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "screenSection",
+      "settingsKeys": [
+        "boby.backgroundColor"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": "",
+      "height": "",
+      "maxWeight": "",
+      "maxLength": null,
+      "opener": "screenSection",
+      "settingsKeys": [
+        ""
+      ],
+      "child": [
+        {
+          "id": 1,
+          "name": "Portrait 320 x 440 px",
+          "description": "max 30 kb",
+          "resourceType": "IMAGE",
+          "mandatory": false,
+          "width": "320",
+          "height": "440",
+          "maxWeight": "30",
+          "maxLength": null,
+          "opener": "screenSection",
+          "settingsKeys": [
+            "body.backgrounds[1].portrait"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Landscape 480 x 280 px",
+          "description": "max 40 kb",
+          "resourceType": "IMAGE",
+          "mandatory": false,
+          "width": "480",
+          "height": "280",
+          "maxWeight": "40",
+          "maxLength": null,
+          "opener": "screenSection",
+          "settingsKeys": [
+            "body.backgrounds[1].landscape"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Portrait 768 x 1024 px",
+          "description": "max 130 kb",
+          "resourceType": "IMAGE",
+          "mandatory": false,
+          "width": "768",
+          "height": "1024",
+          "maxWeight": "130",
+          "maxLength": null,
+          "opener": "screenSection",
+          "settingsKeys": [
+            "body.backgrounds[2].portrait"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Landscape 1024 x 768 px",
+          "description": "max 130 kb",
+          "resourceType": "IMAGE",
+          "mandatory": false,
+          "width": "1024",
+          "height": "768",
+          "maxWeight": "130",
+          "maxLength": null,
+          "opener": "screenSection",
+          "settingsKeys": [
+            "body.backgrounds[2].landscape"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Landscape 1920 x 1080 px",
+          "description": "max 250 kb",
+          "resourceType": "IMAGE",
+          "mandatory": false,
+          "width": "1920",
+          "height": "1080",
+          "maxWeight": "250",
+          "maxLength": null,
+          "opener": "screenSection",
+          "settingsKeys": [
+            "body.backgrounds[3].landscape"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "background conversation",
+      "description": "to highlight your conversation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.backgroundColor"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "player icon",
+      "description": "incentive button to the click rate",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "playerIcon",
+      "settingsKeys": [
+        "conversation.oscilloscope"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "left suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ],
+  "300x600-split-image": [
+    {
+      "id": 1,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with your creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 250,
+      "maxWeight": 25,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "background conversation",
+      "description": "under your conversation, keep it light",
+      "resourceType": "IMG_COLOR",
+      "mandatory": false,
+      "width": 300,
+      "height": 310,
+      "maxWeight": 25,
+      "maxLength": null,
+      "opener": "conversationBg",
+      "settingsKeys": [
+        "body.bottom.image",
+        "body.bottom.backgroundColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "player icon",
+      "description": "incentive button to the click rate",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "playerIcon",
+      "settingsKeys": [
+        "conversation.oscilloscope"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "left suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ],
+  "300x600-split-video": [
+    {
+      "id": 1,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with your creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "video",
+      "description": "your creation",
+      "resourceType": "VIDEO",
+      "mandatory": true,
+      "width": 300,
+      "height": 250,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "bodyVideo",
+      "settingsKeys": [
+        "body.video"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "background image",
+      "description": "To display before the video loads",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 250,
+      "maxWeight": 25,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "background conversation",
+      "description": "under your conversation, keep it light",
+      "resourceType": "IMG_COLOR",
+      "mandatory": false,
+      "width": 300,
+      "height": 310,
+      "maxWeight": 25,
+      "maxLength": null,
+      "opener": "conversationBg",
+      "settingsKeys": [
+        "body.bottom.image",
+        "body.bottom.backgroundColor"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "player icon",
+      "description": "incentive button to the click rate",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "playerIcon",
+      "settingsKeys": [
+        "conversation.oscilloscope"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "left suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ],
+  "300x600-intro-image": [
+    {
+      "id": 1,
+      "name": "image introduction",
+      "description": "",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 560,
+      "maxWeight": 50,
+      "maxLength": null,
+      "opener": "introductionBg",
+      "settingsKeys": [
+        "introduction.image"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "logo header",
+      "description": "your company logo",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 130,
+      "height": 30,
+      "maxWeight": 10,
+      "maxLength": null,
+      "opener": "logo",
+      "settingsKeys": [
+        "header.image"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "background header",
+      "description": "color matching with your logo",
+      "resourceType": "COLOR",
+      "mandatory": true,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "head",
+      "settingsKeys": [
+        "header.backgroundColor"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "mic & sound header icons color",
+      "description": "you can match the color with your creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "action",
+      "settingsKeys": [
+        "header.button.color",
+        "header.button.backgroundColor"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "background image",
+      "description": "your creation",
+      "resourceType": "IMAGE",
+      "mandatory": true,
+      "width": 300,
+      "height": 560,
+      "maxWeight": 50,
+      "maxLength": null,
+      "opener": "body",
+      "settingsKeys": [
+        "body.image"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "left icon",
+      "description": "represents you when you chat with the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "leftIcon",
+      "settingsKeys": [
+        "avatar.server"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "player icon",
+      "description": "incentive button to the click rate",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "playerIcon",
+      "settingsKeys": [
+        "conversation.oscilloscope"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "left suggestion chat bubble",
+      "description": "color of the suggestion bubble",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "suggestions",
+      "settingsKeys": [
+        "conversation.suggestions.color",
+        "conversation.suggestions.backgroundColor"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "right icon",
+      "description": "represents the customer",
+      "resourceType": "IMAGE",
+      "mandatory": false,
+      "width": 20,
+      "height": 20,
+      "maxWeight": 5,
+      "maxLength": null,
+      "opener": "rightIcon",
+      "settingsKeys": [
+        "avatar.client"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "mic & send footer icons color",
+      "description": "you can match the color with the creation",
+      "resourceType": "COLOR",
+      "mandatory": false,
+      "width": 0,
+      "height": 0,
+      "maxWeight": 0,
+      "maxLength": null,
+      "opener": "footerIcons",
+      "settingsKeys": [
+        "footer.button.color"
+      ]
+    }
+  ]
+}

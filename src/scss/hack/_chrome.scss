@@ -1,0 +1,12 @@
+// Hack for Chrome & Opera
+@supports (-webkit-appearance:none) and (font-variant-caps:normal) and (not (-ms-accelerator:true)) and (not (overflow:-webkit-marquee)) and (not (-moz-appearance:none)) {
+  .navbar .navbar-nav .nav-item .nav-link {
+    &.active {
+      font-size: 12.6px;
+      margin: 1.4px 0 0 0;
+    }
+  }
+  button, input[type=button], input[type=reset], input[type=submit], .my-btn {
+    padding-top: 7px;
+  }
+}

@@ -1,0 +1,119 @@
+$chat-radius: 10px;
+
+ul.chat-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 25px;
+  li {
+    background-color: $blockquote-bg-color;
+    margin: 20px 5px 0;
+    padding: 13px 12px;
+    max-width: 90%;
+    float: left;
+    clear: both;
+    font-size: 11px;
+    line-height: 14px;
+    position: relative;
+    @include border-radius-bottom($chat-radius);
+    &:first-child { margin-top: 10px;}
+    span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: -10px;
+      z-index: 1;
+    }
+    p, a {
+      margin: 0;
+      //font-size: 12px;
+      @include fonts(0.75, $font__main, 500);
+      color: $color__dark;
+    }
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+        color: $color__primary;
+      }
+    }
+    &.sent-suggestion {
+      margin-top: 5px;
+      padding: 0 7px;
+      background-color: transparent;
+      button {
+        margin: 5px 5px 0;
+        @include border-radius(7px);
+        @include fonts(0.75, $font__main, 500);
+      }
+    }
+    &.img-suggestion {
+      height: 128px;
+      min-height: 128px;
+      overflow: hidden;
+      > div {
+        height: 145px;
+        overflow: hidden;
+        overflow-x: scroll;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      img {
+        display: flex;
+        flex-direction: column;
+        height: 70px;
+        margin: 0 auto 2px;
+        max-width: unset;
+      }
+      button {
+        padding: 10px;
+        max-height: 118px;
+        @include border-radius-top-left(0);
+      }
+    }
+    &.server {
+      margin-left: 15px;
+      @include border-radius-top-right($chat-radius);
+      span {
+        background-image: url('~assets/img/left-chat-icon.png');
+        left: -25px;
+      }
+      &.sent-meta {
+        margin-top: 10px;
+      }
+    }
+    &.reply {
+      float: right;
+      margin-right: 35px;
+      @include border-radius-top-left($chat-radius);
+      span {
+        background-image: url("~assets/img/right-chat-icon.png");
+        right: -25px;
+      }
+    }
+    &.replies {
+      float: right;
+      @include border-radius-top-left($chat-radius)
+    }
+    &.waiting-on-speech, &.waiting-on-server  {
+      > p {
+        background: url("~assets/img/icon-chat-incoming.svg") no-repeat center;
+        display: inline-block;
+        width: 38px;
+        height: 8px;
+      }
+    }
+    &.recorder {
+      width: 90%;
+      background-color: $conversation-rec-bg;
+      p {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .recorder-container {
+        margin: 10px 0 -39px;
+      }
+    }
+  }
+}

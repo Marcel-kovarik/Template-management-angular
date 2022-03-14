@@ -1,0 +1,97 @@
+.sidebar {
+  background-color: $color__primary;
+  width: 80px;
+  height: 100%  ;
+  min-height: calc(100vh - 50px);
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: sticky;
+    top: 50px;
+    .menu-item {
+      text-align: center;
+      border-bottom: 1px solid white;
+      border-color: rgba(255,255,255,.2);
+      a {
+        color: white;
+        display: block;
+        padding: 10px 0;
+        i {
+          font-size: 35px;
+        }
+        p {
+          @include fonts(0.65, $font__main);
+          margin: 0;
+        }
+        &:hover, &.active {
+          color: white!important;
+          background-color: $color__secondary;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.mobileSidebar {
+  background-color: $color__primary;
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  height: 100%  ;
+  .close-icon-section {
+    padding: 15px;
+    > i {
+      color: $screen-bg-color;
+      font-size: 40px;
+    }
+  }
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &>li:first-child {
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+    .menu-item {
+      text-align: center;
+      border-bottom: 1px solid white;
+      border-color: rgba(255,255,255,.2);
+      a {
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 10px 0 10px 50px;
+        i {
+          font-size: 35px;
+        }
+        p {
+          @include fonts(0.65, $font__main);
+          margin: 0;
+        }
+        &:hover, &.active {
+          color: white!important;
+          background-color: $color__secondary;
+          text-decoration: none;
+        }
+      }
+      &.revert {
+        a {
+          color: $color__primary;
+          background-color: $color__light-grey;
+          &:hover, &.active {
+            background-color: $color__grey;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .sidebar {
+    display: none;
+  }
+}

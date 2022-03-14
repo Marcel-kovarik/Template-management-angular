@@ -1,0 +1,419 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.my-btn {
+  @include fonts(0.75, $font__main, 500);
+  padding: 6px 16px;
+  border: 1px solid;
+  color: $btn-color!important;
+  background: $btn-bg-color;
+  border-color: $btn-border-color;
+  border-radius: $border-radius !important;
+  cursor: pointer;
+
+  i {
+    position: absolute;
+    margin: 2px 0 0 -22px;
+    font-size: 22px;
+  }
+
+  &:hover {
+    background-color: lighten($btn-bg-color, 6%);
+  }
+
+  &.primary {
+    background-color: $color__primary!important;
+    border-color: $color__primary!important;
+  }
+  &.secondary {
+    background-color: $color__secondary!important;
+    border-color: $color__secondary!important;
+  }
+  &.success {
+    background-color: $color__success!important;
+    border-color: $color__success!important;
+  }
+  &.danger {
+    background-color: $color__danger!important;
+    border-color: $color__danger!important;
+  }
+  &.warning {
+    background-color: $color__warning!important;
+    border-color: $color__warning!important;
+  }
+  &.info {
+    background-color: $color__info!important;
+    border-color: $color__info!important;
+  }
+  &:focus {
+    box-shadow: unset!important;
+  }
+  &.btn-clear{
+    background-color: transparent!important;
+    color: $color__dark!important;
+    border: none;
+    > i  {
+      position: absolute;
+      top: -5px;
+      right: 5px;
+    }
+  }
+
+}
+
+button[type="submit"], .submit {
+  border-color: $color__border-button;
+  background-color: $color__border-button;
+  &:hover {
+    border-color: darken($color__border-button, 5%);
+    background-color: darken($color__border-button, 5%);
+  }
+}
+
+button[type="reset"], .reset {
+  background-color: $color__grey;
+  border-color: $color__grey;
+  i { top: 2px;}
+  &:hover {
+    background-color: lighten($color__grey, 4%);
+  }
+}
+
+/** BS OVERRIDE **/
+[class^="btn-outline-"], [class*=" btn-outline-"] {
+  color: $text-main-color!important;
+  &:hover {
+    color: white!important;
+  }
+}
+
+/**
+  Buttons
+*/
+.btn-rounded-outline-secondary {
+  transition:  color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  color: $color__secondary !important;
+  border: 1px solid $color__secondary;
+  border-radius: 50px !important;
+  background: transparent;
+  font-size: 12px;
+  padding: 8px 18px;
+  outline: none !important;
+  &:hover {
+    color: white !important;
+    background: $color__secondary;
+  }
+  &:active {
+    background: darken($color__secondary, 10%) !important;
+  }
+}
+
+.btn-rounded-outline-grey {
+  transition:  color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  color: $color__grey !important;
+  border: 1px solid $color__grey;
+  border-radius: 50px !important;
+  background: transparent;
+  font-size: 12px;
+  padding: 8px 18px;
+  outline: none !important;
+  &:hover {
+    color: white !important;
+    background: $color__grey;
+  }
+  &:active {
+    background: darken($color__grey, 10%) !important;
+  }
+}
+
+.btn-with-icon {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  i {
+    position: relative;
+    margin: 0;
+  }
+}
+
+.card-action-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none !important;
+  color: $color__grey !important;
+  i {
+    position: relative;
+    margin: 0;
+    &.icon-delete {
+      font-size: 19px;
+    }
+  }
+  &:hover {
+    background: transparent !important;
+    color: $color__secondary !important;
+    outline: none !important
+  }
+}
+
+.btn-toggle {
+  width: 115px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: $color__light-grey;
+
+  &>div {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    transition: all 0.3s linear;
+
+    &>div{
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      color: $screen-bg-color;
+      animation: toggleBtn 0.2s ease-in-out;
+      i{
+        font-size: 18px;
+      }
+    }
+    .in-progress {
+      background-color: $color__grey;
+    }
+    .completed {
+      background-color: $color__success;
+    }
+    .status{
+      @include fonts(0.75, $font__main, 400);
+    }
+  }
+}
+@keyframes toggleBtn {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+
+.btn-day-toggle {
+  width: 50px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: $table-bg-color;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s linear;
+  padding: 5px;
+  &.on-off {
+    background-color: rgba(236,100,16,0.3);
+    justify-content: flex-end;
+  }
+    &>div{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: $screen-bg-color;
+      animation: toggleBtn 0.2s ease-in-out;
+      background-color: $color__secondary;
+    }
+}
+
+/**
+radio button customize
+*/
+.custom-radio-btn {
+  position: relative;
+  cursor: pointer;
+
+  &.horizontal {
+    margin-top: 15px;
+    .radio-label {
+      padding-left: 25px !important;
+    }
+    .checkmark {
+      top: -2px !important;
+    }
+  }
+
+  &:hover input ~ .checkmark {
+  background-color: $color__light-grey;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked ~ .checkmark {
+      background-color: $color__light;
+    }
+
+    &:checked ~ .checkmark:after {
+      display: block;
+    }
+  }
+  .checkmark {
+    position: absolute;
+    bottom: -13px;
+    height: 18px;
+    width: 18px;
+    border: 1px solid $color__primary;
+    border-radius: 50%;
+
+    &:after {
+      top: 3px;
+      left: 2.5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: $color__primary;
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+}
+
+/**
+  custom check box customize
+*/
+.customize-check-box {
+    display: block;
+    position: relative;
+    padding-left: 28.5px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border: 1px solid $color__grey;
+  }
+
+  /* On mouse-over, add a grey background color */
+  &:hover input ~ .checkmark {
+    border: 1px solid $color__grey;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  input:checked ~ .checkmark {
+    background-color: $color__primary;
+    border: 1px solid $color__primary;
+  }
+
+  input:disabled ~ .checkmark {
+    background-color: lighten($color__grey, 30%);
+    border: 1px solid lighten($color__grey, 30%);
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid $screen-bg-color;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.synonym-btn {
+  padding: 7.5px 20.5px 7.5px 20.5px;
+  @include fonts(0.75, $font__main, 400);
+  border-radius: 15px !important;
+  outline: none !important;
+  color: $color__grey !important;
+  background: $screen-bg-color;
+  border: 1px solid $color__grey;
+  margin-right: 20px;
+  transition: all 0.3s;
+  &:hover, &.active {
+    border: 1px solid $color__primary !important;
+    color: $screen-bg-color !important;
+    background-color: $color__primary !important;
+  }
+}
+
+/**
+custom-selectbox on node editor
+ */
+.custom-select-menu {
+  .selected-item {
+    background-color: $screen_bg-color;
+    height: 40px;
+    padding: 12.5px 18px 12.5px 10px;
+    color: $color__dark;
+    @include fonts(0.75, $font__main, 400);
+
+    .menu-down-icon {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid $color__synonymsBorder;
+      transition: all 0.3s;
+    }
+  }
+
+  .select-menu-list {
+    z-index: 10;
+    overflow: auto;
+    border-top: 1px solid $hr-bg-color;
+    background-color: $screen_bg-color;
+    max-height: 250px;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    border-radius: 1px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    > div {
+      padding: 10px 10px;
+      transition: all 0.3s;
+      cursor: pointer;
+      @include fonts(0.75, $font__main, 400);
+
+      &:hover {
+        background-color: $hr-bg-color;
+      }
+    }
+  }
+}

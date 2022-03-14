@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <h1 class="page-title">{{ 'USERS' | translate }}</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <p class="sub-title">{{ 'USERS_LIST' | translate }}</p>
+          <button (click)="newUser()" class="btn-rounded-outline-secondary btn-with-icon">
+            <i class="icon-add"></i>
+            {{ 'NEW_USER' | translate }}
+          </button>
+        </div>
+        <div class="campaign-list-section">
+          <table class="table">
+            <thead class="thead-dark">
+            <tr>
+              <th>{{ 'FIRSTNAME' | translate }}</th>
+              <th>{{ 'LASTNAME' | translate }}</th>
+              <th>{{ 'EMAIL_ADDRESS' | translate }}</th>
+              <th colspan="2">{{ 'LINKED_COMPANIES' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+           <tr *ngFor="let user of users | orderBy: 'creationDate': 'DESC'">
+             <td>
+               <div class="wrapper-flex">{{ user.firstName }}</div>
+             </td>
+             <td>
+               <div class="wrapper-flex">{{ user.lastName }}</div>
+             </td>
+             <td>
+               <div class="wrapper-flex">{{ user.email}}</div>
+             </td>
+             <td>
+               <div *ngFor="let organisation of user.organisations" class="wrapper-flex">
+                 {{ organisation.name }}
+               </div>
+             </td>
+             <td class="center action">
+               <div class="wrapper-action-btn">
+                 <app-trigger-action (delete)="deleteUser($event)" (edit)="editUser($event)"
+                                     *ngIf="openActionListId === user.id"
+                                     [canDuplicate]="false"
+                                     [element]="user"></app-trigger-action>
+                 <button (click)="openActionList(user.id)" class="card-action-btn">
+                   <i class="icon-more"></i>
+                   {{ 'BUTTONS.ACTIONS' | translate }}
+                 </button>
+               </div>
+             </td>
+           </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

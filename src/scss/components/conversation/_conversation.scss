@@ -1,0 +1,171 @@
+@import "publishErrorContainer";
+
+/**
+  conversation section
+*/
+.conversation-name {
+  width: 60%;
+  position: absolute;
+  z-index: 1000;
+  margin-top: -85px;
+  left: 20%;
+  @include fonts(0.9, $font__main, 700);
+  color: $color__grey;
+}
+.conversation.main-container {
+  min-height: calc(100vh - 100px) !important;
+}
+.conversation-container {
+  height: calc(100vh - 100px);
+  .chatFlow-designer-wrapper {
+    height: calc(100vh - 100px);
+    overflow: hidden;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    .designer-panel {
+      flex-grow: 1;
+      .chatFlow-root-svg {
+        overflow: hidden;
+        width: 100%;
+        height: calc(100vh - 60px);
+        flex-grow: 1;
+
+        &.isShowOverlay {
+          background: rgba(0,0,0,0.4);
+          pointer-events: none;
+        }
+
+        .opacity-content {
+          filter: brightness(0.6);
+        }
+
+        .chatNode {
+          cursor: move;
+          width: 96%;
+          margin: auto;
+          border-radius: 10px;
+          &.selected {
+            .section {
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+            .chatNode-empty {
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+          }
+
+          .chatNode-header {
+            height: 44px;
+            border-radius: 10px 10px 0 0;
+            background-color: $color__primary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p {
+              @include fonts(1, $font__main, 400);
+              color: $screen-bg-color;
+              margin: 0;
+            }
+          }
+
+          .chatNode-body {
+            background: transparent;
+            border-radius: 0 0 10px 10px;
+            color: $color__dark;
+            @include fonts(0.75, $font__main, 400);
+
+            .section {
+              border-radius: 10px;
+              padding: 10px;
+              background-color: $table-bg-color;
+              margin-bottom: 1px;
+              &:first-child {
+                border-radius: 0 0 10px 10px;
+              }
+              > div {
+                margin-bottom: 10px;
+                &:last-child {
+                  margin-bottom: 0;
+                }
+                @include fonts(0.75, $font__main, 400);
+                .image {
+                  > div {
+                    overflow: hidden;
+                    background-size: cover;
+                    background-position: center;
+                    width: 150px;
+                    height: 100px;
+                  }
+                }
+                .audio {
+                  i {
+                    font-size: 24px;
+                    margin-right: 12px
+                  }
+                  span {
+                    @include fonts(0.75, $font__main, 400);
+                    color: $color__dark;
+                  }
+                }
+                .link {
+                  .url-link {
+                    font-size: 0.6rem;
+                    font-style: italic;
+                    display: block;
+                    overflow: hidden;
+                    height: 13px;
+                    margin-top: 5px;
+                  }
+                }
+                .answer-display {
+                  .answer-title {
+                    margin-top: 20px;
+                    border-bottom: 1px solid $color__grey;
+                    margin-bottom: 25px;
+
+                    span {
+                      @include fonts(0.75, $font__main, 400);
+                      padding: 0 15px;
+                      color: $color__dark;
+                      background: $table-bg-color;
+                      margin-bottom: -9px;
+                    }
+                  }
+
+                  .answers-content-display {
+                    margin-bottom: 13px;
+                    margin-right: 10px;
+                  }
+                }
+              }
+
+            }
+
+            .chatNode-empty {
+              background-color: $table-bg-color;
+              text-align: center;
+              width: 100%;
+              padding: 30px 0;
+              border-radius: 0 0 10px 10px;
+            }
+          }
+        }
+
+      }
+    }
+
+    .del-add-section {
+      width: 400px;
+      bottom: 0;
+      z-index: 100;
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+

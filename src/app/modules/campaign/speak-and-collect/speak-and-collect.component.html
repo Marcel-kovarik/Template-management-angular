@@ -1,0 +1,323 @@
+<app-breadcrumb [editAction]="true" [crumbs]="crumbs"></app-breadcrumb>
+
+<div class="formats-300_250 spc-section custom-mt-90">
+  <div class="row">
+    <!-- format box section -->
+    <div class="col-lg-4">
+      <div class="mx-auto view-300x250-section position-relative">
+        <div class="u-type-section position-absolute w-100">
+          <div class="mx-auto position-relative"></div>
+        </div>
+        <div class="format-box-layout w-100 h-100 d-flex justify-content-center align-items-center">
+          <div
+            [className]="isBoxColor ? 'spc-format-box w-100 position-relative' : 'spc-format-box w-100 border-dashed position-relative'"
+            [ngbPopover]="boxPickerRef" [autoClose]="'outside'" placement="right" #boxPopover="ngbPopover"
+            (click)="boxColorPickerChange(1, true)" [ngStyle]="{'background-color': boxColor.bgColor}">
+
+            <!-- format box background edit section -->
+            <ng-template #boxPickerRef>
+              <div class="mic-sound-popover">
+                <h2 class="title">{{ 'MAIN_TITLE' | translate }}</h2>
+                <div class="icon-bg-switch w-100 d-flex align-items-center">
+                  <div
+                    [className]="boxActive === 1 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                    (click)="boxColorPickerChange(1)">
+                    {{ 'TEXT_COLOR' | translate }}
+                  </div>
+                  <div
+                    [className]="boxActive === 2 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                    (click)="boxColorPickerChange(2)">
+                    {{ 'BACKGROUND_COLOR' | translate }}
+                  </div>
+                </div>
+                <div *ngIf="boxActive === 1" class="d-flex flex-column align-items-center justify-content-center">
+                  <div id="boxTxtColorPicker"></div>
+                  <div class="d-flex picker-value">
+                    <span>{{ 'CODE_HEX' | translate }}</span>
+                    <input type="text" #boxTxtRef [value]="boxColor.txtColor"
+                           (change)="boxColorInput(boxTxtRef.value, 1)">
+                  </div>
+                </div>
+                <div *ngIf="boxActive === 2" class="d-flex flex-column align-items-center justify-content-center">
+                  <div id="boxBgColorPicker"></div>
+                  <div class="d-flex picker-value">
+                    <span>{{ 'CODE_HEX' | translate }}</span>
+                    <input type="text" #boxBgRef [value]="boxColor.bgColor" (change)="boxColorInput(boxBgRef.value, 2)">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center validate-btn-section">
+                  <button type="button" class="btn-rounded-outline-secondary btn-with-icon"
+                          (click)="boxPopover.close()">
+                    <i class="icon-sent"></i>
+                    {{ 'VALIDATE' | translate | titlecase }}
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+
+            <!-- banner section -->
+            <div [className]="isBannarColor ? 'banner-section bottom-right-radius' : 'banner-section br-border-dahsed'"
+                 [ngbPopover]="bannarPickerRef" [autoClose]="'outside'" placement="right" #bannarPopover="ngbPopover"
+                 (click)="bannarColorPickerChange(1, true)"
+                 [ngStyle]="{'background-color': bannarColor.bgColor, 'color': bannarColor.txtColor}"
+                 (click)="$event.stopPropagation();">
+              <span [ngStyle]="{'min-width': spcForm.value['bannerTitle']==='' ? '98px' : 'fit-content'}">{{ spcForm.value['bannerTitle'] }}</span>
+              <!-- banner edit section -->
+              <ng-template #bannarPickerRef>
+                <div class="mic-sound-popover" (click)="$event.stopPropagation();">
+                  <h2 class="title">{{ 'UPPER_BANNER' | translate }}</h2>
+                  <div class="icon-bg-switch w-100 d-flex align-items-center">
+                    <div
+                      [className]="bannarActive === 1 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                      (click)="bannarColorPickerChange(1)">
+                      {{ 'TEXT_COLOR' | translate }}
+                    </div>
+                    <div
+                      [className]="bannarActive === 2 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                      (click)="bannarColorPickerChange(2)">
+                      {{ 'BACKGROUND_COLOR' | translate }}
+                    </div>
+                  </div>
+                  <div *ngIf="bannarActive === 1" class="d-flex flex-column align-items-center justify-content-center">
+                    <div id="bannarTxtColorPicker"></div>
+                    <div class="d-flex picker-value">
+                      <span>{{ 'CODE_HEX' | translate }}</span>
+                      <input type="text" #headerMicRef [value]="bannarColor.txtColor"
+                             (change)="bannarColorInput(headerMicRef.value, 1)">
+                    </div>
+                  </div>
+                  <div *ngIf="bannarActive === 2" class="d-flex flex-column align-items-center justify-content-center">
+                    <div id="bannarBgColorPicker"></div>
+                    <div class="d-flex picker-value">
+                      <span>{{ 'CODE_HEX' | translate }}</span>
+                      <input type="text" #bannerColorInputRef [value]="bannarColor.bgColor"
+                             (change)="bannarColorInput(bannerColorInputRef.value, 2)">
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center validate-btn-section">
+                    <button type="button" class="btn-rounded-outline-secondary btn-with-icon"
+                            (click)="bannarPopover.close()">
+                      <i class="icon-sent"></i>
+                      {{ 'VALIDATE' | translate | titlecase }}
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+            <div class="d-flex justify-content-center align-items-center main-title-section">
+              <h2 class="mb-0 text-center" [ngStyle]="{'color': boxColor.txtColor}">{{ spcForm.value['mainTitle'] }}
+              </h2>
+            </div>
+
+            <!-- business name section -->
+            <div class="business-content position-absolute w-100" (click)="$event.stopPropagation();">
+              <div class="position-relative">
+                <div [className]="isBusinessColor ? '' : 'border-dashed'" [ngbPopover]="businessPickerRef"
+                     [autoClose]="'outside'" placement="right" #businessPopover="ngbPopover"
+                     (click)="businessColorPickerChange(1, true)"
+                     [ngStyle]="{'background-color': businessColor.bgColor, 'color': businessColor.txtColor}">
+                  <p class="mb-0 business-title">{{ spcForm.value['businessName'] }}</p>
+                  <p class="mb-0 address"><span *ngIf="spcForm.value['postalcode']!==''">{{ spcForm.value['postalcode']
+                    }} - </span><span *ngIf="spcForm.value['city']!==''">{{ spcForm.value['city'] }} city</span></p>
+                  <p class="d-flex align-items-center clock" (click)="$event.stopPropagation();"
+                     [ngbPopover]="clockListRef" [autoClose]="'outside'" placement="right" #clockPopoverRef="ngbPopover">
+                    <span *ngIf="closedTime!==''" class="mr-1">Open - Close at {{ closedTime }}</span>
+                    <i *ngIf="closedTime!==''" class="icon-down mt-1"></i>
+                    <ng-template #clockListRef>
+                  <div (click)="$event.stopPropagation();">
+                    <p class="mb-1" *ngFor="let item of dayToggleStatus;index as i">
+                      <span class="font-weight-bold">{{ item.key }}: </span>
+                      <span *ngIf="!dayToggleStatus[i].isShowHour">Closed</span>
+                      <span *ngIf="dayToggleStatus[i].start1!=''">{{ dayToggleStatus[i].start1 }} - </span>
+                      <span *ngIf="dayToggleStatus[i].end1!=''">{{ dayToggleStatus[i].end1 }}, </span>
+                      <span *ngIf="dayToggleStatus[i].start2!=''">{{ dayToggleStatus[i].start2 }} - </span>
+                      <span *ngIf="dayToggleStatus[i].end2!=''">{{ dayToggleStatus[i].end2 }} </span>
+                    </p>
+                  </div>
+                  </ng-template>
+                  </p>
+
+                  <!-- business name edit section -->
+                  <ng-template #businessPickerRef>
+                    <div class="mic-sound-popover">
+                      <h2 class="title">{{ 'BUSINESS_HIGHLIGHTS' | translate }}</h2>
+                      <div class="icon-bg-switch w-100 d-flex align-items-center">
+                        <div
+                          [className]="businessActive === 1 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                          (click)="businessColorPickerChange(1)">
+                          {{ 'TEXT_COLOR' | translate }}
+                        </div>
+                        <div
+                          [className]="businessActive === 2 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                          (click)="businessColorPickerChange(2)">
+                          {{ 'BACKGROUND_COLOR' | translate }}
+                        </div>
+                      </div>
+                      <div *ngIf="businessActive === 1"
+                           class="d-flex flex-column align-items-center justify-content-center">
+                        <div id="businessTxtColorPicker"></div>
+                        <div class="d-flex picker-value">
+                          <span>{{ 'CODE_HEX' | translate }}</span>
+                          <input type="text" #businessTxtColorInputRef [value]="businessColor.txtColor"
+                                 (change)="businessColorInput(businessTxtColorInputRef.value, 1)">
+                        </div>
+                      </div>
+                      <div *ngIf="businessActive === 2"
+                           class="d-flex flex-column align-items-center justify-content-center">
+                        <div id="businessBgColorPicker"></div>
+                        <div class="d-flex picker-value">
+                          <span>{{ 'CODE_HEX' | translate }}</span>
+                          <input type="text" #businessBgColorInputRef [value]="businessColor.bgColor"
+                                 (change)="businessColorInput(businessBgColorInputRef.value, 2)">
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center align-items-center validate-btn-section">
+                        <button type="button" class="btn-rounded-outline-secondary btn-with-icon"
+                                (click)="businessPopover.close()">
+                          <i class="icon-sent"></i>
+                          {{ 'VALIDATE' | translate | titlecase }}
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+            <!-- big button section -->
+            <div class="big-button-seciton position-absolute w-100" (click)="$event.stopPropagation();">
+              <div class="position-relative">
+                <div [className]="isBigBtnColor ? 'd-flex align-items-center' : 'border-dashed'"
+                     [ngbPopover]="bigBtnColorPickerRef" [autoClose]="'outside'" placement="right"
+                     #bigBtnPickerRef="ngbPopover" (click)="bigBtnColorPickerChange(1, true)"
+                     [ngStyle]="{'background-color': bigBtnColor.bgColor, 'color': bigBtnColor.txtColor}">
+                  <i *ngIf="isBigBtnColor" class="icon-basket"
+                     [ngStyle]="{'background-color': bigBtnColor.txtColor, 'color': bigBtnColor.bgColor}"></i>
+                  <span *ngIf="isBigBtnColor">Cliquez-ici pour commander directement dans la pub</span>
+                  <!-- big button edit section -->
+                  <ng-template #bigBtnColorPickerRef>
+                    <div class="mic-sound-popover">
+                      <h2 class="title">{{ 'BIG_BUTTON' | translate }}</h2>
+                      <div class="icon-bg-switch w-100 d-flex align-items-center">
+                        <div
+                          [className]="bigBtnActive === 1 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                          (click)="bigBtnColorPickerChange(1)">
+                          {{ 'TEXT_COLOR' | translate }}
+                        </div>
+                        <div
+                          [className]="bigBtnActive === 2 ? 'd-flex justify-content-center align-items-center border-active cursor-pointer' : 'd-flex justify-content-center align-items-center cursor-pointer'"
+                          (click)="bigBtnColorPickerChange(2)">
+                          {{ 'BACKGROUND_COLOR' | translate }}
+                        </div>
+                      </div>
+                      <div *ngIf="bigBtnActive === 1"
+                           class="d-flex flex-column align-items-center justify-content-center">
+                        <div id="bigBtnTxtColorPicker"></div>
+                        <div class="d-flex picker-value">
+                          <span>{{ 'CODE_HEX' | translate }}</span>
+                          <input type="text" #bigBtnTxtColorInputRef [value]="bigBtnColor.txtColor"
+                                 (change)="bigBtnColorInput(bigBtnTxtColorInputRef.value, 1)">
+                        </div>
+                      </div>
+                      <div *ngIf="bigBtnActive === 2"
+                           class="d-flex flex-column align-items-center justify-content-center">
+                        <div id="bigBtnBgColorPicker"></div>
+                        <div class="d-flex picker-value">
+                          <span>{{ 'CODE_HEX' | translate }}</span>
+                          <input type="text" #bigBtnBgColorInputRef [value]="bigBtnColor.bgColor"
+                                 (change)="bigBtnColorInput(bigBtnBgColorInputRef.value, 2)">
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center align-items-center validate-btn-section">
+                        <button type="button" class="btn-rounded-outline-secondary btn-with-icon"
+                                (click)="bigBtnPickerRef.close()">
+                          <i class="icon-sent"></i>
+                          {{ 'VALIDATE' | translate | titlecase }}
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- format-input-list with information -->
+    <div class="col-lg-8">
+      <div class="card format-table-section">
+        <form class="content" [formGroup]="spcForm">
+          <h2 class="title">{{ 'SPEAK_COLLECT' | translate }}</h2>
+          <p class="description">{{ 'HERE_ELEMENT_YOU_NEED_TO_CREATE_YOUR_FORMAT' | translate }}</p>
+          <div class="d-flex input-list-section">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="input-label">{{ 'UPPER_BANNER_TITLE' | translate }}<sup>*</sup></label>
+                <input type="text" class="form-control" formControlName="bannerTitle" maxlength="40"
+                       placeholder="40 char. max">
+              </div>
+              <div class="input-group">
+                <label class="input-label">{{ 'MAIN_TITLE' | translate }} (3 {{ 'MAX' | translate
+                  }})<sup>*</sup></label>
+                <div #titleDiv>
+                  <input type="text" class="form-control" formControlName="mainTitle" maxlength="40"
+                         placeholder="40 char. max">
+                </div>
+                <a class="d-flex align-items-center add-title" (click)="addTitleElement($event)">
+                  <i class="icon-add"></i>
+                  <p class="description mb-0">{{ 'ADD_A_TITLE' | translate }}</p>
+                </a>
+              </div>
+              <div class="input-group">
+                <label class="input-label">{{ 'BUSINESS_NAME' | translate }}<sup>*</sup></label>
+                <input type="text" class="form-control" formControlName="businessName" maxlength="60"
+                       placeholder="60 char. max">
+              </div>
+              <div class="input-group">
+                <label class="input-label">{{ 'ADDRESS' | translate }}<sup>*</sup></label>
+                <input type="text" class="form-control" placeholder="address">
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="postalcode" placeholder="postal code">
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="city" placeholder="city">
+              </div>
+            </div>
+
+            <!-- hours section -->
+            <div class="business-hours">
+              <label class="input-label">{{ 'BUSINESS_HOURS' | translate }}<sup>*</sup></label>
+              <!-- toggle button section -->
+              <div class="d-flex align-items-center hours-set-item" *ngFor="let item of dayToggleStatus">
+                <div class="d-flex align-items-center justify-content-between toggle-btn-section"
+                     (click)="switchBtn(item.key)">
+                  <p class="description mb-0">{{ item.key }}</p>
+                  <div [className]="item.isShowHour ? 'btn-day-toggle on-off' : 'btn-day-toggle'">
+                    <div class="on-toggle"></div>
+                  </div>
+                </div>
+                <div *ngIf="item.isShowHour" class="d-flex input-hours-section align-items-center">
+                  <input type="text" class="form-control" placeholder="from" [value]="item.start1" (change)="handleChange($event, 'start1', item.id)">
+                  <input type="text" class="form-control" placeholder="to" [value]="item.end1" (change)="handleChange($event, 'end1', item.id)">
+                  <a *ngIf="!item.isAddHour" class="d-flex align-items-center add-input cursor-pointer" (click)="addInputElement(item.id)">
+                    <i class="icon-add"></i>
+                    <p class="description mb-0">{{ 'ADD_HOURS' | translate }}</p>
+                  </a>
+                  <div *ngIf="item.isAddHour" class="ml-3 mr-3">-</div>
+                  <input *ngIf="item.isAddHour" type="text" class="form-control ml-0" placeholder="from" [value]="item.start2" (change)="handleChange($event, 'start2', item.id)">
+                  <input *ngIf="item.isAddHour" type="text" class="form-control" placeholder="to" [value]="item.end2" (change)="handleChange($event, 'end2', item.id)">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

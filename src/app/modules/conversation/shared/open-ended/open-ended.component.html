@@ -1,0 +1,96 @@
+<div class="generic-section" *ngIf="display">
+  <div class="d-flex justify-content-center align-items-center">
+    <span class="generic-title">{{ 'ADVANCED_SETTINGS' | translate }}</span>
+  </div>
+
+  <ng-container
+    *ngFor="let item of editedNode.convNode.Answers.AnswerList[0].Builtin.nodeBuiltinOptions | orderBy : 'displayOrderOption'">
+    <!-- HELP BOX ELEMENT -->
+    <ng-container *ngIf="item.help!==''">
+      <div *ngIf="selectedHelp===item.codeOption" class="help-box position-absolute">
+        <div class="position-relative">
+          <i class="icon-cancel position-absolute cursor-pointer" (click)="displayHelpString($event,'')"></i>
+          {{ item.help }}
+        </div>
+      </div>
+    </ng-container>
+    <!-- HELP BOX ELEMENT END -->
+
+    <!-- LIST ELEMENT -->
+    <div *ngIf="item.typeDataOption==='list'">
+      <div class="option-section position-relative" *ngIf="item.listValue.length > 0">
+        <span class="generic-label">{{ item.labelOption }}
+          <i *ngIf="item.help!==''" class="icon-question help-icon" (click)="displayHelpString($event,item.codeOption)"></i>
+        </span>
+        <app-open-ended-select [editedNode]="editedNode" [itemList]="item.listValue" [selectType]="selectType"
+          (parentFunc)="changeFn($event)" [defaultValue]="item.defaultValue"></app-open-ended-select>
+        <span *ngIf="item.required && item.defaultValue===''" class="required-txt">
+          {{ 'THIS_ITEM_IS_REQUIRED_VALUE' | translate }}
+        </span>
+      </div>
+    </div>
+    <!-- LIST ELEMENT END -->
+
+    <!-- INPUT TEXT ELEMENT -->
+    <div *ngIf="item.typeDataOption==='string'">
+      <div class="option-section position-relative">
+        <span class="generic-label">{{ item.labelOption }}
+          <i *ngIf="item.help!==''"class="icon-question help-icon" (click)="displayHelpString($event,item.codeOption)"></i>
+        </span>
+        <input type="text" class="white-input-box w-100" [name]="item.codeOption" [value]="item.defaultValue"
+          (change)="handleInputChange($event, true)" />
+        <span *ngIf="item.required && item.defaultValue===''" class="required-txt">
+          {{ 'THIS_ITEM_IS_REQUIRED_VALUE' | translate }}
+        </span>
+      </div>
+    </div>
+    <!-- INPUT TEXT ELEMENT END -->
+
+    <!-- UPLOAD ELEMENT -->
+    <div *ngIf="item.typeDataOption==='upload'">
+      <div class="voice-upload position-relative">
+        <label class="d-flex align-items-center">
+          <i class="icon-upload"></i>
+          <span class="generic-label m-0">{{ 'UPLOAD_CUSTOM_VOICE_MP3_ONLY_1MO' | translate }}
+            <i *ngIf="item.help!==''" class="icon-question help-icon" (click)="displayHelpString($event,item.codeOption)"></i>
+          </span>
+          <input type="file" class="d-none" [name]="item.codeOption" accept=".mp3" (change)="voiceUpload($event)">
+        </label>
+      </div>
+    </div>
+    <!-- UPLOAD ELEMENT END -->
+
+    <!-- INPUT INT ELEMENT END -->
+    <div *ngIf="item.typeDataOption==='integer'" class="voice-upload">
+      <div class="option-section d-flex align-items-center justify-content-between position-relative">
+        <span class="generic-label m-0">{{ item.labelOption }}
+          <i *ngIf="item.help!==''" class="icon-question help-icon" (click)="displayHelpString($event,item.codeOption)"></i>
+        </span>
+        <input type="number" class="white-input-box text-right" [name]="item.codeOption" min="1"
+          [value]="item.defaultValue" style="width: 50px;" (change)="handleInputChange($event, true)" />
+      </div>
+      <span *ngIf="item.required && item.defaultValue===''" class="required-txt">
+        {{ 'THIS_ITEM_IS_REQUIRED_VALUE' | translate }}</span>
+    </div>
+    <!-- INPUT INT ELEMENT END -->
+
+    <!-- CHECKBOX ELEMENT END -->
+    <div *ngIf="item.typeDataOption==='boolean'">
+      <div class="final-bubble p-0 option-section position-relative">
+        <label class="customize-check-box d-flex align-items-center">
+          {{ item.labelOption }}<i *ngIf="item.help!==''" class="icon-question help-icon"
+             (click)="displayHelpString($event,item.codeOption)"></i>
+          <input type="checkbox" [name]="item.codeOption" [checked]="item.defaultValue === 'true'"
+            (change)="handleInputChange($event, false)">
+          <span class="checkmark"></span>
+        </label>
+        <span *ngIf="item.required && item.defaultValue==='false'" class="required-txt">
+          {{ 'THIS_ITEM_IS_REQUIRED_VALUE' | translate }}
+        </span>
+      </div>
+    </div>
+    <!-- CHECKBOX ELEMENT END -->
+
+  </ng-container>
+
+</div>

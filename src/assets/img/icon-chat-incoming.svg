@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="dots" width="36px" height="8px" viewBox="0 0 36 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style type="text/css">
+    #dots #r1{animation: load 1s infinite;}
+    #dots #r2{
+      animation: load 1s infinite;
+      animation-delay: 0.2s;
+    }
+    #dots #r3{
+      animation: load 1s infinite;
+      animation-delay: 0.4s;
+    }
+    @keyframes load{
+      0%{opacity: 0;}
+      50%{opacity: 1;}
+      100%{opacity: 0;}
+    }
+  </style>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03-Desktop-Déroulé" transform="translate(-956.000000, -519.000000)" fill="#c8c8c8">
+            <g id="icon-chat-incoming" transform="translate(956.000000, 519.000000)">
+                <circle id="r1" cx="4" cy="4" r="4"></circle>
+                <circle id="r2" cx="18" cy="4" r="4"></circle>
+                <circle id="r3" cx="32" cy="4" r="4"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

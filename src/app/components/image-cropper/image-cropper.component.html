@@ -1,0 +1,42 @@
+<div class="img-cropper-container">
+  <h1>{{ cropBoxWidth }} x {{ cropBoxHeight }}</h1>
+  <div class="img-cropper-content">
+    <div class="cropper-zone-wrapper">
+      <div class="cropper-zone">
+        <div class="cropper-alert-wrapper" *ngIf='scale > 50'>
+          <span>{{ 'ALERTS.IMAGE_CROPPER_ALERT' | translate }}</span>
+        </div>
+        <img #image [src]="imageSource" crossorigin alt="image cropper">
+      </div>
+      <p class="cropper-description">{{ 'DRAG_TO_REPOSITION_PICTURE' |translate }}</p>
+      <div class="cropper-action-block">
+        <div class="fit-crop" (click)="fitToCropZone()">
+          <i class="icon-expend"></i>
+          <span>{{ 'FIT_TO_CROPPED_ZONE' | translate }}</span>
+        </div>
+        <div class="range-wrapper">
+          <span class="half-point"></span>
+          <i class="icon-minus-round" (click)="zoomOut()"></i>
+          <div class="range-block">
+            <input
+              type='range'
+              [(ngModel)]="scale"
+              #ctrl="ngModel"
+              step="0.5"
+              min="0.5"
+              (ngModelChange)="handleChangeZoom($event)"
+              [style]="{'background-image': '-webkit-gradient(linear, 0% 0%, ' + scale + '% 50%, color-stop(100%, #4DCD4B), color-stop(100%, #D8D8D8))'}"
+            >
+          </div>
+          <i class="icon-add-round" (click)="zoomIn()"></i>
+        </div>
+      </div>
+      <div class="action-btn-wrapper">
+        <button (click)="applyCrop()" class="btn-rounded-outline-secondary btn-with-icon">
+          <i class="icon-crop"></i>
+          {{ 'BUTTONS.CROP' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,185 @@
+<div class="right-panel-section advanced-settings">
+  <div class="h-100 position-relative">
+
+    <!-- ADVANCED SETTINGS HEAD -->
+    <div class="rp-header position-relative d-flex justify-content-center align-items-center">
+      <div class="close-icon position-absolute cursor-pointer" (click)="hideMe()">
+        <i class="icon-cancel-big"></i>
+      </div>
+      <div class="rp-title d-flex align-items-center">
+        <span>{{ 'ADVANCE_SETTINGS.TITLE' | translate }}</span>
+      </div>
+    </div>
+    <!-- ADVANCED SETTINGS HEAD END -->
+
+    <div class="rp-body position-relative">
+      <div class="answer-edit padding-top-none">
+        <div class="answer-edit-list mt-0 ml-3 mr-3">
+
+          <!-- BG URL SECTION -->
+          <div class="synonyms-section border-0">
+            <div class="d-flex align-items-center title-section select-none"
+                 [attr.aria-expanded]="!collapsedStatus.isBgUrl" (click)="bgLink.toggle()">
+              <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isBgUrl}"></i>
+              <h3 class="m-0">{{ 'ADVANCE_SETTINGS.BG_LINKS.TITLE' | translate }}</h3>
+            </div>
+            <div #bgLink="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isBgUrl" class="content">
+              <p class="description" [innerHTML]="'ADVANCE_SETTINGS.BG_LINKS.DESCRIPTION' | translate"></p>
+              <div class="input-group settings-item">
+                <input [(ngModel)]="bgLinkObj.value" type="text" class="form-control"
+                       placeholder="{{ 'ADVANCE_SETTINGS.BG_LINKS.PLACE_HOLDER' | translate }}" (change)="update(bgLinkObj)">
+                <i *ngIf="bgLinkObj.value" class="icon-cancel-big" (click)="clearLink(bgLinkObj)"></i>
+                <div *ngIf="errorList[bgLinkObj.field].length" class="invalid-feedback">
+                  <div *ngFor="let error of errorList[bgLinkObj.field]">{{ error | translate }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- BG URL SECTION END -->
+
+          <!-- MACRO SECTION -->
+          <div class="synonyms-section">
+            <div class="d-flex align-items-center title-section select-none"
+                 [attr.aria-expanded]="!collapsedStatus.isMacro" (click)="macros.toggle()">
+              <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isMacro}"></i>
+              <h3 class="m-0">{{ 'ADVANCE_SETTINGS.MACRO.TITLE' | translate }}</h3>
+            </div>
+            <div #macros="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isMacro" class="content">
+              <p class="description" [innerHTML]="'ADVANCE_SETTINGS.MACRO.DESCRIPTION' | translate"></p>
+              <div *ngFor="let item of macroListObj; let i = index"
+                   class="completed-synonyms-item d-flex align-items-center justify-content-between">
+                <i class="icon-list"></i>
+                <div class="content">{{ item.value }}</div>
+                <div class="d-flex flex-column">
+                  <i class="icon-edit cursor-pointer" (click)="editMacro(item)"></i>
+                  <i class="icon-delete cursor-pointer" (click)="deleteMacro(item, i)"></i>
+                </div>
+              </div>
+              <div class="synonyms-item" *ngIf="addMacroField">
+                <div class="d-flex align-items-center justify-content-between">
+                  <i class="icon-cancel-big cursor-pointer" (click)="hideMacroField()"></i>
+                  <div class="content">
+                    <input #newMacroInput [(ngModel)]="macroObj.value" type="text" class="round-input w-100" (keyup)="formatMacro()"
+                           (keyup.enter)="update(macroObj, true)" placeholder="{{ 'ADVANCE_SETTINGS.MACRO.PLACE_HOLDER' | translate }}">
+                  </div>
+                  <div class="save-icon-section" (click)="update(macroObj)">
+                    <i class="icon-sent-big cursor-pointer" *ngIf="macroObj.value !== ''"></i>
+                  </div>
+                </div>
+                <div class="macro-format-select d-flex horizontal align-items-center ml-4">
+                  <label class="">{{'ADVANCE_SETTINGS.MACRO.TYPE' | translate}} :</label>
+                  <label class="custom-radio-btn horizontal d-flex align-items-center">
+                    <input type="radio" [(ngModel)]="macroFormat" name="macroType" value="0">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">{{ 'ADVANCE_SETTINGS.MACRO.XANDR' | translate }}</span>
+                  </label>
+                  <label class="custom-radio-btn horizontal d-flex align-items-center">
+                    <input type="radio" [(ngModel)]="macroFormat" name="macroType" value="1">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">{{ 'ADVANCE_SETTINGS.MACRO.GOOGLE' | translate }}</span>
+                  </label>
+                  <label class="custom-radio-btn horizontal d-flex align-items-center">
+                    <input type="radio" [(ngModel)]="macroFormat" name="macroType" value="2">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">{{ 'ADVANCE_SETTINGS.MACRO.MEDIAMATH' | translate }}</span>
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="errorList.MACRO.length" class="invalid-feedback macro-errors">
+                <div *ngFor="let error of errorList.MACRO">{{ error | translate }}</div>
+              </div>
+              <div *ngIf="true" class="d-flex align-items-center add-synonym cursor-pointer select-none"
+                   (click)="showMacroField()">
+                <i class="icon-add"></i>
+                <span>{{ 'ADVANCE_SETTINGS.MACRO.ADD_NEW' | translate }}</span>
+              </div>
+            </div>
+          </div>
+          <!-- MACRO SECTION END -->
+
+          <!-- TOUCH MODE SECTION -->
+          <div class="synonyms-section">
+            <div class="d-flex align-items-center title-section select-none"
+                 [attr.aria-expanded]="!collapsedStatus.isTactile" (click)="tactile.toggle()">
+              <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isTactile}"></i>
+              <h3 class="m-0">{{ 'ADVANCE_SETTINGS.TACTILE.TITLE' | translate }}</h3>
+            </div>
+            <div #tactile="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isTactile" class="content">
+              <p class="description" [innerHTML]="'ADVANCE_SETTINGS.TACTILE.DESCRIPTION' | translate"></p>
+              <div class="form-check">
+                <label class="customize-check-box">{{ 'ADVANCE_SETTINGS.TACTILE.ENABLE' | translate }} :
+                  <input type="checkbox" [(ngModel)]="tactileObj.value" value="tactile" (change)="update(tactileObj)">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- TOUCH MODE SECTION END -->
+
+          <!-- PM URL SECTION -->
+          <div class="synonyms-section">
+            <div class="d-flex align-items-center title-section select-none"
+                 [attr.aria-expanded]="!collapsedStatus.isPmUrl" (click)="pmLink.toggle()">
+              <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isPmUrl}"></i>
+              <h3 class="m-0">{{ 'ADVANCE_SETTINGS.PM_LINKS.TITLE' | translate }}</h3>
+            </div>
+            <div #pmLink="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isPmUrl" class="content">
+              <p class="description" [innerHTML]="'ADVANCE_SETTINGS.PM_LINKS.DESCRIPTION' | translate"></p>
+              <div class="input-group settings-item">
+                <input [(ngModel)]="pmLinkObj.value" type="text" class="form-control" (change)="update(pmLinkObj)"
+                       placeholder="{{ 'ADVANCE_SETTINGS.PM_LINKS.PLACE_HOLDER' | translate }}">
+                <i *ngIf="pmLinkObj.value" class="icon-cancel-big" (click)="clearLink(pmLinkObj)"></i>
+                <div *ngIf="errorList[pmLinkObj.field].length" class="invalid-feedback">
+                  <div *ngFor="let error of errorList[pmLinkObj.field]">{{ error | translate }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- PM URL SECTION END -->
+
+          <!-- SCRIPT SECTION -->
+          <div class="synonyms-section">
+            <div class="d-flex align-items-center title-section select-none"
+                 [attr.aria-expanded]="!collapsedStatus.isScript" (click)="script.toggle()">
+              <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isScript}"></i>
+              <h3 class="m-0">{{ 'ADVANCE_SETTINGS.SCRIPTS.TITLE' | translate }}</h3>
+            </div>
+            <div #script="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isScript" class="content">
+              <p class="description" [innerHTML]="'ADVANCE_SETTINGS.SCRIPTS.DESCRIPTION' | translate"></p>
+              <div class="input-group settings-item">
+                <label>{{'ADVANCE_SETTINGS.SCRIPTS.LABELS.BOTTOM' | translate}}</label>
+                <textarea [(ngModel)]="bottomScriptObj.value" type="text" class="form-control"
+                          (change)="update(bottomScriptObj)"
+                          placeholder="{{ 'ADVANCE_SETTINGS.PM_LINKS.PLACE_HOLDER' | translate }}"></textarea>
+                <i *ngIf="bottomScriptObj.value" class="icon-cancel-big" (click)="clearLink(bottomScriptObj)"></i>
+                <div *ngIf="errorList[bottomScriptObj.field].length" class="invalid-feedback">
+                  <div *ngFor="let error of errorList[bottomScriptObj.field]">{{ error | translate }}</div>
+                </div>
+              </div>
+              <div class="input-group settings-item mt-4">
+                <label>{{'ADVANCE_SETTINGS.SCRIPTS.LABELS.TOP' | translate}}</label>
+                <textarea [(ngModel)]="topScriptObj.value" type="text" class="form-control"
+                          (change)="update(topScriptObj)"
+                          placeholder="{{ 'ADVANCE_SETTINGS.PM_LINKS.PLACE_HOLDER' | translate }}"></textarea>
+                <i *ngIf="topScriptObj.value" class="icon-cancel-big" (click)="clearLink(topScriptObj)"></i>
+                <div *ngIf="errorList[topScriptObj.field].length" class="invalid-feedback">
+                  <div *ngFor="let error of errorList[topScriptObj.field]">{{ error | translate }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SCRIPT SECTION END -->
+
+          <!-- RESET SETTINGS -->
+          <div class="synonyms-section delete text-center">
+            <span class="p-3 cursor-pointer" (click)="resetSettings()">
+              <i class="icon-delete"></i>
+              {{ 'ADVANCE_SETTINGS.DELETE_SETTINGS' | translate }}</span>
+          </div>
+          <!-- RESET SETTINGS END -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

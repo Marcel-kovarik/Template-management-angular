@@ -1,0 +1,304 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"] {
+	color: $input-text-color;
+  border: 1px solid $input-border-color;
+	border-radius: $border-radius;
+	padding: 15px 10px;
+  height: 50px;
+
+	&:focus {
+		color: $input-focus-color;
+	}
+}
+input[type="date"] {
+  padding-top: 12px;
+}
+
+textarea {
+  color: $input-text-color;
+  border: 1px solid $color__border-input;
+  border-radius: unset;
+  padding: 3px 10px;
+  width: 100%;
+  &:disabled {
+    background: $body-bg-color;
+  }
+  &:focus {
+    color: $input-focus-color;
+  }
+}
+
+label {
+  @include fonts(0.875, $font__main);
+  width: 100%;
+  font-size: 14px;
+  color: $text-main-color;
+  text-align: left!important;
+}
+
+select {
+	border: 1px solid $color__border-input;
+  border-radius: 0!important;
+}
+
+textarea {
+	width: 100%;
+  &:disabled {
+    background: $body-bg-color;
+  }
+}
+.form-btn {
+  @include fonts(1, $font__main, bold);
+  color: $color__secondary;
+  background-color: white;
+  padding: 16px 36px;
+  border-radius: $border-radius;
+}
+.invalid-feedback {
+  color: $color__danger;
+  text-align: left;
+  display: inline-block !important;
+}
+.form-check {
+  input {
+    margin: 6px 0px 0px -20px;
+  }
+}
+.search-input{
+  padding-left: 45px!important;
+  height: 50px;
+  width: 296px;
+}
+
+.login-form-container {
+  background-color: $color__light;
+  margin: 0 0 60px;
+  padding: 30px 50px;
+  border-radius: $border-radius;
+
+  span.forgot-password {
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 6px;
+    float: left;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.user-form {
+  .form-check {
+    padding-left: 40px;
+  }
+}
+
+.form-container {
+  background-color: $color__light;
+  padding: 20px;
+}
+
+.form-action {
+  button, a {
+    margin-left: 20px;
+  }
+}
+
+.password {
+  > span {
+    margin: 11px 0 0 0;
+    display: inline-block;
+    position: absolute;
+  }
+}
+
+.extra-action {
+  > div {
+    border-top: 2px dashed #979797;
+    padding-top: 15px;
+  }
+}
+
+label {
+  @include fonts(0.75, $font__secondary, 400);
+}
+
+input {
+  background: $input-background-color !important;
+  border: none !important;
+  border-bottom: 1px solid $color__dark !important;
+  border-radius: unset !important;
+
+  &:focus {
+      background: $input-background-color !important;
+      box-shadow: none !important;
+  }
+}
+
+input[type="text"] {
+  height: 36px !important;
+  @include fonts(0.75, $font__main, 400);
+  padding: 10px 5px !important;
+}
+
+input[type="date"] {
+  height: 43px !important;
+  @include fonts(0.75, $font__main, 400);
+  border: 1px solid $color__grey !important;
+}
+
+select {
+  height: 43px !important;
+  @include fonts(0.75, $font__main, 400);
+  border: 1px solid $color__grey !important;
+}
+
+textarea {
+  border: none !important;
+  border-bottom: 1px solid $color__dark !important;
+  border-radius: unset !important;
+  resize: none;
+  padding: 10px 5px !important;
+  @include fonts(0.75, $font__main, 400);
+  font-size: 0.75em!important;
+  &.colored-bg {
+    background: $input-background-color !important;
+  }
+
+  &:focus {
+    box-shadow: none !important;
+    &.colored-bg {
+      background: $input-background-color !important;
+    }
+  }
+}
+
+.error {
+  div {
+      @include fonts(0.75, $font__main, 400);
+      padding-top: 10px;
+      color: $color__warning;
+  }
+}
+.image-file-selection {
+  border-radius: 20px;
+  height: 40px;
+  background-color: $screen-bg-color;
+  &.border-input {
+    border: 1px solid $color__border-input;
+  }
+  > label {
+    width: 140px;
+    border-radius: 40px;
+    background-color: $color__border-input;
+    @include fonts(0.75, $font__main, 400);
+    color: $color__dark;
+  }
+  > span {
+    @include fonts(0.75, $font__main, 400);
+  }
+  > i {
+    font-size: 16px;
+    color: $color__grey;
+    margin-right: 12px;
+  }
+}
+
+.allow-types {
+  margin-top: 12.5px;
+  span {
+    @include fonts(0.625, $font__main, 400);
+    color: $color__grey;
+  }
+}
+input.round-input {
+  @include fonts(0.75, $font__main, 400);
+  color: $color__dark;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 12.5px 10px;
+}
+
+.input-group-text {
+  border-radius: 0;
+  border-width: 0 0 1px 0;
+  background-color: $input-background-color;
+}
+
+.btn-input-form {
+  border-radius: 0!important;
+  border-width: 0 0 1px 0;
+  background-color: $input-background-color;
+  padding: 0 0.5rem;
+  > span {
+    font-size: 20px;
+    color: $color__dark;
+  }
+  &:hover {
+    background-color: $color__light;
+  }
+}
+
+.white-input-box {
+  @include fonts(0.75, $font__main, 400);
+  color: $color__dark;
+  padding: 15px 10px;
+  background: $screen-bg-color;
+  outline: none;
+  border: none !important;
+  width: 100%;
+  &:focus {
+    color: $color__dark !important;
+  }
+}
+
+.required-txt {
+  @include fonts(0.75, $font__main, 400);
+  padding-top: 10px;
+  color: $color__warning;
+}
+
+/******** Range customize *****/
+input[type='range'] {
+  height: 2px;
+  border: 0px;
+  outline: none !important;
+  width: 100%;
+  border-radius: 10px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 10;
+  position: relative;
+  background-color: $color__synonymsBorder;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  position: relative;
+  height: 14px;
+  width: 14px;
+  background: $color__success;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: 1px solid $color__success;
+}

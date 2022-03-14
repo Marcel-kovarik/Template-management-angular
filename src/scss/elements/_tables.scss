@@ -1,0 +1,80 @@
+.thClass {
+  line-height: 15px;
+  @include fonts(0.875, $font__main);
+  vertical-align: middle;
+  padding: 10px 12px;
+}
+.table {
+  background-color: $table-bg-color;
+  thead {
+    th {
+      @extend .thClass;
+    }
+    &.thead-dark, &.thead-light{
+      th {
+        @extend .thClass;
+      }
+    }
+  }
+  tbody {
+    tr:hover td {
+      background-color: $table-active-bg;
+    }
+    td {
+      @include fonts(0.75, $font__main);
+      padding: 5px 10px;
+      vertical-align: middle;
+      color: $color__dark;
+      &.center {
+        text-align: center;
+      }
+      &.action {
+        width: 70px;
+      }
+      span {cursor: default;}
+      a {
+        color: $color__dark;
+        text-decoration: underline;
+        &:visited, &:active {
+          color: $color__dark;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .active td {
+      background-color: $table-active-bg;
+    }
+  }
+  tfoot {
+    td {
+      @include fonts(0.875, $font__main);
+      padding: 15px 10px;
+      vertical-align: middle;
+    }
+  }
+  .table-min-w-150 {
+    min-width: 150px!important;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .table {
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .table {
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .table {
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .table {
+  }
+}

@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <h1 class="page-title">{{ 'USERS' | translate }}</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <p class="sub-title">{{ 'ORGANISATION_LIST' | translate }}</p>
+          <button (click)="newOrganisation()" class="btn-rounded-outline-secondary btn-with-icon">
+            <i class="icon-add"></i>
+            {{ 'NEW_ORGANISATION' | translate }}
+          </button>
+        </div>
+        <div class="campaign-list-section">
+          <table class="table">
+            <thead class="thead-dark">
+            <tr>
+              <th>{{ 'ORGANISATION_NAME' | translate }}</th>
+              <th>{{ 'NUMBER_OF_MEMBERS' | translate }}</th>
+              <th>{{ 'BUTTONS.ACTIONS' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let organisation of organisations">
+              <td>
+                <div class="wrapper-flex">{{ organisation.name }}</div>
+              </td>
+              <td>
+                <div class="wrapper-flex">{{ organisation.nbUser }}</div>
+              </td>
+              <td class="center action">
+                <div class="wrapper-action-btn">
+                  <app-trigger-action (delete)="deleteOrganisation($event)" (edit)="editOrganisation($event)"
+                                      *ngIf="openActionListId === organisation.id"
+                                      [canDuplicate]="false"
+                                      [element]="organisation"></app-trigger-action>
+                  <button (click)="openActionList(organisation.id)" class="card-action-btn">
+                    <i class="icon-more"></i>
+                    {{ 'BUTTONS.ACTIONS' | translate }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

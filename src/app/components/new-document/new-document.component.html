@@ -1,0 +1,90 @@
+<form [formGroup]="documentForm" (ngSubmit)="submit()">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ 'RGPD.NEW_DOCUMENT' | translate }}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="custom-control custom-radio custom-control-inline d-flex pl-0">
+      <label class="custom-radio-btn child horizontal d-flex align-items-center">
+        <input type="radio" [value]="false" [formControlName]="'source'">
+        <span class="checkmark"></span>
+        <span class="radio-label">{{ 'RGPD.UPLOAD' | translate }}</span>
+      </label>
+      <label class="custom-radio-btn child horizontal d-flex align-items-center">
+        <input type="radio" [value]="true" [formControlName]="'source'">
+        <span class="checkmark"></span>
+        <span class="radio-label">{{ 'RGPD.GENERATOR' | translate }}</span>
+      </label>
+    </div>
+    <div class="form-group mt-3">
+      <div *ngIf="f.source.value">
+        <div class="input-group">
+          <label for="label" class="input-label">{{ 'RGPD.LIST_TITLES.DOCUMENT_NAME' | translate }}</label>
+          <input id="label" type="text" class="form-control" [formControlName]="'name'">
+        </div>
+        <div *ngIf="submitted && f.name.errors" class="error">
+          <div *ngIf="f.name.errors.required">{{'FORM_ERRORS.REQUIRED' | translate}}</div>
+        </div>
+      </div>
+
+      <div *ngIf="!f.source.value">
+        <div class="image-file-selection border-input d-flex align-items-center justify-content-between mr-2">
+          <label class="d-flex justify-content-center align-items-center h-100 m-0">
+            {{ 'CHOOSE_A_FILE' | translate }}
+            <input type="file" [formControlName]="'file'" class="d-none" accept=".pdf" (change)="uploadFile($event)">
+          </label>
+          <span class="flex-grow-1 pl-2" *ngIf="this.document">{{this.f.name.value}}</span>
+          <i class="icon-cancel-big cursor-pointer" (click)="clearDocument()"></i>
+        </div>
+        <div *ngIf="(submitted || uploaded) && f.file.errors" class="error">
+          <div *ngIf="f.file.errors.required">{{'FORM_ERRORS.REQUIRED' | translate}}</div>
+          <div *ngIf="f.file.errors.tooHeavy">{{'FORM_ERRORS.TOO_HEAVY' | translate}}</div>
+          <div *ngIf="f.file.errors.formatError">{{'FORM_ERRORS.WRONG_FORMAT' | translate | transParams : {format : 'PDF'} }}</div>
+        </div>
+        <div class="d-flex justify-content-center allow-types">
+          <span>{{ 'PDF_WITH_MAX_WEIGHT' | translate | transParams : {max: '500ko'} }}</span>
+        </div>
+      </div>
+
+
+      <div class="input-group mt-3 w-75">
+        <label for="label" class="input-label">{{ 'RGPD.LIST_TITLES.DOCUMENT_LANG' | translate }}</label>
+        <select class="form-control" [formControlName]="'lang'">
+          <option value="" disabled selected>{{ 'CONVERSATION.LANG_SELECT' | translate }}</option>
+          <option value="{{lang.languageCode}}" *ngFor="let lang of languages">{{ lang.name | translate }}</option>
+        </select>
+        <div *ngIf="submitted && f.lang.errors" class="invalid-feedback">
+          <div *ngIf="f.lang.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+        </div>
+      </div>
+      <div *ngIf="!f.source.value" class="input-group mt-3 w-75">
+        <label for="label" class="input-label">{{ 'RGPD.LIST_TITLES.DOCUMENT_TYPE_FULL' | translate }}</label>
+        <select class="form-control" [formControlName]="'docType'">
+          <option value="" disabled selected>{{ 'RGPD.LIST_TITLES.DOCUMENT_TYPE_FULL' | translate }}</option>
+          <option value="{{ document.listValueCode }}" *ngFor="let document of documentType">{{ document.listValueLabel | translate }}</option>
+        </select>
+        <div *ngIf="submitted && f.docType.errors" class="invalid-feedback">
+          <div *ngIf="f.docType.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer modal-btn-group w-100 d-flex">
+    <div class="btn-cancel-section">
+      <button type="button" class="btn btn-with-icon w-100 justify-content-center"
+              (click)="close('Cross click')">
+            <span class="btn-left-border w-100 d-flex justify-content-center align-items-center">
+              <i class="icon-cancel"></i>
+              <span>{{ 'BUTTONS.CANCEL' | translate }}</span>
+            </span>
+      </button>
+    </div>
+    <div class="btn-save-section">
+      <button type="submit" class="btn btn-with-icon w-100 justify-content-center">
+            <span class="w-100 d-flex justify-content-center align-items-center">
+              <i class="icon-sent"></i>
+              <span>{{ 'BUTTONS.VALIDATE' | translate }}</span>
+            </span>
+      </button>
+    </div>
+  </div>
+</form>

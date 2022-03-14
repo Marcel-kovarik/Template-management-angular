@@ -1,0 +1,74 @@
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    color: $link-hover-color!important;
+    text-decoration: underline;
+  }
+  &:visited {
+    color: $link-visited-color;
+  }
+  &.btn {
+    @include fonts(0.75, $font__secondary, 500);
+    color: $btn-color;
+    background-color: $btn-bg-color;
+    border: 1px solid $btn-border-color;
+    border-radius: $border-radius;
+    padding: 0.47rem 0.9rem;
+    display: inline-block;
+    &:hover {
+      color: $btn-color!important;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.47rem 0.78rem;
+    }
+    &.primary {
+      background-color: $color__primary;
+      border-color: $color__primary;
+    }
+    &.secondary {
+      background-color: $color__secondary;
+      border-color: $color__secondary;
+    }
+    &.success {
+      background-color: $color__success;
+      border-color: $color__success;
+    }
+    &.danger {
+      background-color: $color__danger;
+      border-color: $color__danger;
+    }
+    &.warning {
+      background-color: $color__warning;
+      border-color: $color__warning;
+    }
+    &.info {
+      background-color: $color__info;
+      border-color: $color__info;
+    }
+
+  }
+  > i {
+    position: relative;
+    left: -3px;
+    top: 2px;
+  }
+}
+.btn, .btn-sm { cursor: pointer; }
+.link-btn {
+  @include fonts(0.75, $font__main);
+  color: $color__dark;
+  cursor: pointer;
+  > i {
+    margin: 0 10px -2px 0;
+    width: 13px;
+    height: 16px;
+    .icon-trash {
+      margin-bottom: -2px;
+    }
+  }
+}
+
+.text-underline {
+  text-decoration: underline;
+}

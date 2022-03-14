@@ -1,0 +1,157 @@
+<!-- main content -->
+<div class="formats-1800x1000 custom-mt-50 position-relative"
+     [ngClass]="{'background-auto': isFitScreen, 'width-1800 background-cover': !isFitScreen}"
+     [ngStyle]="{
+     'background-image': (formatData['body.image'] && formatData['body.image'] !== '') ? 'url('+ formatData['body.image'] + ')' : '',
+     'border' : (formatData['body.image'] && formatData['body.image'] !== '') ? '' : '1px dashed #062D40'}">
+
+  <div class="layout position-relative" [ngStyle]="{'background-size': isFitScreen ? 'contain' : 'cover'}">
+
+    <!-- background image section -->
+    <div
+      [className]="isFitScreen ? 'position-absolute main-bg-img-section fitscreen-box' : 'position-absolute main-bg-img-section'">
+      <div class="position-relative d-flex justify-content-center align-items-center cursor-pointer" [ngbPopover]="contentBgImage"
+        [autoClose]="false" placement="right" #contentBg="ngbPopover" (click)="$event.stopPropagation();popoverClose();"
+           id="body" style="width: 120px; height: 90px;">
+        <p class="position-absolute mb-0" [ngStyle]="{'display': (formatData['body.image'] && formatData['body.image'] !== '') ? 'none' : 'block'}">
+          {{ 'BACKGROUND_IMG' | translate }}
+        </p>
+        <img src="assets/img/default-img.png" [ngStyle]="{'display': (formatData['body.image'] && formatData['body.image'] !== '') ? 'none' : 'inline'}"
+             class="w-100" alt="{{'IMG_ALT.ADNAI_LOGO' | translate}}">
+        <!-- background image edit section -->
+        <ng-template #contentBgImage>
+          <app-image (closeFn)="contentBg.close()" (update)="updateResource($event)" [resource]="getResource(1)"
+            [data]="formatData" [title]="'BACKGROUND_IMAGE'"></app-image>
+        </ng-template>
+        <!-- background image edit section end -->
+      </div>
+    </div>
+    <!-- background image section end -->
+
+    <div [className]="isFitScreen ? 'format-box mx-auto position-relative fitscreen-box' : 'format-box mx-auto position-relative'">
+
+      <!-- mic & sound icon section -->
+      <div class="mic-sound-section position-absolute cursor-pointer"
+        [ngClass]="{'dashed-mic-sound d-flex justify-content-center align-items-center': !(edited[5] || server[5])}"
+        [ngbPopover]="micSound" [autoClose]="'outside'" placement="left" #micSoundPopover="ngbPopover" id="action" (click)="popoverClose()">
+        <div *ngIf="(edited[5] || server[5])"
+          class="icon-section w-100 d-flex justify-content-between align-items-center">
+          <div class="mic-icon" [ngStyle]="{'background-color':  formatData['header.button.backgroundColor']}">
+            <i class="icon-micro-off" [ngStyle]="{'color': formatData['header.button.color']}"></i>
+          </div>
+          <div class="sound-icon" [ngStyle]="{'background-color': formatData['header.button.backgroundColor']}">
+            <i class="icon-sound-off" [ngStyle]="{'color': formatData['header.button.color']}"></i>
+          </div>
+        </div>
+        <span *ngIf="!(edited[5] || server[5])">{{ 'MIC_SOUND' | translate }}</span>
+        <!-- Mic & Sound edit -->
+        <ng-template #micSound>
+          <app-color (closeFn)="micSoundPopover.close()" (update)="updateResource($event)" [dual]="true"
+            [title]="'HEADER_MIC_SOUND'" [data]="formatData" [resource]="getResource(5)"></app-color>
+        </ng-template>
+      </div>
+
+      <!-- message input section -->
+      <div class="position-absolute message-input-section w-100">
+        <div class="position-relative">
+          <div class="content d-flex justify-content-between mx-auto">
+            <div class="micro-icon-section cursor-pointer" [ngClass]="{'mic-icon-section border-dashed': !(edited[6] || server[6])}"
+              [ngbPopover]="micSendEditRef" [autoClose]="'outside'" placement="right" #micSendPopRef1="ngbPopover"
+              id="footerIcons" (click)="popoverClose()">
+              <i *ngIf="(edited[6] || server[6])" class="icon-mic-logo msg-icon"
+                [ngStyle]="{'color': formatData['footer.button.color']}"></i>
+            </div>
+            <div class="send-icon-section cursor-pointer" [ngClass]="{'mic-icon-section border-dashed': !(edited[6] || server[6])}"
+              [ngbPopover]="micSendEditRef" [autoClose]="'outside'" placement="right" #micSendPopRef2="ngbPopover" (click)="popoverClose()">
+              <ng-template #micSendEditRef>
+                <app-color (closeFn)="micSendPopRef1.close();micSendPopRef2.close()" (update)="updateResource($event)"
+                  [resource]="getResource(6)" [data]="formatData" [title]="'MIC_SEND_ICONS_COLOR'"></app-color>
+              </ng-template>
+              <i *ngIf="(edited[6] || server[6])" class="icon-send msg-icon"
+                [ngStyle]="{'color': formatData['footer.button.color']}"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-content-section  d-flex flex-column-reverse">
+
+        <!-- sender content section -->
+        <div class="chat-sender-content d-flex flex-row-reverse mt-3">
+          <!-- Right avatar section -->
+          <div class="avatar-section cursor-pointer" [ngClass]="{'border-dashed': !(edited[3] || server[3])}"
+            [ngbPopover]="rightAvatarPopover" [autoClose]="false" placement="right" #rightAvatarRef="ngbPopover"
+            [ngStyle]="{'background-image': formatData['avatar.client'] ? 'url('+ formatData['avatar.client'] + ')' : ''}"
+            (click)="$event.stopPropagation();popoverClose();" id="rightIcon">
+            <!-- Right avatar edit -->
+            <ng-template #rightAvatarPopover>
+              <app-image (closeFn)="rightAvatarRef.close()" (update)="updateResource($event)" [data]="formatData"
+                [resource]="getResource(3)" [title]="'RIGHT_ICON'"></app-image>
+            </ng-template>
+          </div>
+          <div class="chat-content mr-1"></div>
+        </div>
+
+        <!-- chat receiver section -->
+        <div class="chat-receiver-content d-flex">
+          <div class="avatar-section cursor-pointer" [ngClass]="{'border-dashed': !(edited[2] || server[2])}"
+            [ngbPopover]="leftAvatarPopover" [autoClose]="false" placement="right" #leftAvatarRef="ngbPopover"
+            [ngStyle]="{'background-image': formatData['avatar.server'] ? 'url('+ formatData['avatar.server'] + ')' : ''}"
+            (click)="$event.stopPropagation();popoverClose();" id="leftIcon">
+            <!-- Left avatar edit -->
+            <ng-template #leftAvatarPopover>
+              <app-image (closeFn)="leftAvatarRef.close()" (update)="updateResource($event)" [title]="'LEFT_ICON'"
+                [resource]="getResource(2)" [data]="formatData"></app-image>
+            </ng-template>
+          </div>
+          <div class="chat-content ml-1">
+            <div class="content">
+              Hello, I'm Talk-i, I'm here to help you build and custom your 300x600 format. Do you want my
+              help ?
+            </div>
+
+            <!-- left suggestion chat bubble section -->
+            <div class="question-section d-inline-flex cursor-pointer" [ngbPopover]="questionEditRef" [autoClose]="'outside'"
+              placement="right" #questionPopRef="ngbPopover" (click)="popoverClose()">
+              <div class="question-yes" [ngClass]="{'border-dashed': !(edited[4] || server[4])}" [ngStyle]="{'background-color': formatData['conversation.suggestions.backgroundColor'],
+                 'color': formatData['conversation.suggestions.color']}" id="suggestions">
+                {{ 'YES' | translate }}
+                <!-- chat bubble edit -->
+                <ng-template #questionEditRef>
+                  <app-color (closeFn)="questionPopRef.close()" (update)="updateResource($event)"
+                    [resource]="getResource(4)" [data]="formatData" [dual]="true"
+                    [title]="'LEFT_SUGGESTION_CHAT_BUBBLE'"></app-color>
+                </ng-template>
+              </div>
+              <div class="question-no ml-2" [ngClass]="{'border-dashed': !(edited[4] || server[4])}"
+                   [ngStyle]="{'background-color': formatData['conversation.suggestions.backgroundColor'],
+                   'color': formatData['conversation.suggestions.color']}">
+                {{ 'NO' | translate }}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- table section -->
+    <div class="table-block mx-auto">
+      <app-check-list (trigger)="editTrigger($event)" [format]="format.formatSpec.name" [server]="server"
+        [edited]="edited" [checklist]="format.formatSpec.resourceSpec">
+      </app-check-list>
+    </div>
+    <div class="foot-txt-section mt-2 pb-2">
+      <h2 class="mb-2 text-center">{{ 'BLIND_SPOT' | translate }}</h2>
+      <p class="mb-0 text-center">Don't put text or important elements in the hatched zone</p>
+    </div>
+  </div>
+</div>
+
+<div class="position-fixed switch-btn-box d-flex cursor-pointer" (click)="switchMode()">
+  <div class="d-flex h-100 align-items-center justify-content-center" [ngClass]="{'actived': !isFitScreen}">
+    100%</div>
+  <div class="d-flex h-100 align-items-center justify-content-center" [ngClass]="{'actived': isFitScreen}">
+    fit screen</div>
+</div>

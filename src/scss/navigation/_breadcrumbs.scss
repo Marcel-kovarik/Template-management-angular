@@ -1,0 +1,176 @@
+/**
+Content Header
+*/
+.content-header {
+    width: calc(100vw - 79px);
+    position: fixed;
+    top: 50px;
+    left: 80px;
+    height: 50px;
+    padding: 7px 0;
+    border: 1px solid #CCCCCC;
+    background-color: $body-bg-color;
+    z-index: 90;
+  .content-menu-list {
+    .btn-back {
+      @include fonts(0.75, $font__main, 400);
+      color: $color__dark !important;
+      outline: none;
+
+      &:hover{
+        background: transparent;
+      }
+
+      &:focus{
+        box-shadow:none
+      }
+    }
+
+    a{
+      span{
+        @include fonts(0.75, $font__main, 400);
+        color: $color__dark;
+        white-space: nowrap;
+      }
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      margin-left: 40px;
+      color: $color__secondary;
+      position: relative;
+      > i {
+        font-size: 24px;
+        margin-right: 5px;
+      }
+      > span {
+        @include fonts(0.75, $font__main, 400);
+      }
+      .sub-list {
+        position: absolute;
+        top: 100%;
+        margin-top: 18px;
+        left: -55%;
+        border-radius: 13px;
+        background-color: $screen-bg-color;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        @media (max-width: 576px) {
+          left: -200%;
+        }
+        &::after {
+          position: absolute;
+          display: block;
+          content: "";
+          border-color: transparent;
+          border-style: solid;
+          border-width: 0 14px 14px 14px;
+          border-top-color: $screen-bg-color;
+          border-bottom-color: $screen-bg-color;
+          left: 45%;
+          top: -14px;
+        }
+        &::before {
+          position: absolute;
+          display: block;
+          content: "";
+          border-color: transparent;
+          border-style: solid;
+          border-width: 0 14px 14px 14px;
+          border-bottom-color: $color__light-grey;
+          left: 45%;
+          top: -14px;
+        }
+        .layout {
+          overflow: hidden;
+          border-radius: 13px;
+          width: 260px;
+          ul {
+            position: relative;
+            overflow: scroll;
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+            width: 107%;
+            height: auto;
+            max-height: 252px;
+            @media (max-width: 768px) {
+              width: 103%;
+            }
+
+            li {
+              list-style: none;
+              color: $color__dark;
+              padding: 9px 7px;
+              transition: all 0.3s;
+              &:hover {
+                background-color: $hr-bg-color;
+              }
+              label {
+                display: flex;
+                justify-content: space-between;
+                margin: 4px 0 0;
+                .label-name {
+                  @include fonts(0.75, $font__main, 400);
+                  margin-left: 23px;
+                }
+                .checkmark {
+                  top: 0px !important;
+                }
+              }
+              i {
+                float: right;
+                font-size: 24px;
+                position: relative;
+                top: -20px;
+                &:hover, &.playing {
+                  color: $color__secondary;
+                }
+              }
+
+            }
+          }
+        }
+
+      }
+    }
+  }
+  .edit-save-section {
+    margin-right: 10px;
+    .btn-save {
+      @include fonts(0.75, $font__main, 400);
+      color: $color__secondary!important;
+      outline: none;
+
+      &.disabled {
+        color: $color__grey!important;
+        cursor: unset;
+      }
+      &.border {
+        border: 1px solid $color__secondary!important;
+        border-radius: 2em!important;
+        &.disabled {
+          border-color: $color__grey!important;
+        }
+      }
+      &:hover{
+        background: transparent;
+      }
+
+      &:focus{
+        box-shadow:none
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .content-header {
+    left: 0;
+    width: 100vw;
+    .edit-save-section {
+      span {
+        display: none;
+      }
+    }
+  }
+}

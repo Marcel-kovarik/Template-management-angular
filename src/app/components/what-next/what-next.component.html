@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ title | translate }}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <i class="icon-cancel"></i>
+  </button>
+</div>
+
+<div class="modal-body text-center" [innerHTML]="message | translate"></div>
+<div class="modal-answers text-center">
+  <button *ngFor="let answer of answers" (click)="answerClick(answer.route)">{{answer.text | translate}}</button>
+</div>
+

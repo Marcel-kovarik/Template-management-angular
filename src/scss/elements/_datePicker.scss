@@ -1,0 +1,195 @@
+.date-picker {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 11px 20px 9px;
+  float: right;
+
+  > div {
+    height: 38px;
+
+    &.date-picker-title {
+      padding: 0 15px 0 0;
+
+      p {
+        @include fonts(0.75, $font__main);
+        margin: 0;
+
+        i {
+          color: $color__secondary;
+          font-size: 25px;
+          position: relative;
+          top: 4px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &.date-picker-selector {
+      padding-left: 0;
+
+      .display-dates {
+        display: none;
+        @include fonts(0.75, $font__main);
+        border: 1px solid;
+        padding: 0 10px;
+        height: 26.5px;
+        width: 175px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        &.visible {
+          display: inline-block;
+        }
+      }
+
+      button {
+        margin-top: 6px;
+        padding: 5px 15px;
+        border: 1px solid $color__primary;
+        border-width: 1px 0 1px 1px;
+        border-radius: unset !important;
+        @include fonts(0.75, $font__main);
+        line-height: 15px;
+
+        &:first-child {
+          border-top-left-radius: 10px !important;
+          border-bottom-left-radius: 10px !important;
+        }
+
+        &:last-child {
+          display: none;
+          border-width: 1px;
+          border-top-right-radius: 10px !important;
+          border-bottom-right-radius: 10px !important;
+
+          &.visible {
+            display: inline-block;
+          }
+        }
+
+        &.active {
+          background-color: $color__primary;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.dp-calendar {
+  @include fonts(0.75, $font__main);
+
+  input.hidden {
+    display: none
+  }
+
+  .ngb-dp-header {
+    padding-top: 10px;
+  }
+
+  .dropdown-menu {
+    border: unset;
+    border-radius: unset;
+    box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top: -1px;
+  }
+
+  .form-group.hidden {
+    width: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+
+  .ngb-dp-arrow {
+    &:first-child, &:last-child {
+      width: 2.75rem;
+    }
+
+    &:nth-child(3), &:nth-child(6) {
+      display: none;
+    }
+
+    &:nth-child(4), &:nth-child(7) {
+      width: 1rem;
+    }
+  }
+
+  .ngb-dp-arrow-btn:focus {
+    box-shadow: none;
+  }
+
+  .ngb-dp-month-name {
+    width: 10.5rem;
+    background-color: $color__light-grey;
+  }
+
+  .ngb-dp-months {
+    padding: 0 40px 10px;
+  }
+
+  .custom-day {
+    font-size: 8px;
+    text-align: center;
+    padding: 7px 0 5px;
+    display: inline-block;
+  }
+
+  .ngb-dp-weekdays {
+    border: none;
+
+    > div {
+      font-weight: 700;
+      line-height: 1.6rem;
+      color: $text-main-color;
+    }
+  }
+
+  .custom-day, .ngb-dp-day,
+  .ngb-dp-weekday {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: $color__light;
+    &.disabled {
+      color: $color__grey;
+    }
+  }
+
+  .ngb-dp-weekday {
+    font-size: 8px;
+  }
+
+  .custom-day.focused {
+    border: 1px solid $color__secondary;
+  }
+
+  .custom-day.range, .custom-day:hover {
+    background-color: $color__secondary;
+    color: white;
+  }
+
+  .custom-day.faded {
+    background-color: $color__secondary;
+  }
+
+  .ngb-dp-month-name {
+    font-size: 10px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .date-picker {
+    float: none;
+    margin: 0 auto;
+    width: 346px;
+
+    > div.date-picker-selector .display-dates {
+      width: 170px;
+    }
+  }
+  .dropdown-menu {
+    transform: none !important;
+    width: 100%;
+  }
+}

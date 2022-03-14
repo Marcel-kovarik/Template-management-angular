@@ -1,0 +1,765 @@
+{
+  "CAMPAIGNS": "Campaigns",
+  "STATS": "Stats",
+  "DISTRIBUTION" : "Distribution",
+  "MODERATION" : "Moderation",
+  "TEAM" : "Team",
+  "SETTINGS" : "Settings",
+  "SAMPLES": "Samples",
+  "HOME_P": "Home page",
+  "POWERED_BY": "Powered by",
+  "IMG_ALT" : {
+    "ADNAI_LOGO" : "Adn.ai logo",
+    "TALKI_LOGO" : "Talki logo"
+  },
+  "EDITOR_LANGUAGE": "Editor language",
+  "LANG" : {
+    "ENGLISH" : "English",
+    "FRENCH" : "French",
+    "SPANISH" : "Spanish",
+    "ITALIAN" : "Italian"
+  },
+  "ARIA_LABEL" : {
+    "HEAD_LOGO_LINK" : "Go to home page",
+    "MENU" : {
+      "CAMPAIGNS" : "Campaigns list page",
+      "STATS" : "Stats page",
+      "DISTRIBUTION": "Distribution page",
+      "RGPD": "GDPR page",
+      "MODERATION": "Moderation page",
+      "SETTINGS" : "Settings page",
+      "TEAM" : "Team page",
+      "SAMPLES" : "Integration samples page"
+    }
+  },
+  "NEW_TO_TALK-I": "New to Talk-in ?",
+  "NEW_CAMPAIGN" : "New campaign",
+  "EDIT_CAMPAIGN": "Edit campaign",
+  "CAMPAIGN": "Campaign",
+  "BUTTONS": {
+    "SIGN_UP" : "Sign up",
+    "LOG_IN" : "Log in",
+    "RESET_PASSWORD": "Reset password",
+    "ACTIONS" : "Actions",
+    "SEE" : "See",
+    "SEE_ALL_CAMPAIGNS" : "See all campaigns",
+    "SEE_ALL_STATS" : "See all stats",
+    "OK": "Ok",
+    "CANCEL": "Cancel",
+    "VALIDATE": "Validate",
+    "SAVE": "Save",
+    "UPDATE": "Update",
+    "SAVE_ONLY": "Save only",
+    "GENERATE": "Generate",
+    "BACK": "Back",
+    "GENERATE_NEW_PASSWORD": "Generate new password",
+    "YES": "Yes",
+    "NO": "No",
+    "ADD": "Add",
+    "DELETE": "Delete",
+    "CONTINUE": "Continue",
+    "CROP": "Crop",
+    "PUBLISH": "Publish",
+    "PREVIEW": "Preview",
+    "ADVANCED_SETTINGS": "Advanced settings",
+    "NEW_NODE": "New Node",
+    "CHOOSE_VOICE": "Choose Voice"
+  },
+  "ALERTS": {
+    "CAMPAIGN_UPDATE": "The campaign has been updated.",
+    "CAMPAIGN_UPDATE_FAIL": "The update failed. No changes were made to the campaign.",
+    "CAMPAIGN_DELETE": "The campaign has been deleted.",
+    "CAMPAIGN_DELETE_FAIL": "The campaign has not been deleted.",
+    "CREATION_UPDATED": "The creation name has been updated.",
+    "CREATION_UPDATE_FAIL": "The update failed. No changes were made to the creation.",
+    "CREATION_DELETED": "The creation has been deleted.",
+    "CREATION_DELETE_FAIL": "The creation has not been deleted.",
+    "DELETE_FORMAT_SUCCEED": "The format has been deleted.",
+    "DELETE_FORMAT_FAILED": "An error has occurred. The format hasn't been deleted.",
+    "LOGIN_FAILED": "Login or password incorrect.",
+    "MP3_TOO_BIG": "Mp3 file size is too big!",
+    "IMG_TOO_BIG": "Image dimensions exceed maximum allowed height or width!",
+    "IMG_TOO_HEAVY": "Image file size is too heavy!",
+    "USER_UPDATE": "The user has been updated.",
+    "USER_UPDATE_FAIL": "The update failed, No changes were made to the user.",
+    "USER_DELETE": "The user has been deleted.",
+    "USER_DELETE_FAIL": "The user has not been deleted.",
+    "USER_CREATION": "The user has been created.",
+    "USER_CREATION_FAIL": "The user has not been created.",
+    "ORGANISATION_UPDATE": "The organisation has been updated.",
+    "ORGANISATION_UPDATE_FAIL": "The update failed, No changes were made to the organisation.",
+    "ORGANISATION_DELETE": "The organisation has been deleted.",
+    "ORGANISATION_DELETE_FAIL": "The organisation has not been deleted.",
+    "ORGANISATION_CREATION": "The organisation has been created.",
+    "ORGANISATION_CREATION_FAIL": "The organisation has not been created.",
+    "IMPOSSIBLE_FOR_TARGET_SIZE": "Image can not be created for target size",
+    "IMAGE_CROPPER_ALERT": "Don’t zoom too much, your picture will be in lower quality",
+    "IMAGE_SIZE_IS_TOO_SMALL": "Image size is too small",
+    "VIDEO_SIZE_IS_TOO_BIG": "Video size is too big",
+    "QUIT_GUARD": "WARNING ! You have some unsaved changes on this page.\nDo you really want to quit without saving ?",
+    "RGPD_FORM_SAVED": "Your form has successfully been saved.",
+    "RGPD_FORM_ERROR": "An error has occurred while saving you form. Please try again later.",
+    "SYSTEM_ERROR": "An error has occurred during the process. Please try again later or contact an administrator.",
+    "PASSWORD_UPDATED": "Your password has been updated.",
+    "INCORRECT_PASSWORD": "Your old password doesn't match."
+  },
+  "CONFIRM": {
+    "TITLE": "Confirm",
+    "DELETE_CAMPAIGN": "Are you sure you want to delete this campaign ?",
+    "DUPLICATE_CAMPAIGN": "Do you really want to duplicate this campaign ?",
+    "DELETE_CREATION": "Are you sure you want to delete this creation ?",
+    "DELETE_FORMAT": "Are you sure you want to delete this format ?",
+    "DELETE_USER": "Are you sure you want to delete this user ?",
+    "DELETE_ORGANISATION": "Are you sure you want to delete this organisation ?",
+    "DELETE_NODE": "You are about to delete this node.<br>Do you really want to continue ?",
+    "DELETE_SETTINGS": "You are about to reset <strong>all settings</strong>.<br>Do you really want to continue ?",
+    "DELETE_DOCUMENT": "You are about to <strong>definitely delete</strong> your document.<br>Do you really want to continue ?"
+  },
+  "WHAT_NEXT": {
+    "TITLE": "What next ?"
+  },
+  "NO_DATA": "No data available.",
+  "LOGIN_TO_TALK-I" : "Log in to Talk-in Platform",
+  "ENTER_YOUR_DETAILS_BELOW": "Enter your details below",
+  "EMAIL_ADDRESS": "Email address",
+  "PASSWORD": "Password",
+  "FORGOT_YOUR_PASSWORD": "Forgot your password?",
+  "DONT_WORRY_FORGOT_PASSWORD": "Don’t worry, happens to the best of us",
+  "BACK" : "back",
+  "AN_EMAIL_SENT" : "An email has been sent to your address. Thanks ;)",
+  "YOUR_EMAIL_REQUIRED": "Your email is required",
+  "EMAIL_FORMAT_REQUIRED": "Your must provide a valid email",
+  "YOUR_PASSWORD_REQUIRED": "Your password is required",
+  "PAGE_TITLE": {
+    "WELCOME_ON_TALK_I" : "Welcome on Talk-in {{NAME}} !"
+  },
+  "LAST_CAMPAIGNS" : "last campaigns",
+  "CAMPAIGN_NAME" : "Campaign name",
+  "CAMPAIGNS_LIST" : "Campaigns list",
+  "CREATE": "Create",
+  "EDIT" : "Edit",
+  "DUPLICATE" : "Duplicate",
+  "DELETE" : "Delete",
+  "TALKI_MOTORS": "Talk-in Motors",
+  "SS_21": "SS 21",
+  "PLACEHOLDER_TXT": "Placeholder text",
+  "STATUT": "Statut",
+  "IN_PROGRESS": "In progress",
+  "COMPLETED": "Completed",
+  "READY": "Ready",
+  "YOUR_CAMPAIGN_NAME_REQUIRED": "Your campaign name is required",
+  "YOUR_FORMAT_NAME_REQUIRED": "Your creation name is required",
+  "WAITING_ELEMENT_FOR_PUBLISH": "waiting elements to publish",
+  "READY_TO_PUBLISH": "Ready to publish",
+  "INTEGRATION": "Integration",
+  "JAVASCRIPT_SYNCHRONOUS":"javascript synchronous",
+  "JAVASCRIPT_ASYNCHRONOUS":"javascript asynchronous",
+  "IFRAME": "iframe",
+  "PUBLISHED": "Published",
+  "UPDATED": "Updated",
+  "YOU_MADE_CHANGES_YOU_CAN_REPUBLISH": "You made changes, you can republish now",
+  "FILTERS": "Filters",
+  "TYPES": "Types",
+  "FEATURES": "Features",
+  "DISPLAY": "Display",
+  "SKIN": "Skin",
+  "VIDEO": "Video",
+  "LOREM_IPSUM": "Lorem ipsum",
+  "PREVIEW": "preview",
+  "INTRODUCTION_BG": "image introduction",
+  "YES": "Yes",
+  "NO": "No",
+  "LOGO": "Logo",
+  "CHECK_LIST": "check-list",
+  "HERE_ELEMENT_YOU_NEED_TO_CREATE_YOUR_FORMAT": "Here’s the elements you need to create your format",
+  "WHAT": "what",
+  "SIZE": "size",
+  "WEIGHT": "weight",
+  "TYPE": "type",
+  "IMAGES": "Images",
+  "COLORS": "Colors",
+  "IMG_COLOR": "Color & image",
+  "REQUIRED": "required",
+  "COPY": "copy",
+  "CLIPBOARD_COPY": "Copy to clipboard",
+  "COPIED": "Copied",
+  "MAXIMUM_FILE_SIZE": "Maximum weight : <span>{{SIZE}}kb</span>",
+  "COMPUTER": "Computer",
+  "LOGO_HEADER": "logo header",
+  "BACKGROUND_HEADER_COLOR": "background header color",
+  "CODE_HEX": "Code Hex",
+  "PlAYER_ICON": "player icon",
+  "MIC_SOUND": "mic & sound",
+  "HEADER_MIC_SOUND": "Header mic & sound",
+  "BACKGROUND_IMAGE": "background image",
+  "UPLOAD_FROM_COMPUTER": "Upload from computer",
+  "ICON_COLOR": "Icon color",
+  "BG_IMAGE": "jpg, gif, png",
+  "REQUIRED_IMAGE": "jpg, svg, png",
+  "COLOR": "code hex",
+  "BACKGROUND_COLOR": "Background color",
+  "COLOR_HEX": "code hex",
+  "RIGHT_ICON": "right icon",
+  "LEFT_ICON": "left icon",
+  "LEFT_SUGGESTION_CHAT_BUBBLE": "left suggestion chat bubble",
+  "MIC_SEND_ICONS_COLOR": "mic&send icons color",
+  "IPSUM": "Ipsum",
+  "EDIT_PROFILE": "Edit profile",
+  "LOGOUT": "Log out",
+  "UPDATE_PASSWORD": "Password update",
+  "UPDATE_YOUR_PASSWORD": "Update your Password",
+  "YOUR_PROFIL_INFO": "Your profil info",
+  "PERSONAL_INFO": "Personal info",
+  "PROFIL_PIC": "Profile pic",
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "TEAM_INFO": "Team info",
+  "ORGANISATION": "Organisation",
+  "POSITION": "Position",
+  "TEAM_SERVICE": "Team/service",
+  "PASSWORD_MANAGEMENT": "Password management",
+  "OLD_PASSWORD": "Old password",
+  "NEW_PASSWORD": "New password",
+  "REPEAT_PASSWORD": "Repeat password",
+  "IMPORT_NEW_PIC": "import new pic",
+  "REMOVE_PIC": "remove pic",
+  "SPEAK_COLLECT": "Speak & Collect",
+  "NO_CHANGE_TO_SAVE": "No change to be saved !",
+  "UPPER_BANNER_TITLE": "Upper banner title",
+  "MAIN_TITLE": "Main title",
+  "ADD_A_TITLE": "Add a title",
+  "BUSINESS_NAME": "Business name",
+  "ADDRESS": "Address",
+  "BUSINESS_HOURS": "Business hours",
+  "MAX": "max",
+  "MONDAY": "monday",
+  "TUESDAY": "tuesday",
+  "WENESDAY": "wenesday",
+  "THURSDAY": "thursday",
+  "FRIDAY": "friday",
+  "SATURDAY": "saturday",
+  "SUNDAY": "sunday",
+  "UPPER_BANNER": "Upper banner",
+  "TEXT_COLOR": "Text color",
+  "ADD_HOURS": "Add hours",
+  "BUSINESS_HIGHLIGHTS": "Business highlights",
+  "BIG_BUTTON": "Big button",
+  "BLIND_SPOT": "BLIND SPOT",
+  "DOWNLOAD_OUR_TEMPLATE_RULE": "Download our template rule",
+  "RGPD": {
+    "TITLE": "GDPR",
+    "MAIN_TITLE": "Legals",
+    "NEW_DOCUMENT": "New Document",
+    "UPLOAD": "Upload",
+    "GENERATOR": "Generator",
+    "LIST_TITLES": {
+      "DOCUMENT_NAME": "Document Name",
+      "DOCUMENT_SRC": "Source",
+      "DOCUMENT_TYPE": "Type",
+      "DOCUMENT_TYPE_FULL": "Document type",
+      "DOCUMENT_LANG": "Language",
+      "CREATION_DATE": "Creation date",
+      "USER": "User"
+    },
+    "FORM": {
+      "MAIN_TITLE": "GDPR form generator",
+      "MAIN_DESCRIPTION": "Vous garantissez que les informations fournies sont exactes, complètes, exhaustives et à jour. ADN.AI  ne pourra être tenue responsable en cas de manquement aux obligations d’informations incombant à l’annonceur.",
+      "RELEVANT_CHECK": "Cocher les cases pertinentes",
+      "FULL_ADDRESS": "Adresse complète y compris pays",
+      "COMPANY": {
+        "TITLE": "Désignation de l’annonceur agissant comme responsable de traitement",
+        "LABEL": "Nom société"
+      },
+      "DATES": {
+        "TITLE": "Date d’effet de la politique de confidentialité",
+        "START_LABEL": "Date de début de la campagne publicitaire",
+        "UPDATE_LABEL": "En cas de mise à jour de la politique de confidentialité au cours de la campagne, la date devra également être mise à jour."
+      },
+      "ACCOUNTABLE": {
+        "TITLE": "Identification complète du responsable de traitement",
+        "COMPANY_LABEL": "Dénomination sociale de la société annonceur",
+        "CORP_FORM_LABEL": "Fome sociale",
+        "REGISTER_LABEL": "Immatriculation au RCS",
+        "REG_PLACE_LABEL": "Lieu d'immatriculation",
+        "ADDRESS_LABEL": "Adresse du siège social"
+      },
+      "EMAIL": {
+        "TITLE": "Adresse e-mail de contact",
+        "LABEL": "Adresse e-mail de contact de la société pour les sujets RGPD (demande d’exercice de droits, autres demandes relatives à la politique de confidentialité)"
+      },
+      "POSTAL_ADDRESS": {
+        "TITLE": "Adresse postale de contact",
+        "LABEL": "Adresse postale de contact pour les sujets RGPD (demande d’exercice de droits, autres demandes relatives à la politique de confidentialité)",
+        "PLACEHOLDER": "Adresse complète y compris pays"
+      },
+      "FINALITY": {
+        "TITLE": "Finalités des traitements de données personnelles et base légale",
+        "DESCRIPTION1": "L’annonceur entend procéder aux traitements de données personnelles pour les finalités et selon les bases légales suivantes :",
+        "MANAGEMENT_OF_REQUESTS_FOR": "gestion de sollicitations pour",
+        "FIRST_CONTACT": "une prise de contact",
+        "PROVIDING_QUOTES": "la fourniture de devis",
+        "THE_PROVISION_OF_INFORMATION_SERVICES": "la fourniture d’informations concernant l’éligibilité à une offre de service",
+        "THE_PROVISION_OF_INFORMATION_OPERATIONS": "la fourniture d’informations concernant des opérations promotionnelles",
+        "APPLICABLE_LEGAL_BASIS": "base légale applicable",
+        "CONSENT": "consentement",
+        "OTHER_EXPLAIN": "autre (préciser)",
+        "RECEIVE_AND_PROCESS_YOUR_REQUEST": "réceptionner et traiter votre / vos demande(s) de",
+        "CONTACT": "contact",
+        "SUPPLY_OF_QUOTES": "fourniture de devis",
+        "THE_PROVISION_OF_INFORMATION_PRODUCTS": "fourniture d’informations concernant des opérations promotionnelles pour nos offres, produits ou services",
+        "EXECUTION_OF_PRECONTRACTUAL_MEASURES": "exécution de mesures précontractuelles",
+        "MANAGEMENT_OF_REQUESTS_DURING": "de gestion de sollicitations lors de",
+        "YOUR_PARTICIPATION_IN_CONTESTS": "votre participation à des jeux concours",
+        "YOUR_PARTICIPATION_IN_PROMOTIONAL_OPERATIONS": "votre participation à des opérations promotionnelles",
+        "MANAGEMENT_OF_THE_OPTIMIZATION_OF_THE_DISPLAY_TOOL": "de gestion de l’optimisation de l’affichage et de l’utilisation de l’Outil",
+        "LEGITIMATE_INTEREST": "intérêt légitime",
+        "FOR_THE_DEVELOPMENT_OF_STATISTICS_RELATING_TOOL": "d’élaboration de statistiques relatives à l’utilisation de l’Outil",
+        "OTHER_EXPLAINING": "autre (à compléter en expliquant la ou les finalités poursuivies et la/les bases légales applicables)"
+      },
+      "PERS_CATEG": {
+        "TITLE": "Catégories de données personnelles traitées",
+        "DESCRIPTION": "L’annonceur entend procéder aux traitements des catégories de données personnelles suivantes pour les finalités énoncées :",
+        "ID_DATA": "données d’identification (voix au format audio, nom, prénom, numéro de téléphone, adresse postale, code postal, ville, pays, adresse e-mail)",
+        "ANSWER_DATA": "données relatives aux réponses adressées (corps du message électronique ou audio, réponses au jeu concours ou à l’opération promotionnelle, date et heure d’envoi du message)",
+        "EQUIPMENT_DATA": "données techniques relatives à l’équipement et au navigateur utilisés et configuration de l’Outil (audio ou non)",
+        "STATS_DATA": "statistiques d’utilisation de l’Outil (temps passé, nombre de clics ou d’interactions, etc.)",
+        "OTHER_DATA": "autre (préciser)"
+      },
+      "CONSERVATION": {
+        "TITLE": "Durée de conservation des données personnelles",
+        "DESCRIPTION": "L’annonceur entend conserver les données personnelles traitées pour les finalités énumérées pendant les durées suivantes :",
+        "DESCRIPTION_HELP": "cocher les cases pertinentes et compléter les informations (suggestions de propositions)",
+        "AUDIO_DATA_LABEL": "les données personnelles sous format audio sont conservées pour une durée n’excédant pas",
+        "AUDIO_DATA_PLACEHOLDER": "durée à compléter, ex. 6 mois",
+        "AUDIO_DATA_HELP": "à compter de leur enregistrement, elles font l’objet d’une retranscription au format électronique et sont conservées pour les durées spécifiées ci-dessous",
+        "PERSONAL_DATA_LABEL": "les données personnelles collectées aux fins de traiter et de faire droit",
+        "DESCRIPTION3": "à compter de la clôture du jeu concours concernant votre participation au jeu concours",
+        "PERSONAL_DATA_PLACEHOLDER": "finalités à selon le cas",
+        "COLLECT_REASONS": [
+          "aux sollicitations",
+          "à votre demande"
+        ],
+        "PERSONAL_DATA_LABEL2": "sont conservées le temps de traiter votre demande, jusqu’à",
+        "PERSONAL_DATA_LABEL3": "à compter du dernier contact en matière de prospection sauf retrait de votre consentement, et jusqu’à",
+        "TECH_DATA": "les données techniques collectées aux fins d’optimisation de l’affichage et de l’utilisation de l’Outil sont conservées pour une durée n’excédant pas",
+        "STATS_DATA": "les données collectées aux fins d’élaboration de statistiques d’utilisation sont conservées dans une forme pseudonymisée pour une durée maximale de"
+      },
+      "DESTINATION": {
+        "TITLE": "Destinataire des données personnelles",
+        "DESCRIPTION": "L’annonceur entend permettre aux personnes (physiques et/ou morales) suivantes d’accéder ou d’obtenir les données personnelles traitées :",
+        "OUR_STAFF": "notre personnel en charge des opérations marketing et publicitaires",
+        "STAFF_OF": "les personnels de nos",
+        "STAFF_OF_PLACEHOLDER": "à compléter, ex. enseignes, concessionnaires…",
+        "SUBCONTRACTOR_STAFF": "les personnels de nos prestataires sous-traitants (prestataire de fourniture et d’hébergement de l’Outil)",
+        "SUBCONTRACTOR_STAFF_PLACEHOLDER": "à compléter selon les cas"
+      },
+      "EXPORT": {
+        "TITLE": "Transferts internationaux de données personnelles",
+        "DESCRIPTION": "L’annonceur informe les personnes concernées de l’existence de transfert de données personnelle.",
+        "EXPORTED_OR_NOT": [
+          "Les données",
+          "ne font pas",
+          "font",
+          "l'objet de transferts de données hors UE"
+        ],
+        "EXPORT_COUNTRIES_LABEL": "pays concerné",
+        "EXPORT_COUNTRIES_PLACEHOLDER": "mettre une virgule entre chaque pays",
+        "EXPORT_COUNTRIES_HIDDEN": "je ne souhaite pas indiquer les pays concernés"
+      }
+    },
+    "GENERATED": "Your document has been generated.",
+    "GENERATOR_ERROR": "An error has occurred while creating your document. PLease try again later."
+  },
+  "LEGAL": {
+    "FR": "French (FR)",
+    "EN": "English (EN)",
+    "ES": "Spannish (ES)",
+    "RGPD": "GDPR",
+    "CGU": "Terms of Service",
+    "CGV": "Terms of Sales",
+    "UPLOAD": "Upload",
+    "GENERATED": "Generated"
+  },
+  "FORM_ERRORS": {
+    "REQUIRED": "This field is required",
+    "REQUIRED_FIELDS": "These fields are required",
+    "REQUIRED_ONE": "At least one field is required",
+    "REQUIRED_ONE_BELOW": "At least one field below is required",
+    "INVALID_LINK": "The link must start with `https://`.",
+    "LINK_FORMAT_ERROR": "The link must start either with `https://`, `%%MACRO%%https://` or `${MACRO}https://`.",
+    "ALREADY_EXIST": "This value il already recorded.",
+    "INVALID_SCRIPT": "Please check your value to make sure there is no error.",
+    "MAX_LENGTH": "You can't exceed {{LENGTH}} characters.",
+    "TOO_HEAVY": "This file is too heavy. Please check max weight.",
+    "WRONG_FORMAT": "Only {{FORMAT}} file are accepted.",
+    "NOT_IDENTICAL": "The two inputs are not identical."
+  },
+  "300x600_SPLIT_CHECK_LIST": "300x600 splitscreen - check-list",
+  "COLOR_IMAGE": "Color & image",
+  "BACKGROUND_CONVERSATION": "background conversation",
+  "RESOURCES_UPDATED": "All the changes have been saved.",
+  "RESOURCES_ERROR": "An error as occurred while saving your modifications. Please try again.",
+  "NO_CHANGE_TO_MAKE": "No changes have been made",
+  "ADD_TEXT": "Add text",
+  "ADD_IMG": "Add image",
+  "ADD_MP3": "Add mp3",
+  "ADD_SOUND": "Add sound",
+  "ADD_LINK": "Add link",
+  "YOUR_LINK_TEXT": "Text",
+  "YOUR_LINK": "Link",
+  "END_LINK_DESC": "This type of link will always be displayed at the end of the conversation.",
+  "LINK_REQUIREMENTS": "Your link must start with<i>https://</i> or a macro <br><i>%%MACRO%%https://</i> - <i>${MACRO}https://</i>.",
+  "UPLOAD_CUSTOM_VOICE": "Upload custom voice",
+  "DONE": "Done",
+  "NODE_EDIT_CLICK": "Double click to edit node",
+  "LOADING_YOUR_FILE": "Loading your file",
+  "ANSWERS": "Prepare your Answers",
+  "MULTIPLE_CHOICE": "Multiple choice",
+  "REMOVE_ANSWER": "Remove answer(s)",
+  "OPEN_ENDED": "Open-ended",
+  "DOUBLE_CLICK_TO_EDIT_EDIT": "Double click to edit node",
+  "CHOOSE_A_FILE": "Choose a file",
+  "WRITE_LINK": "Choose a file",
+  "YOU_CAN_EDIT_EACH_ANSWER_BY_CLICKING": "You can edit each answer by clicking on it",
+  "ADD_AN_ANSWER": "Add an answer",
+  "CAUTION": "Caution",
+  "AFTER_3_ANSWERS_IT_BECOMES_DIFFICULT": "After 3 answers, it becomes difficult for the human brain to remember all the propositions.",
+  "SYNONYMS_TO": "Synonyms to",
+  "YEAH": "yeah",
+  "OK": "ok",
+  "OF_COURSE": "of course",
+  "ADD_A_NEW_SYNONYMS": "Add a new synonym",
+  "ONLY_JPG_AND_PNG_FILE_MAX_3MO": "Only jpg and png file, max 3mo",
+  "ONLY_MP3_FILE_MAX_3MO": "Only mp3 file, max 3mo",
+  "MP3_ONLY_3MO_MAX": "mp3 only, 3 mo max",
+  "PHONE": "Phone",
+  "EMAIL": "Email",
+  "BEFORE_YOU_START_HERE_SOME_RULES": "Before you start, here’s some rules and tips to keep in mind when you ask for an address.",
+  "MARK_AS_FINAL_BUBBLE": "Mark as final bubble",
+  "PHONE_NUMBER": "Phone number",
+  "EDIT_NODE_NAME": "Edit Node Name",
+  "NODE_NAME": "Node Name",
+  "NODE_NAME_IS_REQUIRED": "Node name is required",
+  "QUESTION": "Ask your question",
+  "QUESTION_DESCRIPTION": "Design for how people talk, not how they type. Keep intro and responses short.",
+  "ANSWER_DESCRIPTION": "Add a multiple choice or an open-ended answer to your question. Try to stick to a maximum of 3 choices.",
+  "EDIT_YOUR_ANSWER": "Edit your answer",
+  "ANSWER_EDIT_DESCRIPTION": "You can edit your text, add synonyms and change the styles displayed. You can also add an image.",
+  "SYNONYMS": "Synonyms",
+  "IMAGE": "Image",
+  "STYLES": "Styles",
+  "SYNONYMS_DESCRIPTION": "Add synonyms to your correct answer to make it easier to understand",
+  "IMG_DESCRIPTION": "Add an image",
+  "STYLES_DESCRIPTION": "Customize the text and color of the bubble",
+  "JPG_PNG_FILE_WITH_MAX_SIZES_WEIGHT": "Only JPG and PNG file (max {{MAX}})",
+  "TEXT": "Text",
+  "CHOOSE_YOUR_ANSWER_TYPE": "Choose your answer type",
+  "ADVANCED_SETTINGS": "Advanced settings",
+  "UPLOAD_CUSTOM_VOICE_MP3_ONLY_1MO": "Upload custom voice (mp3 only, 1 mo max)",
+  "THIS_ITEM_IS_REQUIRED_VALUE": "This item is required value",
+  "CHOOSE_A_ITEM": "Choose a item",
+  "START_NODE": "Start Node",
+  "ADVANCE_SETTINGS": {
+    "TITLE": "Advanced Settings",
+    "DELETE_SETTINGS": "Delete Settings",
+    "RESET_SETTINGS": "Reset Settings",
+    "BG_LINKS": {
+      "TITLE": "Background links",
+      "DESCRIPTION": "If you want to add a click out to the background of your advert's landing page. Provide this link here.",
+      "PLACE_HOLDER": "ex: ${CLICK_URL}https://www.your_url.com...",
+      "LABEL": "Link"
+    },
+    "MACRO": {
+      "TITLE": "Macro tags",
+      "DESCRIPTION": "Please insert you tags without braces or dollar sign.<br>It will be added on submit.",
+      "PLACE_HOLDER": "Add a macro tag (ex: CLICK_URL)",
+      "ADD_NEW": "Add new macro",
+      "TYPE": "Macro type",
+      "XANDR": "${...}",
+      "GOOGLE": "%%...%%",
+      "MEDIAMATH": "[...]"
+    },
+    "TACTILE": {
+      "TITLE": "Touch mode",
+      "DESCRIPTION": "Use this option when you don’t want to use the<br>microphone.",
+      "ENABLE": "Enable touch mode"
+    },
+    "PM_LINKS": {
+      "TITLE": "Post Message links",
+      "DESCRIPTION": "When a link is added here, a `parent.window.postMessage` methode will be triggered to this URL :<br><small>- Conversation start (adnai:conversation-started).<br>- Conversation end (adnai:conversation-ended).</small>",
+      "PLACE_HOLDER": "ex: https://www.your_url.com...",
+      "LABEL": "Link"
+    },
+    "SCRIPTS": {
+      "TITLE": "Custom scripts (advanced user only)",
+      "DESCRIPTION": "If you need a special script in you advert, insert it here.<br><small><i>Be aware of what you are doing here, this can cause major failure !</i></small>",
+      "PLACE_HOLDER": "",
+      "LABELS": {
+        "TOP" : "Insert your script before closing head tag.",
+        "BOTTOM" : "Insert your script before closing body tag (preferred)."
+      }
+    },
+    "CUSTOM_MSG": {
+      "TITLE": "Customise default messages",
+      "DESCRIPTION": "List of default messages use in a conversation<br>such as error message etc... You can edit or customize<br>each one.",
+      "PLACE_HOLDER": "",
+      "LABELS": {
+        "NOINPUT" : "Used when provided answer is incorrect (NO INPUT)",
+        "STOP" : "Used when user stop conversation using stop words (STOP)"
+      }
+    },
+    "ERRORS": {
+      "DELETING_SETTING": "An error occurred while deleting setting. PLease try again.",
+      "LINK_DELETE": "An error occurred while deleting your link. PLease try again.",
+      "UPDATING_LINK": "An error occurred while updating your link. PLease try again."
+    }
+  },
+  "BUILTINS": {
+    "PHONE" : {
+      "LABEL" : "Phone number capture",
+      "HELP" : "Used to get user's phone number according to the format you've chosen in the options. If a phone number is provided, a confirmation will be requested to validate the answer. In case the data doesn't match, the user is invited to try again as many times as specified in the corresponding option (3 by default). If the expected number of retries is reached, the conversation ends with content that can also be specified also in the options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Number of attempts",
+          "HELP": "Number of attempts to collect a phone number"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Confirmation request",
+          "HELP": "{NUM} = phone number"
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Failure text",
+          "HELP": "Failure text"
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Failure audio",
+          "HELP": "Your failure audio file in case for each failure."
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Failure text when maximum attempts is reached.",
+          "HELP": "Failure text when maximum attempts is reached."
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Failure audio when maximum attempts is reached.",
+          "HELP": "Your failure audio file when maximum attempts is reached."
+        },
+        "STORAGE": {
+          "LABEL": "Data storage ?",
+          "HELP": "If you wish to store this data, do not forget to provide your privacy policy and have it validated."
+        },
+        "FORMATS": {
+          "LABEL": "Formats",
+          "HELP": "Information used to validate phone format.",
+          "LIST_LABELS": {
+            "FR_MOBILE": "France, mobile",
+            "FR_LANDLINE": "France, landline",
+            "FR_BOTH": "France, landline & mobile"
+          }
+        }
+      }
+    },
+    "ADD_LOC" : {
+      "LABEL" : "Location capture",
+      "HELP" : "Used to get user's location. If a location is provided, a confirmation will be requested to validate the answer. In case the data doesn't match, the user is invited to try again as many times as specified in the corresponding option (3 by default). If the expected number of retries is reached, the conversation ends with content that can also be specified also in the options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Number of attempts to collect location",
+          "HELP": "Number of attempts to collect location"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Confirmation request",
+          "HELP": "Confirmation request"
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Failure text",
+          "HELP": "Failure text"
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Failure audio",
+          "HELP": "Your failure audio file in case for each failure."
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Failure text when maximum attempts is reached.",
+          "HELP": "Failure text when maximum attempts is reached."
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Failure audio when maximum attempts is reached.",
+          "HELP": "Your failure audio file when maximum attempts is reached."
+        },
+        "STORAGE": {
+          "LABEL": "Data storage ?",
+          "HELP": "If you wish to store this data, do not forget to provide your privacy policy and have it validated."
+        }
+      }
+    },
+    "ADD_ACC" : {
+      "LABEL" : "Address capture",
+      "HELP" : "Used to get user's address. If an address is provided, a confirmation will be requested to validate the answer. In case the data doesn't match, the user is invited to try again as many times as specified in the corresponding option (3 by default). If the expected number of retries is reached, the conversation ends with content that can also be specified also in the options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Number of attempts to collect the address",
+          "HELP": "Number of attempts to collect the address"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Confirmation request",
+          "HELP": "Confirmation request"
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Failure text",
+          "HELP": "Failure text"
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Failure audio",
+          "HELP": "Your failure audio file in case for each failure."
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Failure text when maximum attempts is reached.",
+          "HELP": "Failure text when maximum attempts is reached."
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Failure audio when maximum attempts is reached.",
+          "HELP": "Your failure audio file when maximum attempts is reached."
+        },
+        "STORAGE": {
+          "LABEL": "Data storage ?",
+          "HELP": "If you wish to store this data, do not forget to provide your privacy policy and have it validated."
+        }
+      }
+    },
+    "EMAIL" : {
+      "LABEL" : "Email address capture",
+      "HELP" : "Used to get user's email. If an email is provided and match the standard email format, a confirmation will be requested to validate the answer. In case the data doesn't match, the user is invited to try again as many times as specified in the corresponding option (3 by default). If the expected number of retries is reached, the conversation ends with content that can also be specified also in the options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Number of attempts to collect the email",
+          "HELP": "Number of attempts to collect the email"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Confirmation request",
+          "HELP": "Confirmation request"
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Failure text",
+          "HELP": "Failure text"
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Failure audio",
+          "HELP": "Your failure audio file in case for each failure."
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Failure text when maximum attempts is reached.",
+          "HELP": "Failure text when maximum attempts is reached."
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Failure audio when maximum attempts is reached.",
+          "HELP": "Your failure audio file when maximum attempts is reached."
+        },
+        "STORAGE": {
+          "LABEL": "Data storage ?",
+          "HELP": "If you wish to store this data, do not forget to provide your privacy policy and have it validated."
+        }
+      }
+    }
+  },
+  "FORMAT": {
+    "FORMAT": "Format",
+    "TITLE_HELP": "Our formats are IAB standards. It will display your conversation. You can create as many formats as you want.",
+    "NAME": "Format name",
+    "NEW": "new format",
+    "CREATE_NEW": "Create a new format",
+    "DUPLICATE": "Or duplicate from existing format",
+    "PUBLISH_CONFIRM": "This action will push your format onto production.<br>Do you really want to publish ?",
+    "PUBLISHED": "The publish request has been made, it will soon be available.",
+    "MISSING": {
+      "TITLE": "Missing element(s) to publish your format",
+      "CONVERSATION": "You need to link a conversation to your creation",
+      "CONV_PUBLICATION": "You need to publish your conversation.",
+      "NOTHING": "Your format is fully published.<br>Nothing has been updated since last publication.",
+      "PUBLICATION_REQUESTED": "You have a publication request pending."
+    }
+  },
+  "CREATION": {
+    "CREATIONS": "Creations",
+    "TITLE_HELP": "To set up the perfect creation, you must build a conversation and at least one format.",
+    "CREATE_NEW": "Create New Creation",
+    "NEW": "New Creation",
+    "NAME": "Creation name",
+    "NAME_REQUIRED": "Your creation name is required",
+    "CHOOSE_TYPE": "Choose your type of creation",
+    "CREAPUB": "Ads",
+    "ASSISTANT_APPS": "Assistant apps",
+    "VOICE_COMMERCE": "Voice commerce",
+    "PUBLISHED": "Your creation has been published !",
+    "PUBLISHED_ERROR": "An error has occurred while publishing your creation. please try again !",
+    "STATE_ERROR": "Error : State is not defined or incorrect, please advise administrator.",
+    "IS_DEPLOYING": "Deployment requested",
+    "UPDATED": "Last update"
+  },
+  "CONVERSATION": {
+    "NEW": "new conversation",
+    "TITLE_HELP": "A conversation is the way your ad will talk to your customer.",
+    "VOICE_SAMPLE": "This is my voice. You can select it for your next conversation.",
+    "VOICE_SAMPLE_NOT_SUPPORTED": "Sample sentence (to choose voice) is not translated in current conversation language.",
+    "LABEL": "Conversation",
+    "CREATE_NEW": "Create a new conversation",
+    "OR_CHOOSE_EXISTING": "Or choose an existing conversation",
+    "NAME": "Conversation name",
+    "LANG": "Conversation language",
+    "LANG_SELECT": "Please select conversation language",
+    "SAVED": "Your conversation has been saved !",
+    "SAVED_ERROR": "An error has occurred while saving your conversation. please try again !",
+    "PREVIEWABLE": "Your conversation can be previewed !",
+    "PREVIEW_ERROR": "An error has occurred while creating the preview of your conversation. please try again !",
+    "PREVIEW_NOOP_ERROR": "Please finish your conversation using the suggestion buttons. Thank you !",
+    "READY_TO_PUBLISH": "Your conversation is ready to be published !",
+    "PUBLISHED_WHAT_NEXT": "Well done, your conversation is now published !<br>What do you want to do now :<br>Create a format or Go back to creation page ?",
+    "PUBLISHED_ERROR": "An error has occurred while publishing your conversation. please try again !",
+    "MUST_BE_PUBLISHED": "You need to publish this conversation in order to complete the conversation.",
+    "LINK_ERROR": "The conversation {{NAME}} has not been linked to this creation. Please try again.",
+    "UNLINKED": "The conversation has been successfully unlinked from this creation.",
+    "UNLINK_ERROR": "An error has occurred while unlinking the conversation. Please try again.",
+    "PLEASE_SELECT": "Please select a conversation to edit.",
+    "MISSING": {
+      "APPLICATION_CODE": "Application code is missing.",
+      "CONFIGURATION": "Configuration file is missing.",
+      "LANGUAGE_CODE": "Language code is not defined.",
+      "VOICE_ID": "You need to choose a voice for this conversation.",
+      "APPLICATION_TYPE": "Application type is missing.",
+      "RGPD_DOCUMENT": "You need to provide an GDPR document.",
+      "NODE_LINKS": "You have a missing link between your nodes.",
+      "END_NODE": "You must have at least one node marked as `final bubble`.",
+      "NOTHING": "Your conversation is already fully published.<br>Nothing has moved since last publication."
+    },
+    "NODE_EDITOR": {
+      "FINAL_WITH_LINK_ERROR": "You can not remove this option when you have a link above."
+    },
+    "PREVIEW_ERROR": "Service unavailable or as encounter and error. Please try later.",
+    "CANT_DELETE_NODE": "This Node can not be deleted.",
+    "PUBLISH_CONFIRM": "This action will make your conversation public.<br>Do you really want to publish ?"
+  },
+  "HELP": {
+    "BUTTON_LABEL" : "Need help ?",
+    "SERVER_MESSAGE": "If you have any question or comment, it’s the right place. Record it. We will answer you back soon."
+  },
+  "USERS_LIST": "List of Users",
+  "USERS": "Users",
+  "NEW_USER" : "New User",
+  "EDIT_USER": "Edit the informations",
+  "FIRSTNAME": "First name",
+  "LASTNAME": "Last name",
+  "LINKED_COMPANIES": "Linked Companies",
+  "RECORDER": {
+    "STAND_BY": "Record your question",
+    "RECORDING": "Recording",
+    "RECORDING_STOP": "Start over, Listen, Send it !",
+    "MESSAGE_SENT": "Message sent"
+  },
+  "NEW_ORGANISATION": "New Organisation",
+  "EDIT_ORGANISATION": "Edit Organisation",
+  "ORGANISATION_NAME": "Organisation Name",
+  "NUMBER_OF_MEMBERS": "Number of Members",
+  "ORGANISATION_LIST": "List of Organisations",
+  "ORGANISATIONS": "Organisations",
+  "DRAG_TO_REPOSITION_PICTURE": "Drag to reposition the picture",
+  "FIT_TO_CROPPED_ZONE": "Fit to cropped zone"
+}

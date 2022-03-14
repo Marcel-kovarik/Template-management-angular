@@ -1,0 +1,39 @@
+// Variables list : https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+$primary:   $color__primary !default;
+$secondary: $color__secondary !default;
+$success:   $color__success !default;
+$info:      $color__info !default;
+$warning:   $color__warning !default;
+$danger:    $color__danger !default;
+$light:     white !default;
+$dark:      $color__dark !default;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+) !default;
+
+//$border-width:      1px !default;
+//$border-color: $color__border-input !default;
+//$border-radius: 0px !default;
+//$border-radius-lg: .3rem !default;
+//$border-radius-sm: .2rem !default;
+
+//$input-focus-bg:          $input-bg !default;
+//$input-focus-border-color: $dark !default;
+//$input-focus-color:       $input-color !default;
+//$input-focus-width: 1px;
+//$input-focus-box-shadow: unset !default;
+
+$table-dark-bg: $color__primary;
+// Modal screen sizes
+//$modal-xl: 800px;
+//$modal-lg: 600px;
+//$modal-md: 400px;
+//$modal-sm: 200px;

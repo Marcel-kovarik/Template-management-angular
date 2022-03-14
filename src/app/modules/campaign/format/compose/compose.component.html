@@ -1,0 +1,39 @@
+<app-breadcrumb (save)="saveCurrentFormat()" (publish)="publishFormat()" [editAction]="true" [saving]="saving"
+  [crumbs]="crumbs" [publishing]="publishing" [formatId]="format.id" [missingKeys]="missingKeys"
+  [hasUpdate]="(edited.length > 0)" [edited]="edited"></app-breadcrumb>
+
+<!-- formats item section -->
+<div *ngIf="!(['1800x1000', 'responsive'].includes(formatCode))" class="{{formatCode | formatType: 'class'}} custom-mt-90">
+  <div class="row">
+    <div class="col-lg-5 col-xl-4">
+      <app-f300x600 *ngIf="formatCode === '300x600'" [edited]="edited" [format]="format" [server]="fromServer"
+        [formatData]="formatData"></app-f300x600>
+      <app-f300x250 *ngIf="formatCode === '300x250'" [server]="fromServer" [edited]="edited" [format]="format"
+        [formatData]="formatData"></app-f300x250>
+      <app-f300x600split *ngIf="formatCode === '300x600-split'" [server]="fromServer" [edited]="edited"
+        [format]="format" [formatData]="formatData"></app-f300x600split>
+      <app-f300x600split-image *ngIf="formatCode === '300x600-split-image'" [server]="fromServer" [edited]="edited"
+        [format]="format" [formatData]="formatData"></app-f300x600split-image>
+      <app-f300x600split-video *ngIf="formatCode === '300x600-split-video'" [server]="fromServer" [edited]="edited"
+        [format]="format" [formatData]="formatData"></app-f300x600split-video>
+      <app-f300x600intro-image *ngIf="formatCode === '300x600-intro-image'" [server]="fromServer" [edited]="edited"
+        [format]="format" [formatData]="formatData"></app-f300x600intro-image>
+      <app-f300x600 *ngIf="formatCode === 'responsive'" [edited]="edited" [format]="format" [server]="fromServer"
+        [formatData]="formatData"></app-f300x600>
+    </div>
+
+    <!-- format-table-section with information -->
+    <div class="col-lg-7 col-xl-8">
+      <div class="checkListWrapper">
+        <app-check-list (trigger)="editTrigger($event)" [format]="format.formatSpec.name" [formatData]="formatData"
+        [server]="fromServer" [edited]="edited" [checklist]="format.formatSpec.resourceSpec"></app-check-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- large format item section -->
+<app-f1800x1000 *ngIf="formatCode === '1800x1000'" (childTrigger)="editTrigger($event)" [server]="fromServer"
+  [edited]="edited" [format]="format" [formatData]="formatData"></app-f1800x1000>
+<app-responsive *ngIf="formatCode === 'responsive'" (childTrigger)="editTrigger($event)" [server]="fromServer"
+  [edited]="edited" [format]="format" [formatData]="formatData"></app-responsive>

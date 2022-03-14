@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <p class="page-title">{{ 'PAGE_TITLE.WELCOME_ON_TALK_I' | translate | transParams : {name: user.firstName} }}</p>
+  <div class="row">
+    <div class="col-lg-6 co-12 mb-3">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <p class="sub-title">{{ 'CAMPAIGNS' | translate }}</p>
+          <button class="btn-rounded-outline-secondary btn-with-icon" (click)="open()">
+            <i class="icon-add"></i>
+            {{ 'NEW_CAMPAIGN' | translate }}
+          </button>
+        </div>
+        <p class="card-title">
+          3 {{ 'LAST_CAMPAIGNS' | translate }}
+        </p>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th colspan="2">{{ 'CAMPAIGN_NAME' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let campaign of campaigns">
+              <td>{{ campaign.name }}</td>
+              <td class="center action">
+                <div class="wrapper-action-btn">
+                <app-edit-campaigns *ngIf="openActionListId === campaign.id" [campaign]="campaign"
+                                    (delete)="deleteCampaign($event)"
+                                    (duplicate)="duplicateCampaign($event)"></app-edit-campaigns>
+                  <button class="card-action-btn" (click)="openActionList(campaign.id)">
+                    <i class="icon-more"></i>
+                    {{ 'BUTTONS.ACTIONS' | translate }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+          <button [routerLink]="'/campaigns/list'" class="btn-rounded-outline-secondary btn-with-icon">
+            <i class="icon-see"></i>
+            {{ 'BUTTONS.SEE_ALL_CAMPAIGNS' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 co-12" *ngIf="statsDisplay">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <p class="sub-title no-btn">{{ 'STATS' | translate }}</p>
+        </div>
+        <p class="card-title">
+          3 {{ 'LAST_CAMPAIGNS' | translate }}
+        </p>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th colspan="4">{{ 'CAMPAIGN_NAME' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stat of stats">
+              <td>{{ stat.label }}</td>
+              <td>{{ stat.format }}</td>
+              <td>{{ stat.engagement | number:'4.0': 'fr' }}</td>
+              <td class="center action">
+                <button [routerLink]="'/stats/' + stat.type" class="card-action-btn d-flex flex-column justify-content-center">
+                  <i class="icon-see"></i>
+                  {{ 'BUTTONS.SEE' | translate }}
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+          <button [routerLink]="'/stats/list'" class="btn-rounded-outline-secondary btn-with-icon">
+            <i class="icon-see"></i>
+            {{ 'BUTTONS.SEE_ALL_STATS' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

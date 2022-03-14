@@ -1,0 +1,42 @@
+<div *ngIf="!loading" class="col-12 offset-0 col-lg-8 offset-lg-2 form-container">
+  <h1 class="page-title">{{ 'EDIT_USER' | translate }}</h1>
+
+  <form (ngSubmit)="newUser()" *ngIf="user" [formGroup]="newUserForm">
+
+    <div class="card">
+      <div class="row">
+        <div class="form-group col-4">
+          <label class="input-label" for="inputFirstName">{{ 'FIRSTNAME' | translate }}</label>
+          <input class="form-control" formControlName="firstName" id="inputFirstName" type="text">
+        </div>
+        <div class="form-group col-4">
+          <label class="input-label" for="inputLastName">{{ 'LASTNAME' | translate }}</label>
+          <input class="form-control" formControlName="lastName" id="inputLastName" type="text">
+        </div>
+        <div class="form-group col-4">
+          <label class="input-label" for="inputEmail">{{ 'EMAIL' | translate }}</label>
+          <input class="form-control" formControlName="email" id="inputEmail" type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="input-label">{{ 'LINKED_COMPANIES' | translate }}</label>
+        <div *ngFor="let organisation of allOrganisations" class="form-check-inline">
+          <input *ngIf="userOrgsID.includes(organisation.id)" checked class="form-check-input linkedOrgs"
+                 type="checkbox" value="{{ organisation.id }}">
+          <input *ngIf="!userOrgsID.includes(organisation.id)" class="form-check-input linkedOrgs" type="checkbox"
+                 value="{{ organisation.id }}">
+          <label class="form-check-label"> {{ organisation.name }} </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [routerLink]="'/admin/user'" class="btn primary" type="button">{{ 'BUTTONS.BACK' | translate }}</button>
+        <button [disabled]="!newUserForm.valid" class="btn" name="submitButton"
+                type="submit">{{ 'BUTTONS.VALIDATE' | translate }}</button>
+
+      </div>
+    </div>
+  </form>
+
+</div>
+

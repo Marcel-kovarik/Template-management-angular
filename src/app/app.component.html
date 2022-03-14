@@ -1,0 +1,19 @@
+<app-header (showMobileMenuFunc)="showMobileMenuFunc($event)" [personalInfo]="user"></app-header>
+
+<div class="wrapper main-wrapper">
+
+  <app-menu *ngIf="user" [isMobile]="showMobileMenu" (showMobileMenuFunc)="showMobileMenuFunc($event)"></app-menu>
+  <div id="content" class="container-fluid p-main-container scroll-container">
+
+    <div class="main-container" [ngClass]="secondaryClass">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-footer *ngIf="showFooter"></app-footer>
+
+  </div>
+
+</div>
+
+<app-need-help *ngIf="user"></app-need-help>
+<app-alerts></app-alerts>

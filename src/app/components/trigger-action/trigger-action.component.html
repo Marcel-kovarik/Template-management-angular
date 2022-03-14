@@ -1,0 +1,14 @@
+<div class="action-list">
+  <button (click)="sendEdit(element)" *ngIf="canEdit">
+    <i class="icon-edit"></i>
+    {{ 'EDIT' | translate }}
+  </button>
+  <button (click)="sendDuplicate(element)" *ngIf="canDuplicate">
+    <i class="icon-duplicate"></i>
+    {{ 'DUPLICATE' | translate }}
+  </button>
+  <button (click)="sendDelete(element)" *ngIf="canDelete">
+    <i class="icon-delete"></i>
+    {{ 'DELETE' | translate }}
+  </button>
+</div>

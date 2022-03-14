@@ -1,0 +1,764 @@
+{
+  "CAMPAIGNS": "Campagnes",
+  "STATS": "Stats",
+  "DISTRIBUTION" : "Distribution",
+  "MODERATION" : "Modération",
+  "TEAM" : "Equipe",
+  "SETTINGS" : "Réglages",
+  "SAMPLES": "Exemples",
+  "HOME_P": "Accueil",
+  "POWERED_BY": "Powered by",
+  "IMG_ALT" : {
+    "ADNAI_LOGO" : "Adn.ai logo",
+    "TALKI_LOGO" : "Talki logo"
+  },
+  "EDITOR_LANGUAGE": "Langue Editeur",
+  "LANG" : {
+    "ENGLISH" : "Anglais",
+    "FRENCH" : "Français",
+    "SPANISH" : "Espagnol",
+    "ITALIAN" : "Italien"
+  },
+  "ARIA_LABEL" : {
+    "HEAD_LOGO_LINK" : "Vers la page d'acceuil",
+    "MENU" : {
+      "CAMPAIGNS" : "page liste des campagnes",
+      "STATS" : "page stats ",
+      "DISTRIBUTION": "page distribution",
+      "RGPD": "page RGPD",
+      "MODERATION": "page modération",
+      "SETTINGS" : "page réglages",
+      "TEAM" : "page équipe",
+      "SAMPLES" : "page exemples d'intégration"
+    }
+  },
+  "NEW_TO_TALK-I": "Nouveau sur Talk-i ?",
+  "NEW_CAMPAIGN" : "Nouvelle campagne",
+  "EDIT_CAMPAIGN": "Modifier une campagne",
+  "CAMPAIGN": "Campagne",
+  "BUTTONS": {
+    "SIGN_UP" : "Inscription",
+    "LOG_IN" : "Identification",
+    "RESET_PASSWORD": "Réinitialiser le mot de passe",
+    "ACTIONS" : "Actions",
+    "SEE" : "Afficher",
+    "SEE_ALL_CAMPAIGNS" : "Afficher toutes les campagnes",
+    "SEE_ALL_STATS" : "Afficher toutes les stats",
+    "OK": "Ok",
+    "CANCEL": "Annuler",
+    "VALIDATE": "Valider",
+    "SAVE": "Enregistrer",
+    "UPDATE": "Mettre à jour",
+    "SAVE_ONLY": "Sauvegarder uniquement",
+    "GENERATE": "Générer",
+    "BACK": "Retour",
+    "GENERATE_NEW_PASSWORD": "Générer un nouveau mot de passe",
+    "YES": "Oui",
+    "NO": "Non",
+    "ADD": "Ajouter",
+    "DELETE": "Supprimer",
+    "CONTINUE": "Continuer",
+    "CROP": "Cropper",
+    "PUBLISH": "Publier",
+    "PREVIEW": "Prévisualiser",
+    "ADVANCED_SETTINGS": "Configuration",
+    "NEW_NODE": "Nouveau noeud",
+    "CHOOSE_VOICE": "Choisir la voix"
+  },
+  "ALERTS": {
+    "CAMPAIGN_UPDATE": "La campagne a été mise à jour.",
+    "CAMPAIGN_UPDATE_FAIL": "La mise à jour a échoué. Aucun changement effectué sur la campagne.",
+    "CAMPAIGN_DELETE": "La campagne a été supprimée.",
+    "CAMPAIGN_DELETE_FAIL": "La campagne n'a pas été supprimée.",
+    "CREATION_UPDATED": "Le nom de la création a été mis à jour.",
+    "CREATION_UPDATE_FAIL": "La mise à jour a échoué. Aucun changement effectué sur la création.",
+    "CREATION_DELETED": "La création a été supprimée.",
+    "CREATION_DELETE_FAIL": "La création n'a pas été supprimée.",
+    "DELETE_FORMAT_SUCCEED": "Le format  a été supprimé.",
+    "DELETE_FORMAT_FAILED": "Une erreur est survenue. Le format n'a pas été supprimé.",
+    "LOGIN_FAILED": "Identifiant ou mot de passe incorrect.",
+    "MP3_TOO_BIG": "La taille du fichier Mp3 est trop importante !",
+    "IMG_TOO_BIG": "Les dimensions de l'image sont trop grandes !",
+    "IMG_TOO_HEAVY": "L'image dépasse le poids maximum autorisé !",
+    "USER_UPDATE": "L'utilisateur a été mis à jour.",
+    "USER_UPDATE_FAIL": "La mise à jour a échoué. Aucun changement sur l'utilisateur.",
+    "USER_DELETE": "L'utilisateur a été supprimé.",
+    "USER_DELETE_FAIL": "L'utilisateur n'a pas été supprimé.",
+    "USER_CREATION": "L'utilisateur a été créé.",
+    "USER_CREATION_FAIL": "L'utilisateur n'a pas été créé.",
+    "ORGANISATION_UPDATE": "L'organisation a été mise à jour.",
+    "ORGANISATION_UPDATE_FAIL": "la mise à jour a échoué. Aucun changement effectué sur l'organisation.",
+    "ORGANISATION_DELETE": "L'organisation a été supprimée.",
+    "ORGANISATION_DELETE_FAIL": "L'organisation n'a pas été supprimée.",
+    "ORGANISATION_CREATION": "L'organisation a été créée.",
+    "ORGANISATION_CREATION_FAIL": "L'organisation n'a pas été créée.",
+    "IMPOSSIBLE_FOR_TARGET_SIZE": "L'image ne peut être créer pour la taille ciclée.",
+    "IMAGE_CROPPER_ALERT": "Attention au zoom, l'image risque d'être de mauvaise qualité.",
+    "IMAGE_SIZE_IS_TOO_SMALL": "L'image est trop petite.",
+    "VIDEO_SIZE_IS_TOO_BIG": "Video size is too big",
+    "QUIT_GUARD": "ATTENTION ! Il y a des changements non sauvegardés sur cette page. Souhaitez-vous quitter sans sauvegarder ?",
+    "RGPD_FORM_SAVED": "Votre formulaire a bien été sauvegardé.",
+    "RGPD_FORM_ERROR": "Une erreur est survenue lors de la sauvegarde de vos données. Veuillez essayer à nouveau plus tard.",
+    "SYSTEM_ERROR": "Erreur du système. Veuillez essayer à nouveau plus tard ou contacter l'administrateur.",
+    "PASSWORD_UPDATED": "Votre mot de passe a bien été mis à jour.",
+    "INCORRECT_PASSWORD": "Votre ancien mot de passe est incorrect."
+  },
+  "CONFIRM": {
+    "TITLE": "Confirmation",
+    "DELETE_CAMPAIGN": "Confirmez-vous la suppression de cette campagne ?",
+    "DUPLICATE_CAMPAIGN": "Confirmez-vous la duplication de cette campagne ?",
+    "DELETE_CREATION": "Confirmez-vous la suppression de cette création ?",
+    "DELETE_FORMAT": "Confirmez-vous la suppression de ce format ?",
+    "DELETE_USER": "Confirmez-vous la suppression de cet utilisateur ?",
+    "DELETE_ORGANISATION": "Confirmez-vous la suppression de cette organisation ?",
+    "DELETE_NODE": "Vous êtes sur le point de supprimer ce noeud.<br>Voulez-vous continuer ?",
+    "DELETE_SETTINGS": "Vous êtes sur le point de réinitialiser <strong>tous les paramètres avancés</strong>.<br>Voulez-vous continuer ?",
+    "DELETE_DOCUMENT": "You are about to <strong>definitely delete</strong> your document.<br>Do you really want to continue ?"
+  },
+  "WHAT_NEXT": {
+    "TITLE": "Quoi ensuite ?"
+  },
+  "NO_DATA": "Aucune donnée disponible.",
+  "LOGIN_TO_TALK-I" : "Identification sur Talk-i",
+  "ENTER_YOUR_DETAILS_BELOW": "Saisissez vos informations ci-dessous",
+  "EMAIL_ADDRESS": "Adresse email",
+  "PASSWORD": "Mot de passe",
+  "FORGOT_YOUR_PASSWORD": "Mot de passe oublié ?",
+  "DONT_WORRY_FORGOT_PASSWORD": "Pas de problème, ça arrive même aux meilleurs",
+  "BACK" : "Retour",
+  "AN_EMAIL_SENT" : "Un email a été envoyé à votre adresse. Merci ;)",
+  "YOUR_EMAIL_REQUIRED": "Adresse email obligatoire",
+  "EMAIL_FORMAT_REQUIRED": "L'adresse email doit être valide",
+  "YOUR_PASSWORD_REQUIRED": "Mot de passe obligatoire",
+  "PAGE_TITLE": {
+    "WELCOME_ON_TALK_I" : "Bienvenu sur Talk-i {{NAME}} !"
+  },
+  "LAST_CAMPAIGNS" : "Dernières campagnes",
+  "CAMPAIGN_NAME" : "Nom de la campagne",
+  "CAMPAIGNS_LIST" : "Liste des campagnes",
+  "CREATE": "Créer",
+  "EDIT" : "Modifier",
+  "DUPLICATE" : "Dupliquer",
+  "DELETE" : "Supprimer",
+  "TALKI_MOTORS": "Talk-i Motors",
+  "SS_21": "SS 21",
+  "PLACEHOLDER_TXT": "Placeholder text",
+  "STATUT": "Etat",
+  "IN_PROGRESS": "En cours",
+  "COMPLETED": "Terminé",
+  "READY": "Prêt",
+  "YOUR_CAMPAIGN_NAME_REQUIRED": "Le nom de la campagne est obligatoire",
+  "YOUR_FORMAT_NAME_REQUIRED": "Le nom de la création est obligatoire",
+  "WAITING_ELEMENT_FOR_PUBLISH": "Eléments en attente pour la publication",
+  "READY_TO_PUBLISH": "Prêt à publier",
+  "INTEGRATION": "Intégration",
+  "JAVASCRIPT_SYNCHRONOUS":"javascript synchrone",
+  "JAVASCRIPT_ASYNCHRONOUS":"javascript asynchre",
+  "IFRAME": "iframe",
+  "PUBLISHED": "Publié",
+  "UPDATED": "Modifié",
+  "YOU_MADE_CHANGES_YOU_CAN_REPUBLISH": "Il faut republier pour prendre en compte les changements effectués",
+  "FILTERS": "Filtres",
+  "TYPES": "Types",
+  "FEATURES": "Fonctionnalités",
+  "DISPLAY": "Display",
+  "SKIN": "Skin",
+  "VIDEO": "Video",
+  "LOREM_IPSUM": "Lorem ipsum",
+  "PREVIEW": "Aperçu",
+  "YES": "Oui",
+  "NO": "Non",
+  "LOGO": "Logo",
+  "MIC_SOUND": "micro & son",
+  "CHECK_LIST": "check-list",
+  "HERE_ELEMENT_YOU_NEED_TO_CREATE_YOUR_FORMAT": "Voici les éléments nécessaires pour le format",
+  "WHAT": "Quel",
+  "SIZE": "taille",
+  "WEIGHT": "poids",
+  "TYPE": "type",
+  "IMAGES": "Images",
+  "COLORS": "Couleurs",
+  "IMG_COLOR": "Couleur & image",
+  "REQUIRED": "obligatoire",
+  "COPY": "copier",
+  "CLIPBOARD_COPY": "Copier dans le presse-papier.",
+  "COPIED": "Copié",
+  "MAXIMUM_FILE_SIZE": "Poids maximum : <span>{{SIZE}}kb</span>",
+  "COMPUTER": "Ordinateur",
+  "LOGO_HEADER": "logo d'en-tête",
+  "BACKGROUND_HEADER_COLOR": "Couleur de fond de l'en-tête",
+  "CODE_HEX": "Code Hex",
+  "HEADER_MIC_SOUND": "En-tête micro & son",
+  "BACKGROUND_IMAGE": "Image de fond",
+  "UPLOAD_FROM_COMPUTER": "Importer de l'ordinateur",
+  "ICON_COLOR": "Couleur de l'icône",
+  "BG_IMAGE": "jpg, gif, png",
+  "REQUIRED_IMAGE": "jpg, svg, png",
+  "COLOR": "code hex",
+  "BACKGROUND_COLOR": "Couleur de fond",
+  "COLOR_HEX": "Couleur hex",
+  "RIGHT_ICON": "Icône droite",
+  "LEFT_ICON": "Icône gauche",
+  "LEFT_SUGGESTION_CHAT_BUBBLE": "Bulle de suggestion gauche",
+  "MIC_SEND_ICONS_COLOR": "Couleur des icônes micro & envoi",
+  "IPSUM": "Ipsum",
+  "EDIT_PROFILE": "Modifier le compte utilisateur",
+  "LOGOUT": "Déconnexion",
+  "UPDATE_PASSWORD": "Mise à jour du mot de passe.",
+  "UPDATE_YOUR_PASSWORD": "Mettre à jour votre mon mot de passe.",
+  "YOUR_PROFIL_INFO": "Informations concernant votre compte utilisateur",
+  "PERSONAL_INFO": "Information personnelle",
+  "PROFIL_PIC": "Image du compte utilisateur",
+  "NAME": "Nom",
+  "SURNAME": "Prénom",
+  "TEAM_INFO": "Informations équipe",
+  "ORGANISATION": "Organisation",
+  "POSITION": "Poste",
+  "TEAM_SERVICE": "Equipe/service",
+  "PASSWORD_MANAGEMENT": "Gestion du mot de passe",
+  "OLD_PASSWORD": "Ancien mot de passe",
+  "NEW_PASSWORD": "Nouveau mot de passe",
+  "REPEAT_PASSWORD": "Répétez le mot de passe",
+  "IMPORT_NEW_PIC": "Importer une nouvelle image",
+  "REMOVE_PIC": "supprimer l'image",
+  "SPEAK_COLLECT": "Speak & Collect",
+  "NO_CHANGE_TO_SAVE": "Aucun changement effectué !",
+  "UPPER_BANNER_TITLE": "Upper banner title",
+  "MAIN_TITLE": "Main title",
+  "ADD_A_TITLE": "Add a title",
+  "BUSINESS_NAME": "Business name",
+  "ADDRESS": "Address",
+  "BUSINESS_HOURS": "Business hours",
+  "MAX": "max",
+  "MONDAY": "monday",
+  "TUESDAY": "tuesday",
+  "WENESDAY": "wenesday",
+  "THURSDAY": "thursday",
+  "FRIDAY": "friday",
+  "SATURDAY": "saturday",
+  "SUNDAY": "sunday",
+  "UPPER_BANNER": "Upper banner",
+  "TEXT_COLOR": "Text color",
+  "ADD_HOURS": "Add hours",
+  "BUSINESS_HIGHLIGHTS": "Business highlights",
+  "BIG_BUTTON": "Big button",
+  "BLIND_SPOT": "BLIND SPOT",
+  "DOWNLOAD_OUR_TEMPLATE_RULE": "Download our template rule",
+  "RGPD": {
+    "TITLE": "RGPD",
+    "MAIN_TITLE": "Juridiques",
+    "NEW_DOCUMENT": "Nouveau document",
+    "UPLOAD": "Télécharger",
+    "GENERATOR": "Générateur",
+    "LIST_TITLES": {
+      "DOCUMENT_NAME": "Nom du document",
+      "DOCUMENT_SRC": "Source",
+      "DOCUMENT_TYPE": "Type",
+      "DOCUMENT_TYPE_FULL": "Type de document",
+      "DOCUMENT_LANG": "Langue",
+      "CREATION_DATE": "Date de création",
+      "USER": "Utilisateur"
+    },
+    "FORM": {
+      "MAIN_TITLE": "Générateur RGPD",
+      "MAIN_DESCRIPTION": "Vous garantissez que les informations fournies sont exactes, complètes, exhaustives et à jour. ADN.AI  ne pourra être tenue responsable en cas de manquement aux obligations d’informations incombant à l’annonceur.",
+      "RELEVANT_CHECK": "Cocher les cases pertinentes",
+      "FULL_ADDRESS": "Adresse complète y compris pays",
+      "COMPANY": {
+        "TITLE": "Désignation de l’annonceur agissant comme responsable de traitement",
+        "LABEL": "Nom société"
+      },
+      "DATES": {
+        "TITLE": "Date d’effet de la politique de confidentialité",
+        "START_LABEL": "Date de début de la campagne publicitaire",
+        "UPDATE_LABEL": "En cas de mise à jour de la politique de confidentialité au cours de la campagne, la date devra également être mise à jour."
+      },
+      "ACCOUNTABLE": {
+        "TITLE": "Identification complète du responsable de traitement",
+        "COMPANY_LABEL": "Dénomination sociale de la société annonceur",
+        "CORP_FORM_LABEL": "Fome sociale",
+        "REGISTER_LABEL": "Immatriculation au RCS",
+        "REG_PLACE_LABEL": "Lieu d'immatriculation",
+        "ADDRESS_LABEL": "Adresse du siège social"
+      },
+      "EMAIL": {
+        "TITLE": "Adresse e-mail de contact",
+        "LABEL": "Adresse e-mail de contact de la société pour les sujets RGPD (demande d’exercice de droits, autres demandes relatives à la politique de confidentialité)"
+      },
+      "POSTAL_ADDRESS": {
+        "TITLE": "Adresse postale de contact",
+        "LABEL": "Adresse postale de contact pour les sujets RGPD (demande d’exercice de droits, autres demandes relatives à la politique de confidentialité)",
+        "PLACEHOLDER": "Adresse complète y compris pays"
+      },
+      "FINALITY": {
+        "TITLE": "Finalités des traitements de données personnelles et base légale",
+        "DESCRIPTION1": "L’annonceur entend procéder aux traitements de données personnelles pour les finalités et selon les bases légales suivantes :",
+        "MANAGEMENT_OF_REQUESTS_FOR": "gestion de sollicitations pour",
+        "FIRST_CONTACT": "une prise de contact",
+        "PROVIDING_QUOTES": "la fourniture de devis",
+        "THE_PROVISION_OF_INFORMATION_SERVICES": "la fourniture d’informations concernant l’éligibilité à une offre de service",
+        "THE_PROVISION_OF_INFORMATION_OPERATIONS": "la fourniture d’informations concernant des opérations promotionnelles",
+        "APPLICABLE_LEGAL_BASIS": "base légale applicable",
+        "CONSENT": "consentement",
+        "OTHER_EXPLAIN": "autre (préciser)",
+        "RECEIVE_AND_PROCESS_YOUR_REQUEST": "réceptionner et traiter votre / vos demande(s) de",
+        "CONTACT": "contact",
+        "SUPPLY_OF_QUOTES": "fourniture de devis",
+        "THE_PROVISION_OF_INFORMATION_PRODUCTS": "fourniture d’informations concernant des opérations promotionnelles pour nos offres, produits ou services",
+        "EXECUTION_OF_PRECONTRACTUAL_MEASURES": "exécution de mesures précontractuelles",
+        "MANAGEMENT_OF_REQUESTS_DURING": "de gestion de sollicitations lors de",
+        "YOUR_PARTICIPATION_IN_CONTESTS": "votre participation à des jeux concours",
+        "YOUR_PARTICIPATION_IN_PROMOTIONAL_OPERATIONS": "votre participation à des opérations promotionnelles",
+        "MANAGEMENT_OF_THE_OPTIMIZATION_OF_THE_DISPLAY_TOOL": "de gestion de l’optimisation de l’affichage et de l’utilisation de l’Outil",
+        "LEGITIMATE_INTEREST": "intérêt légitime",
+        "FOR_THE_DEVELOPMENT_OF_STATISTICS_RELATING_TOOL": "d’élaboration de statistiques relatives à l’utilisation de l’Outil",
+        "OTHER_EXPLAINING": "autre (à compléter en expliquant la ou les finalités poursuivies et la/les bases légales applicables)"
+      },
+      "PERS_CATEG": {
+        "TITLE": "Catégories de données personnelles traitées",
+        "DESCRIPTION": "L’annonceur entend procéder aux traitements des catégories de données personnelles suivantes pour les finalités énoncées :",
+        "ID_DATA": "données d’identification (voix au format audio, nom, prénom, numéro de téléphone, adresse postale, code postal, ville, pays, adresse e-mail)",
+        "ANSWER_DATA": "données relatives aux réponses adressées (corps du message électronique ou audio, réponses au jeu concours ou à l’opération promotionnelle, date et heure d’envoi du message)",
+        "EQUIPMENT_DATA": "données techniques relatives à l’équipement et au navigateur utilisés et configuration de l’Outil (audio ou non)",
+        "STATS_DATA": "statistiques d’utilisation de l’Outil (temps passé, nombre de clics ou d’interactions, etc.)",
+        "OTHER_DATA": "autre (préciser)"
+      },
+      "CONSERVATION": {
+        "TITLE": "Durée de conservation des données personnelles",
+        "DESCRIPTION": "L’annonceur entend conserver les données personnelles traitées pour les finalités énumérées pendant les durées suivantes :",
+        "DESCRIPTION_HELP": "cocher les cases pertinentes et compléter les informations (suggestions de propositions)",
+        "AUDIO_DATA_LABEL": "les données personnelles sous format audio sont conservées pour une durée n’excédant pas",
+        "AUDIO_DATA_PLACEHOLDER": "durée à compléter, ex. 6 mois",
+        "AUDIO_DATA_HELP": "à compter de leur enregistrement, elles font l’objet d’une retranscription au format électronique et sont conservées pour les durées spécifiées ci-dessous",
+        "PERSONAL_DATA_LABEL": "les données personnelles collectées aux fins de traiter et de faire droit",
+        "DESCRIPTION3": "à compter de la clôture du jeu concours concernant votre participation au jeu concours",
+        "PERSONAL_DATA_PLACEHOLDER": "finalités à selon le cas",
+        "COLLECT_REASONS": [
+          "aux sollicitations",
+          "à votre demande"
+        ],
+        "PERSONAL_DATA_LABEL2": "sont conservées le temps de traiter votre demande, jusqu’à",
+        "PERSONAL_DATA_LABEL3": "à compter du dernier contact en matière de prospection sauf retrait de votre consentement, et jusqu’à",
+        "TECH_DATA": "les données techniques collectées aux fins d’optimisation de l’affichage et de l’utilisation de l’Outil sont conservées pour une durée n’excédant pas",
+        "STATS_DATA": "les données collectées aux fins d’élaboration de statistiques d’utilisation sont conservées dans une forme pseudonymisée pour une durée maximale de"
+      },
+      "DESTINATION": {
+        "TITLE": "Destinataire des données personnelles",
+        "DESCRIPTION": "L’annonceur entend permettre aux personnes (physiques et/ou morales) suivantes d’accéder ou d’obtenir les données personnelles traitées :",
+        "OUR_STAFF": "notre personnel en charge des opérations marketing et publicitaires",
+        "STAFF_OF": "les personnels de nos",
+        "STAFF_OF_PLACEHOLDER": "à compléter, ex. enseignes, concessionnaires…",
+        "SUBCONTRACTOR_STAFF": "les personnels de nos prestataires sous-traitants (prestataire de fourniture et d’hébergement de l’Outil)",
+        "SUBCONTRACTOR_STAFF_PLACEHOLDER": "à compléter selon les cas"
+      },
+      "EXPORT": {
+        "TITLE": "Transferts internationaux de données personnelles",
+        "DESCRIPTION": "L’annonceur informe les personnes concernées de l’existence de transfert de données personnelle.",
+        "EXPORTED_OR_NOT": [
+          "Les données",
+          "ne font pas",
+          "font",
+          "l'objet de transferts de données hors UE"
+        ],
+        "EXPORT_COUNTRIES_LABEL": "pays concerné",
+        "EXPORT_COUNTRIES_PLACEHOLDER": "mettre une virgule entre chaque pays",
+        "EXPORT_COUNTRIES_HIDDEN": "je ne souhaite pas indiquer les pays concernés"
+      }
+    },
+    "GENERATED": "Your document has been generated.",
+    "GENERATOR_ERROR": "An error has occurred while creating your document. PLease try again later."
+  },
+  "LEGAL": {
+    "FR": "Français (FR)",
+    "EN": "Anglais (EN)",
+    "ES": "Espagnol (ES)",
+    "RGPD": "RGPD",
+    "CGU": "CGU",
+    "CGV": "CGV",
+    "UPLOAD": "Téléchargement",
+    "GENERATED": "Généré"
+  },
+  "FORM_ERRORS": {
+    "REQUIRED": "Ce champ est oligatoire",
+    "REQUIRED_FIELDS": "Ces champs sont oligatoires",
+    "REQUIRED_ONE": "Au moins un des champs est oligatoire",
+    "REQUIRED_ONE_BELOW": "Au moins un des champs ci-dessous est oligatoire",
+    "INVALID_LINK": "Le lien doit commencer par `https://`.",
+    "LINK_FORMAT_ERROR": "Le lien doit commencer par `https://`, `%%MACRO%%}https://` or `${MACRO}https://`.",
+    "ALREADY_EXIST": "Cette valeur est déjà enregistrée.",
+    "INVALID_SCRIPT": "Veuillez vérifier que les données saisies ne comportent pas d'erreur.",
+    "MAX_LENGTH": "Maximum {{LENGTH}} caracters.",
+    "TOO_HEAVY": "Ce fichier est trop lourd.",
+    "WRONG_FORMAT": "Seul les fichiers {{FORMAT}} sont acceptés.",
+    "NOT_IDENTICAL": "Les deux entrées saisies ne sont pas identiques."
+  },
+  "300x600_SPLIT_CHECK_LIST": "300x600 splitscreen - check-list",
+  "COLOR_IMAGE": "Couleur & image",
+  "BACKGROUND_CONVERSATION": "Arrière-plan de la conversation",
+  "RESOURCES_UPDATED": "Tous les changements ont été enregistrés.",
+  "RESOURCES_ERROR": "Une erreur est survenue pendant l'enregistrement des modifications. Merci d'essayer de nouveau.",
+  "NO_CHANGE_TO_MAKE": "Aucun changement effectué",
+  "ADD_TEXT": "Ajout texte",
+  "ADD_IMG": "Ajout image",
+  "ADD_MP3": "Ajout mp3",
+  "ADD_SOUND": "Ajout son",
+  "ADD_LINK": "Ajout lien",
+  "YOUR_LINK_TEXT": "Texte",
+  "YOUR_LINK": "Lien",
+  "END_LINK_DESC": "Ce type de lien est obligatoirement affiché en fin de conversation.",
+  "LINK_REQUIREMENTS": "Le lien soit commencer par <i>https://</i> ou une macro <i>%%MACRO%%https://</i> <i>${MACRO}https://</i>.",
+  "UPLOAD_CUSTOM_VOICE": "Importer un audio personnalisé",
+  "DONE": "Terminé",
+  "NODE_EDIT_CLICK": "Double-cliquer pour modifier un noeud",
+  "LOADING_YOUR_FILE": "Chargement en cours",
+  "ANSWERS": "Preparez vos réponses",
+  "MULTIPLE_CHOICE": "Choix multiple",
+  "REMOVE_ANSWER": "Supprimer la/les réponse(s)",
+  "OPEN_ENDED": "Choix ouvert",
+  "DOUBLE_CLICK_TO_EDIT_EDIT": "Double-cliquer pour modifier un noeud",
+  "CHOOSE_A_FILE": "Choisir un fichier",
+  "WRITE_LINK": "Choisir un fichier",
+  "YOU_CAN_EDIT_EACH_ANSWER_BY_CLICKING": "Vous pouvez modifier chaque réponse en double-cliquant dessus",
+  "ADD_AN_ANSWER": "Ajouter une réponse",
+  "CAUTION": "Attention",
+  "AFTER_3_ANSWERS_IT_BECOMES_DIFFICULT": "Au delà de 3 réponses, il devient difficile pour une cerveau humain de mémoriser toutes les propositions.",
+  "SYNONYMS_TO": "Synonymes de",
+  "YEAH": "super",
+  "OK": "ok",
+  "OF_COURSE": "Bien sûr",
+  "ADD_A_NEW_SYNONYMS": "Ajouter un synonyme",
+  "ONLY_JPG_AND_PNG_FILE_MAX_3MO": "fichier jpg ou png seulement , max 3 Mo",
+  "ONLY_MP3_FILE_MAX_3MO": "fichier mp3 seulement, max 3 Mo",
+  "MP3_ONLY_3MO_MAX": "mp3 seulement, 3 mo max",
+  "PHONE": "Téléphone",
+  "EMAIL": "Email",
+  "BEFORE_YOU_START_HERE_SOME_RULES": "Avant de commencer, voici quelques éléments à prendre en considération quand vous demandez une adresse.",
+  "MARK_AS_FINAL_BUBBLE": "Marquer comme bulle finale",
+  "PHONE_NUMBER": "Numéro de téléphone",
+  "EDIT_NODE_NAME": "Modifier le nom du noeud",
+  "NODE_NAME": "Nom du noeud",
+  "NODE_NAME_IS_REQUIRED": "Le nom du noeud est obligatoire",
+  "QUESTION": "Posez votre question",
+  "QUESTION_DESCRIPTION": "Concevez votre contenu commme les gens parlent, pas comme ils écrivent. Gardez l'introduction et les réponses courtes.",
+  "ANSWER_DESCRIPTION": "Ajouter une réponse à choix multiple ou ouverte à votre question. Essayez de vous en tenir à un maximum de 3 choix.",
+  "EDIT_YOUR_ANSWER": "Modifier votre réponse",
+  "ANSWER_EDIT_DESCRIPTION": "Vous pouvez modifier votre texte, ajouter des synonymes et changer les styles affichés. Vous pouvez aussi ajouter une image.",
+  "SYNONYMS": "Synonymes",
+  "IMAGE": "Image",
+  "STYLES": "Styles",
+  "SYNONYMS_DESCRIPTION": "Ajoutez des synonymes à votre réponse pour la rendre plus facile à comprendre",
+  "IMG_DESCRIPTION": "Ajouter une image",
+  "STYLES_DESCRIPTION": "Personnaliser le texte et la couleur de la bulle",
+  "JPG_PNG_FILE_WITH_MAX_SIZES_WEIGHT": "Fichier JPG et PNG seulement (max {{MAX}})",
+  "TEXT": "Texte",
+  "CHOOSE_YOUR_ANSWER_TYPE": "Choisir le type de réponse",
+  "ADVANCED_SETTINGS": "Options avancées",
+  "UPLOAD_CUSTOM_VOICE_MP3_ONLY_1MO": "Importer un audio personnalisé (mp3 seulement, 1 mo max)",
+  "THIS_ITEM_IS_REQUIRED_VALUE": "Cet élément est obligatoire",
+  "CHOOSE_A_ITEM": "Choisir un élément",
+  "START_NODE": "Noeud de départ",
+  "ADVANCE_SETTINGS": {
+    "TITLE": "Paramètres avancés",
+    "DELETE_SETTINGS": "Supprimer les paramètres",
+    "RESET_SETTINGS": "Réinitialiser les paramètres",
+    "BG_LINKS": {
+      "TITLE": "Lien de fond",
+      "DESCRIPTION": "Si vous souhaitez que le fond de votre créa soit cliquable. Veuillez mettre le lien ci- dessous.",
+      "PLACE_HOLDER": "ex: ${CLICK_URL}https://www.votre_url.fr...",
+      "LABEL": "Lien"
+    },
+    "MACRO": {
+      "TITLE": "Macros",
+      "DESCRIPTION": "Veuillez saisir les macros sans le dollar ni les accolades.<br>Ceux-ci seront ajouté à l'enregistrement.",
+      "PLACE_HOLDER": "Nouvelle macro (ex: CLICK_URL)",
+      "ADD_NEW": "Ajouter une macro",
+      "TYPE": "Macro type",
+      "XANDR": "${...}",
+      "GOOGLE": "%%...%%",
+      "MEDIAMATH": "[...]"
+    },
+    "TACTILE": {
+      "TITLE": "Mode tactile",
+      "DESCRIPTION": "Utiliser cette option lorsque vous souhatez désactiver l'accès au micro.",
+      "ENABLE": "Activer le mode tactile"
+    },
+    "PM_LINKS": {
+      "TITLE": "Lien `Post Message`",
+      "DESCRIPTION": "Lorsqu'un lien est ajouté ici, un appel et fait sur cette URL via la fonction `parent.window.postMessage` :<br><small>- Début de conversation (adnai:conversation-started).<br>- Fin de conversation (adnai:conversation-ended).</small>",
+      "PLACE_HOLDER": "ex: https://www.lien_post_message.fr...",
+      "LABEL": "Lien"
+    },
+    "SCRIPTS": {
+      "TITLE": "Scripts (utilisateurs avertis uniquement)",
+      "DESCRIPTION": "Si vous avez besoin dans votre création d'un script particulier.<br><small><i>Attention ceci peut entrainer un disfonctionnement majeur !</i></small>",
+      "PLACE_HOLDER": "",
+      "LABELS": {
+        "TOP" : "Insérez votre script avec la balise de fermeture head.",
+        "BOTTOM" : "Insérez votre script avec la balise de fermeture body (conseillé)."
+      }
+    },
+    "CUSTOM_MSG": {
+      "TITLE": "Personnaliser les messages",
+      "DESCRIPTION": "Liste des messages générique utilisés dans une conversation<br>comme le message d'erreur etc... Vous pouvez customiser<br>ces messages.",
+      "PLACE_HOLDER": "",
+      "LABELS": {
+        "NOINPUT" : "Used when provided answer is incorrect (NO INPUT)",
+        "STOP" : "Used when user stop conversation using stop words (STOP)"
+      }
+    },
+    "ERRORS": {
+      "DELETING_SETTING": "Une erreur est survenue lors de la suppression du paramètre. Veuillez essayer à nouveau.",
+      "LINK_DELETE": "Une erreur est survenue lors de la suppression de votre lien. Veuillez essayer à nouveau.",
+      "UPDATING_LINK": "Une erreur est survenue lors de la mise à jour de votre lien. Veuillez essayer à nouveau."
+    }
+  },
+  "BUILTINS": {
+    "PHONE" : {
+      "LABEL" : "Capture numéro téléphone",
+      "HELP" : "Capture d’un numéro de téléphone dans une requête utilisateur selon le format choisi dans les options. Si un numéro de téléphone est trouvé, une confirmation est demandée à l’utilisateur. Sinon, l’utilisateur est invité à redonner son numéro de téléphone autant de fois que spécifié dans l’option correspondante (3 par défaut). Si le nombre prévu de tentatives est dépassé, la conversation se termine avec un contenu qui peut être spécifié également dans les options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Nombre de tentatives de collecte d’un numéro de téléphone",
+          "HELP": "Nombre de tentatives de collecte d’un numéro de téléphone"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Demande de confirmation",
+          "HELP": "{NUM} = numéro capture"
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Phrase en cas d’échec",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec",
+          "HELP": "Votre audio pour la phrase en cas d’échec"
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Phrase en cas d’échec après le nombre prévu de tentatives",
+          "HELP": ""
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec après le nombre prévu de tentatives",
+          "HELP": "Votre audio pour la phrase en cas d’échec après le nombre prévu de tentatives"
+        },
+        "STORAGE": {
+          "LABEL": "Stockage de la donnée ?",
+          "HELP": "Si vous souhaitez stocker cette donnée, n’oubliez pas de mettre à disposition votre politique de confidentialité et de la faire valider avant la collecte de toute donnée"
+        },
+        "FORMATS": {
+          "LABEL": "Formats",
+          "HELP": "",
+          "LIST_LABELS": {
+            "FR_MOBILE": "France, mobile",
+            "FR_LANDLINE": "France, fixe",
+            "FR_BOTH": "France, fixe & mobile"
+          }
+        }
+      }
+    },
+    "ADD_LOC" : {
+      "LABEL" : "Capture adresse localisation",
+      "HELP" : "Capture d’une adresse dans une requête utilisateur permettant une localisation au niveau ville. Si une localisation est trouvée, une confirmation est demandée à l’utilisateur. Sinon, l’utilisateur est invité à redonner sa localisation autant de fois que spécifié dans l’option correspondante (3 par défaut). Si le nombre prévu de tentatives est dépassé, la conversation se termine avec un contenu qui peut être spécifié également dans les options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Nombre de tentatives de collecte d’une localisation",
+          "HELP": "Nombre de tentatives de collecte d’une localisation"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Demande de confirmation",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Phrase en cas d’échec",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "audio en cas d’échec",
+          "HELP": "Votre audio pour la phrase en cas d’échec"
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Phrase en cas d’échec après le nombre prévu de tentatives",
+          "HELP": ""
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec après le nombre prévu de tentatives",
+          "HELP": "Votre audio pour la phrase en cas d’échec après le nombre prévu de tentatives"
+        },
+        "STORAGE": {
+          "LABEL": "Stockage de la donnée ?",
+          "HELP": "Si vous souhaitez stocker cette donnée, n’oubliez pas de mettre à disposition votre politique de confidentialité et de la faire valider avant la collecte de toute donnée"
+        }
+      }
+    },
+    "ADD_ACC" : {
+      "LABEL" : "Capture adresse précise",
+      "HELP" : "Capture d’une adresse précise (rue, ville, code postal)  dans une requête utilisateur. Si une adresse valide est trouvée, une confirmation est demandée à l’utilisateur. Sinon, l’utilisateur est invité à redonner son adresse autant de fois que spécifié dans l’option correspondante (3 par défaut). Si le nombre prévu de tentatives est dépassé, la conversation se termine avec un contenu qui peut être spécifié également dans les options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Nombre de tentatives de collecte d’une adresse",
+          "HELP": "Nombre de tentatives de collecte d’une adresse"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Demande de confirmation",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Phrase en cas d’échec",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec",
+          "HELP": "Votre audio pour la phrase en cas d’échec"
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Phrase en cas d’échec après le nombre prévu de tentatives",
+          "HELP": ""
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec après le nombre prévu de tentatives",
+          "HELP": "Votre audio pour la phrase en cas d’échec après le nombre prévu de tentatives"
+        },
+        "STORAGE": {
+          "LABEL": "Stockage de la donnée ?",
+          "HELP": "Si vous souhaitez stocker cette donnée, n’oubliez pas de mettre à disposition votre politique de confidentialité et de la faire valider avant la collecte de toute donnée"
+        }
+      }
+    },
+    "EMAIL" : {
+      "LABEL" : "Capture adresse email",
+      "HELP" : "Capture d’une adresse email dans une requête utilisateur. Si une adresse email (au niveau de la syntaxe, pas de vérification de l’existence réelle de l’adresse ) valide est trouvée, une confirmation est demandée à l’utilisateur (en précisant l’adresse email trouvée). Sinon, l’utilisateur est invité à redonner son adresse email autant de fois que spécifié dans l’option correspondante (3 par défaut). Si le nombre prévu de tentatives est dépassé, la conversation se termine avec un contenu qui peut être spécifié également dans les options.",
+      "OPT": {
+        "ATTEMPTS": {
+          "LABEL": "Nombre de tentatives de collecte d’une adresse",
+          "HELP": "Nombre de tentatives de collecte d’une adresse"
+        },
+        "CONFIRMATION_PHRASE": {
+          "LABEL": "Demande de confirmation",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE": {
+          "LABEL": "Phrase en cas d’échec",
+          "HELP": ""
+        },
+        "REPEAT_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec",
+          "HELP": "Votre audio pour la phrase en cas d’échec"
+        },
+        "FAILURE_PHRASE": {
+          "LABEL": "Phrase en cas d’échec après le nombre prévu de tentatives",
+          "HELP": ""
+        },
+        "FAILURE_PHRASE_AUDIO": {
+          "LABEL": "Audio en cas d’échec après le nombre prévu de tentatives",
+          "HELP": "Votre audio pour la phrase en cas d’échec après le nombre prévu de tentatives"
+        },
+        "STORAGE": {
+          "LABEL": "Stockage de la donnée ?",
+          "HELP": "Si vous souhaitez stocker cette donnée, n’oubliez pas de mettre à disposition votre politique de confidentialité et de la faire valider avant la collecte de toute donnée"
+        }
+      }
+    }
+  },
+  "FORMAT": {
+    "FORMAT": "Format",
+    "TITLE_HELP": "Nos formats sont aux normes IAB. Ils afficheront votre conversation. Vous pouvez créer autant de formats que vous le souhaitez.",
+    "NAME": "Nom du format",
+    "NEW": "Nouveau format",
+    "CREATE_NEW": "Créer un nouveau format",
+    "DUPLICATE": "Ou dupliquer un format existant",
+    "PUBLISH_CONFIRM": "Souhatez-vous vraiement publier votre format ? Cette action le rendra public.",
+    "PUBLISHED": "La demande de publication a été fait, votre format sera bientôt disponible.",
+    "MISSING": {
+      "TITLE": "Elément(s) manquant(s) pour publier votre format",
+      "CONVERSATION": "Vous devez avoir une conversation publiée attachée à votre format.",
+      "CONV_PUBLICATION": "Vous devez publier votre conversation.",
+      "NOTHING": "Votre format est à jour.<br>Aucune modification depuis la dernière publication.",
+      "PUBLICATION_REQUESTED": "Vous avez une demande de publication en attente."
+    }
+  },
+  "CREATION": {
+    "CREATIONS": "Créations",
+    "TITLE_HELP": "Pour mettre en place la création parfaite, vous devez créer une conversation et au moins un format.",
+    "CREATE_NEW": "Créer une nouvelle création",
+    "NEW": "Nouvelle création",
+    "NAME": "Nom de la création",
+    "NAME_REQUIRED": "Le nom de la création est obligatoire",
+    "CHOOSE_TYPE": "Choisir le type de création",
+    "CREAPUB": "Pubs",
+    "ASSISTANT_APPS": "Applications Assistants",
+    "VOICE_COMMERCE": "Voice commerce",
+    "PUBLISHED": "Votre création a été publiée !",
+    "PUBLISHED_ERROR": "Une erreur est survenue pendant la publication de la création. Merci d'essayer de nouveau !",
+    "STATE_ERROR": "Erreur : Etat indéfini ou incorrect, merci de contacter l'administrateur de Talk-i.",
+    "IS_DEPLOYING": "Déploiement demandé",
+    "UPDATED": "Dernière MàJ"
+  },
+  "CONVERSATION": {
+    "NEW": "Nouvelle conversation",
+    "TITLE_HELP": "Une conversation est la façon dont votre annonce parlera à vos clients.",
+    "VOICE_SAMPLE": "C'est ma voix. Vous pouvez la sélectionner pour votre conversation.",
+    "VOICE_SAMPLE_NOT_SUPPORTED": "Sample sentence (to choose voice) is not translated in current conversation language.",
+    "LABEL": "Conversation",
+    "CREATE_NEW": "Créer une nouvelle conversation",
+    "OR_CHOOSE_EXISTING": "Or choisir une conversation existante",
+    "NAME": "Nom de la conversation",
+    "LANG": "Langue de la conversation",
+    "LANG_SELECT": "Merci de choisir la langue de la conversation",
+    "SAVED": "La conversation a été enregistrée !",
+    "SAVED_ERROR": "Une erreur est survenue pendant la sauvegarde de la conversation. Merci d'essayer de nouveau !",
+    "PREVIEWABLE": "L'aperçu de votre conversation est disponible !",
+    "PREVIEW_ERROR": "Une erreur est survenue pendant la préparation de la conversation. Merci d'essayer de nouveau !",
+    "PREVIEW_NOOP_ERROR": "Veuillez poursuivre en cliquant sur les suggestions, merci.",
+    "READY_TO_PUBLISH": "Votre conversation est prête à être déployée !",
+    "PUBLISHED_WHAT_NEXT": "Bravo, votre conversation est maintenant publiée !<br>Que voulez-vous faire à présent :<br>Créer un format ou retourner sur la page de création ?",
+    "PUBLISHED_ERROR": "Une erreur est survenue pendant la publication de la conversation. Merci d'essayer de nouveau !",
+    "MUST_BE_PUBLISHED": "La conversation doit être publiée afin de la rendre disponible.",
+    "LINK_ERROR": "La conversation {{NAME}} n'est pas liée à la création. Merci d'essayer de nouveau.",
+    "UNLINKED": "La conversation a été dissociée de la création.",
+    "UNLINK_ERROR": "Une erreur est survenue pendant la dissociation de la conversation. Merci d'essayer de nouveau.",
+    "PLEASE_SELECT": "Merci de sélectionner une conversation à modifier.",
+    "MISSING": {
+      "APPLICATION_CODE": "Code application manquant.",
+      "CONFIGURATION": "Fichier de configuration manquant.",
+      "LANGUAGE_CODE": "Code langue non défini.",
+      "VOICE_ID": "Une voix doit être sélectionnée pour cette conversation.",
+      "APPLICATION_TYPE": "Type d'application manquant.",
+      "RGPD_DOCUMENT": "Un document RGPD doit être fourni.",
+      "NODE_LINKS": "Un lien est manquant entre les noeuds.",
+      "END_NODE": "Vous devez avoir au moins un noeud marqué comme `bulle finale`.",
+      "NOTHING": "Votre conversation est déjà complètement publiée. Aucuns changements n'a été enregistré depuis."
+    },
+    "NODE_EDITOR": {
+      "FINAL_WITH_LINK_ERROR": "Cette option ne peut pas être supprimée si vous avez un lien ci-dessus."
+    },
+    "PREVIEW_ERROR": "Service indisponible. Merci d'essayer plus tard.",
+    "CANT_DELETE_NODE": "Ce noeud ne peut pas être supprimé.",
+    "PUBLISH_CONFIRM": "Souhatez-vous vraiement publier votre conversation ? Cette action la rendra public."
+  },
+  "HELP": {
+    "BUTTON_LABEL" : "Besoin d'aide ?",
+    "SERVER_MESSAGE": "Si vous avez une question ou un commentaire, c'est le bon endroit. Enregistrez-le. Nous vous répondrons dans les meilleurs délais."
+  },
+  "USERS_LIST": "Liste des utilisateurs",
+  "USERS": "Utilisateurs",
+  "NEW_USER": "Nouvel utilisateur",
+  "EDIT_USER": "Modifiez les informations",
+  "FIRSTNAME": "Prénom",
+  "LASTNAME": "Nom",
+  "EMAIL_ADDRESS": "Adresse Email",
+  "LINKED_COMPANIES": "Entreprises liées",
+  "RECORDER": {
+    "STAND_BY": "Enregister votre question",
+    "RECORDING": "Enregistrement en cours",
+    "RECORDING_STOP": "Recommencer, écouter, envoyer !",
+    "MESSAGE_SENT": "Message envoyé"
+  },
+  "NEW_ORGANISATION": "Nouvelle organisation",
+  "EDIT_ORGANISATION": "Modifier l'organisation",
+  "ORGANISATION_NAME": "Nom de l'organisation",
+  "NUMBER_OF_MEMBERS": "Nombre de membres",
+  "ORGANISATION_LIST": "Liste des organisations",
+  "ORGANISATIONS": "Organisations",
+  "DRAG_TO_REPOSITION_PICTURE": "Glissez pour reposisionner l'image",
+  "FIT_TO_CROPPED_ZONE": "Ajuster à la zone"
+}

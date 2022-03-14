@@ -1,0 +1,243 @@
+<div class="h-100 position-relative">
+
+  <!-- NODE EDITOR HEADER -->
+  <div class="rp-header position-relative d-flex justify-content-center align-items-center">
+    <div class="close-icon position-absolute cursor-pointer" (click)='closeEditor()'>
+      <i class="icon-cancel-big"></i>
+    </div>
+    <div class="rp-title d-flex align-items-center">
+      <i *ngIf="!editing" class="icon-edit cursor-pointer" (click)="focusIn()"></i>
+      <i *ngIf="editing" class="icon-cancel big-icon ml-1 cursor-pointer" (click)="updateOrClose(true)"></i>
+      <i *ngIf="editing" class="icon-sent big-icon cursor-pointer" (click)="updateOrClose(false)"></i>
+      <span contenteditable="true" (focusin)="focusIn()" [formControl]="nodeName"></span>
+    </div>
+    <div class="delete-icon position-absolute cursor-pointer" (click)="removeContent()">
+      <i class="icon-delete"></i>
+    </div>
+  </div>
+  <!-- NODE EDITOR HEADER END -->
+
+  <!-- NODE EDITOR BODY -->
+  <div class="rp-body position-relative">
+    <div class="question-header-section">
+      <div class="question-title d-flex align-items-center">
+        <div class="number d-flex align-items-center justify-content-center">1</div>
+        <div class="title">{{ 'QUESTION' | translate }}</div>
+      </div>
+      <div class="question-description">{{ 'QUESTION_DESCRIPTION' | translate }}</div>
+    </div>
+
+    <!-- DRAG AND DROP SECTION -->
+    <div cdkDropListGroup>
+      <div class="completed-add-section" *ngFor="let sections of editedNode.convNode.Sections; let i = index"
+        [ngClass]="{'round-block': sections.length > 1}">
+        <div class="section-list" *ngIf="sections[0].SectionType !== 'Link'" cdkDropList [cdkDropListData]="sections"
+             (cdkDropListDropped)="drop($event)">
+          <app-node-section-list [sections]="sections" [key]="i" (sectionEdit)="sectionEdit($event)"
+                                 (sectionRemove)="sectionRemove($event)"></app-node-section-list>
+        </div>
+        <div class="section-list" *ngIf="sections[0].SectionType === 'Link'">
+          <app-node-section-list [sections]="sections" [key]="i" (sectionEdit)="sectionEdit($event)"
+                                 (sectionRemove)="sectionRemove($event)"></app-node-section-list>
+        </div>
+      </div>
+    </div>
+    <!-- DRAG AND DROP SECTION END -->
+
+    <div *ngIf="editedNode.convNode.Sections.length > 0" class="section-bottom"><i class="icon-add"></i></div>
+
+    <div class="add-items d-flex align-items-center justify-content-around"
+      [ngClass]="{'border-B':sectionSelected!='' || editedNode?.convNode?.Sections.length==0}">
+      <div class="item d-flex align-items-center flex-column cursor-pointer" *ngFor="let list of sectionList"
+        [ngClass]="{'active':sectionSelected===list.type}" (click)="sectionSelect(list.type)">
+        <i [className]="list.icon"></i>
+        <span>{{ list.name | translate }}</span>
+      </div>
+    </div>
+
+    <!-- ADD TEXT PANEL -->
+    <app-add-text *ngIf="sectionSelected==='Text'" [audionLoading]="isLoading.Audio"
+                  [textSection]="textSection" [removeButton]="{text: 'BUTTONS.CANCEL', icon: 'icon-cancel-big'}"
+                  (updateLayout)="updateLayout.emit()" (snackBar)="openSnackBar($event)" (sectionAdd)="sectionAdd($event)"
+                  (deleteText)="removeAddText()" (removeAudio)="removeCustomAudio()"
+                  (updateParent)="sectionUpdate($event)"></app-add-text>
+
+    <!-- ADD IMAGE -->
+    <div *ngIf="sectionSelected==='Image'" class="image-input">
+      <div *ngIf="isLoading.Image" class="text-center"><span class="adnai-loader loader-sm"></span></div>
+      <div *ngIf="!isLoading.Image" class="image-file-selection d-flex align-items-center justify-content-between">
+        <label class="d-flex justify-content-center align-items-center h-100 m-0">
+          {{ 'CHOOSE_A_FILE' | translate }}
+          <input type="file" class="d-none" accept=".jpg, .jpeg, .png" (change)="addImage($event)">
+        </label>
+        <i class="icon-cancel-big cursor-pointer" (click)="this.sectionSelected=''"></i>
+      </div>
+      <div class="d-flex justify-content-center allow-types">
+        <span>{{ 'ONLY_JPG_AND_PNG_FILE_MAX_3MO' | translate }}</span>
+      </div>
+    </div>
+    <!-- ADD IMAGE END -->
+
+    <!-- ADD MP3 -->
+    <div *ngIf="sectionSelected==='Audio'" class="image-input">
+      <div *ngIf="isLoading.Audio" class="text-center"><span class="adnai-loader loader-sm"></span></div>
+      <div *ngIf="!isLoading.Audio" class="image-file-selection d-flex align-items-center justify-content-between">
+        <label class="d-flex justify-content-center align-items-center h-100 m-0">
+          {{ 'CHOOSE_A_FILE' | translate }}
+          <input type="file" class="d-none" accept=".mp3" (change)="addAudio($event, 'audio')">
+        </label>
+        <i class="icon-cancel-big cursor-pointer" (click)="this.sectionSelected=''"></i>
+      </div>
+      <div class="d-flex justify-content-center allow-types">
+        <span>{{ 'ONLY_MP3_FILE_MAX_3MO' | translate }}</span>
+      </div>
+    </div>
+    <!-- ADD MP3 END-->
+
+    <!-- ADD LINK -->
+    <div *ngIf="sectionSelected==='Link'" class="link-input">
+      <div class="link-file-selection">
+        <div class="description">{{'END_LINK_DESC' | translate}}</div>
+
+        <input type="text" class="form-control" [(ngModel)]="linkSection.text" id="link-text"
+        placeholder="{{ 'YOUR_LINK_TEXT' | translate }}">
+
+        <input type="text" class="form-control input-link" [(ngModel)]="linkSection.link" id="link-choice" placeholder="{{ 'YOUR_LINK' | translate }}">
+        <i class="icon-cancel-big cursor-pointer" (click)="this.sectionSelected=''"></i>
+        <i class="icon-sent-big cursor-pointer" (click)="addLink()"></i>
+        <div *ngIf="linkError" class="invalid-feedback text-center">{{'FORM_ERRORS.LINK_FORMAT_ERROR' | translate}}</div>
+      </div>
+      <div class="d-flex justify-content-center description">
+        <span [innerHTML]="'LINK_REQUIREMENTS' | translate"></span>
+      </div>
+    </div>
+    <!-- ADD LINK END -->
+
+    <!-- ANSWERS SECTION -->
+    <div *ngIf="editedNode.convNode.Sections.length > 0 && !editedNode.convNode.IsDefaultNode" class="answers">
+      <div class="answer-header-section">
+        <div class="answer-title d-flex align-items-center">
+          <div class="number d-flex align-items-center justify-content-center">2</div>
+          <div class="title">{{ 'ANSWERS' | translate }}</div>
+        </div>
+        <div class="answer-description">{{ 'ANSWER_DESCRIPTION' | translate }}</div>
+      </div>
+      <div class="answer-type-select">
+        <app-open-ended-select *ngIf="builtinListLoaded" [editedNode]="editedNode" [itemList]="builtinList" [selectType]="selectType"
+          [defaultValue]="editedNode.convNode.Answers.AnswerType" (parentFunc)="changeFn($event)">
+        </app-open-ended-select>
+      </div>
+
+      <span *ngIf="editedNode.convNode.Answers.AnswerType === 'MultipleChoice' ||
+      (editedNode.convNode.Answers.AnswerList.length > 0 && editedNode.convNode.Answers.AnswerList[0].Builtin.nodeBuiltinOptions.length > 0)"
+        class="multiple-line open-ended-dashed"></span>
+
+      <div class="answer-content-section">
+
+        <!-- MULTIPLE CHOICE SECTION -->
+        <div *ngIf="editedNode.convNode.Answers.AnswerType==='MultipleChoice'" class="multi-choice-section">
+          <p *ngIf="editedNode.convNode.Answers.AnswerList && editedNode.convNode.Answers.AnswerList.length > 0"
+            class="description">{{ 'YOU_CAN_EDIT_EACH_ANSWER_BY_CLICKING' | translate }}</p>
+          <div *ngFor="let answer of editedNode.convNode.Answers.AnswerList"
+            class="completed-answer-item d-flex align-items-center justify-content-between">
+            <i class="icon-list"></i>
+            <div class="content d-flex justify-content-between align-items-center"
+              (click)="synonymsOpen(answer.AnswerText, answer._id)">
+              {{answer.AnswerText}}
+              <i class="icon-edit"></i>
+            </div>
+            <i class="icon-delete" (click)="answerItemDel(answer._id)"></i>
+          </div>
+          <div *ngIf="!answerCreat.isCancel" class="answer-item d-flex align-items-center justify-content-between">
+            <i class="icon-cancel-big" (click)="answerCancel()"></i>
+            <div class="content">
+              <input #answerRef type="text" class="round-input" [attr.maxlength]="25"
+                     [(ngModel)]="answerCreat.text" (keyup)="answerSaveByKeyUp($event, 'answer')">
+              <div *ngIf="answerRef.value.length > 24" class="invalid-feedback">
+                <div>{{ 'FORM_ERRORS.MAX_LENGTH' | translate | transParams : {length: '25'} }}</div>
+              </div>
+            </div>
+            <div class="save-icon-section">
+              <i class="icon-sent-big" *ngIf="answerCreat.text!=''" (click)="answerSave()"></i>
+            </div>
+          </div>
+          <div *ngIf="answerCreat.isCancel" class="d-flex align-items-center add-answer cursor-pointer"
+            (click)="answerSet()">
+            <i class="icon-add"></i>
+            <span>{{ 'ADD_AN_ANSWER' | translate }}</span>
+          </div>
+        </div>
+        <!-- MULTIPLE CHOICE SECTION END -->
+
+        <!-- OPEN ENDED SECTION-->
+        <div *ngIf="editedNode.convNode.Answers.AnswerList.length > 0
+            && editedNode.convNode.Answers.AnswerType !== 'MultipleChoice'
+            && editedNode.convNode.Answers.AnswerList[0].Builtin.nodeBuiltinOptions.length > 0"
+          class="open-ended-section">
+          <app-open-ended [editedNode]="editedNode" (updateLayout)="updateLayout.emit()"></app-open-ended>
+        </div>
+        <!-- OPEN ENDED SECTION END-->
+
+      </div>
+    </div>
+    <!-- ANSWERS SECTION END -->
+
+  </div>
+  <!-- NODE EDITOR BODY END-->
+
+  <!-- MULTIPLE CHOICE ITEM EDIT-->
+  <div *ngIf="isAnswerEdit" class='answer-edit position-absolute'>
+    <app-answer-edit [answerText]="answerText" [answerId]="answerId" [editedNode]="editedNode" [answerEdit]="answerEdit"
+      (openSnackBar)="openSnackBar($event)" (updateLayout)="updateLayout.emit()"></app-answer-edit>
+  </div>
+  <!-- MULTIPLE CHOICE ITEM EDIT END-->
+
+  <!-- NODE EDITOR FOOTER -->
+  <div *ngIf="isAnswerEdit" class="modal-btn-group d-flex del-add-section position-absolute">
+    <div class="btn-save-section" [ngStyle]="{'width': editedNode.convNode.IsDefaultNode ? '100%' : '50%'}">
+      <button type="submit" class="btn btn-with-icon w-100 justify-content-center" (click)="closeAnswerEditBox()">
+        <span class="w-100 d-flex justify-content-center align-items-center">
+          <i class="icon-sent"></i>
+          <span>{{ 'BUTTONS.OK' | translate }}</span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <!-- NODE EDITOR FOOTER END-->
+
+  <!-- CAUTION POPUP -->
+  <ng-template #caution let-modal>
+    <div class="modal-header caution-modal-header">
+      <h4 class="modal-title">{{ 'CAUTION' | translate }} !</h4>
+    </div>
+    <div class="modal-body caution-modal-body">
+      <div class="modal-caution-content">
+        <div class="arbor-icon-section d-flex justify-content-center">
+          <i class="icon-arbo"></i>
+        </div>
+        <p class="mb-0">{{ 'AFTER_3_ANSWERS_IT_BECOMES_DIFFICULT' | translate }}</p>
+      </div>
+    </div>
+    <div class="modal-footer modal-btn-group w-100 d-flex">
+      <div class="btn-cancel-section">
+        <button type="button" class="btn btn-with-icon w-100 justify-content-center"
+          (click)="modal.close('Save click')">
+          <span class="btn-left-border w-100 d-flex justify-content-center align-items-center">
+            <i class="icon-cancel-big big-icon"></i>
+            <span>{{ 'BUTTONS.CANCEL' | translate }}</span>
+          </span>
+        </button>
+      </div>
+      <div class="btn-save-section">
+        <button type="button" class="btn btn-with-icon w-100 justify-content-center" (click)="cautionContinue()">
+          <span class="w-100 d-flex justify-content-center align-items-center">
+            <i class="icon-sent-big big-icon"></i>
+            <span>{{ 'BUTTONS.CONTINUE' | translate }}</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <!-- CAUTION POPUP END-->
+
+</div>

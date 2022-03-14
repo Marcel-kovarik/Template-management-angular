@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <p class="sub-title">{{ 'RGPD.MAIN_TITLE' | translate }}</p>
+          <button class="btn-rounded-outline-secondary btn-with-icon" (click)="openModal()">
+            <i class="icon-add"></i>
+            {{ 'RGPD.NEW_DOCUMENT' | translate }}
+          </button>
+        </div>
+        <div class="legal-list-section">
+          <table class="table">
+            <thead class="thead-dark">
+            <tr>
+              <th>{{ 'RGPD.LIST_TITLES.DOCUMENT_NAME' | translate }}</th>
+              <th>{{ 'RGPD.LIST_TITLES.DOCUMENT_SRC' | translate }}</th>
+              <th>{{ 'RGPD.LIST_TITLES.DOCUMENT_TYPE' | translate }}</th>
+              <th>{{ 'RGPD.LIST_TITLES.DOCUMENT_LANG' | translate }}</th>
+              <th>{{ 'RGPD.LIST_TITLES.CREATION_DATE' | translate }}</th>
+              <th colspan="2">{{ 'RGPD.LIST_TITLES.USER' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngIf="isLoaded">
+              <tr *ngIf="legalDocuments.length === 0">
+                <td colspan="6" class="text-center pt-4 pb-4">{{'NO_DATA' | translate}}</td>
+              </tr>
+              <tr *ngFor="let doc of legalDocuments | orderBy: 'creationDate': 'DESC'">
+                <td>
+                  <span *ngIf="doc.url == ''" [title]="doc.label">{{doc.label | maxLength}}</span>
+                  <a *ngIf="doc.url !== ''" [href]="doc.url" target="_blank" [title]="doc.label">{{doc.label | maxLength}}</a>
+                </td>
+                <td>{{ 'LEGAL.' + doc.source | translate }}</td>
+                <td>{{ 'LEGAL.' + doc.typeDocument | translate }}</td>
+                <td class="text-center">{{ doc.language }}</td>
+                <td>{{ doc.creationDate | date : 'short' }}</td>
+                <td>{{ doc.user }}</td>
+                <td class="action center">
+                  <div *ngIf="doc.source !== 'UPLOAD'" class="wrapper-action-btn">
+                    <app-actions *ngIf="displayAction===doc.id" [id]="doc.id"
+                                 (delete)="delete($event)" (edit)="edit($event)"></app-actions>
+                    <button class="card-action-btn" (click)="display(doc.id)">
+                      {{ 'BUTTONS.ACTIONS' | translate }}
+                      <i class="icon-more"></i>
+                    </button>
+                  </div>
+                  <div *ngIf="doc.source === 'UPLOAD'" class="wrapper-action">
+                    <button class="card-action-btn" (click)="delete(doc.id)">
+                      <i class="icon-delete mb-1"></i>
+                      {{ 'BUTTONS.DELETE' | translate }}
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+            <tr *ngIf="!isLoaded">
+              <td colspan="6" class="text-center"><span class="adnai-loader"></span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

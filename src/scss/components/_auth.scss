@@ -1,0 +1,106 @@
+.login-container {
+    background-image: url("../../assets/img/auth-background.jpg");
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+
+    .form-title {
+        @include fonts(1.375, $font__secondary, 500);
+        color: $text-main-color;
+        margin: 0px;
+    }
+
+    .tag-line {
+        @include fonts(0.75, $font__main, 400);
+        color: $text-main-color;
+        margin: 0;
+    }
+
+    form {
+        input {
+            width: 396px;
+        }
+
+        .wrapper-login-btn {
+            text-align: center;
+        }
+
+        .wrapper-label {
+            display: flex;
+            justify-content: space-between;
+
+            label {
+                width: initial;
+            }
+
+            a {
+                @include fonts(0.75, $font__main, 400);
+                color: $color__grey;
+                cursor: pointer;
+
+                &:hover {
+                    color: $color__secondary !important;
+                }
+            }
+
+        }
+    } 
+
+    .login-form,
+    .reset-form,
+    .email-sent-form
+    {
+        background: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        min-width: 436px;
+        min-height: 240px;
+    }
+    
+    .back-btn {
+        @include fonts(0.75, $font__main, 400);
+        color: $text-main-color;
+        cursor: pointer;
+
+        &:hover {
+            color: $color__secondary !important;
+            text-decoration: none;
+        }
+    }
+
+    .powered-by {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+
+        span {
+            @include fonts(0.625, $font__main, 500);
+            color: white;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .login-container {
+        .login-form,
+        .reset-form,
+        .email-sent-form
+        {
+            min-width: unset;
+            width: 90vw;
+
+            form {
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

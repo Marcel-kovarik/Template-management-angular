@@ -1,0 +1,37 @@
+<div *ngIf="!loading" class="col-12 offset-0 col-lg-8 offset-lg-2 form-container">
+  <h1 *ngIf="editing" class="page-title">{{ 'EDIT_ORGANISATION' | translate }}</h1>
+  <h1 *ngIf="!editing" class="page-title">{{ 'NEW_ORGANISATION' | translate }}</h1>
+
+  <form (ngSubmit)="newOrganisation()" [formGroup]="newOrganisationForm">
+
+    <div class="card">
+      <div class="row">
+        <div class="form-group col-xl-4 col-12">
+          <label class="input-label" for="inputName">{{ 'ORGANISATION_NAME' | translate }}</label>
+          <input class="form-control" formControlName="name" id="inputName" type="text">
+        </div>
+        <div class="form-group col-xl-8 col-12">
+          <label class="input-label" for="inputBase64Logo">{{ 'LOGO' | translate }}</label>
+          <input (change)="changeLogo($event)" accept="image/png, image/jpeg, image/gif" formControlName="base64logo"
+                 id="inputBase64Logo" type="file">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 offset-xl-4">
+          <img *ngIf="organisation.base64logo" src="{{ organisation.base64logo }}"/>
+          <img *ngIf="!organisation.base64logo" src="{{ organisation.logo }}"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [routerLink]="'/admin/organisation/list'" class="btn primary"
+                type="button">{{ 'BUTTONS.BACK' | translate }}</button>
+        <button [disabled]="!newOrganisationForm.valid" class="btn" name="submitButton"
+                type="submit">{{ 'BUTTONS.VALIDATE' | translate }}</button>
+
+      </div>
+    </div>
+  </form>
+
+</div>
+

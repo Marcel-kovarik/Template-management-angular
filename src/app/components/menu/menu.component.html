@@ -1,0 +1,30 @@
+<div [ngClass]="{'sidebar': !isMobile, mobileSidebar: isMobile}">
+
+  <div *ngIf="isMobile" class="d-flex close-icon-section justify-content-end">
+    <i class="icon-cancel" (click)="hideMenu()"></i>
+  </div>
+
+  <ul class="menu-list">
+    <ng-container *ngFor="let button of menuList">
+      <li *ngIf="button.display" class="menu-item">
+        <a [routerLink]="button.url" [attr.aria-label]="button.ariaLabel | translate" [routerLinkActive]="'active'"
+           (click)="hideMenu()">
+          <i class="{{button.icon}}"></i>
+          <p>{{button.text | translate}}</p></a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="isMobile">
+      <li class="menu-item revert">
+        <a class="d-flex align-items-center" [attr.aria-label]="'UPDATE_PASSWORD' | translate"
+           [routerLink]="'/profile/password'" (click)="hideMenu()">
+          <i class="icon-lock"></i>
+          <p>{{ 'UPDATE_PASSWORD' | translate }}</p></a>
+      </li>
+      <li class="menu-item revert">
+        <a href="#" class="d-flex align-items-center" (click)="logout()" [attr.aria-label]="'LOGOUT' | translate">
+          <i class="icon-upload cw-90"></i>
+          <p>{{ 'LOGOUT' | translate }}</p></a>
+      </li>
+    </ng-container>
+  </ul>
+</div>

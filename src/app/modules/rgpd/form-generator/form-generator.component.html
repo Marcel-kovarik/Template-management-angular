@@ -1,0 +1,814 @@
+<div class="container-fluid rgpd-form-generator">
+  <div class="page-header">
+    <a [routerLink]="['/']" class="cursor-pointer"><i class="icon-house"></i></a>
+    <span class="ml-1 mr-1">></span>
+    <a class="cursor-pointer" [routerLink]="['/rgpd']">{{ 'RGPD.TITLE' | translate }}</a>
+    <span class="ml-1 mr-1">></span>
+    <a>{{ 'RGPD.FORM.MAIN_TITLE' | translate }}</a>
+  </div>
+
+  <form class="card" [formGroup]="rgpdForm">
+    <h2 class="title">{{ 'RGPD.FORM.MAIN_TITLE' | translate }}</h2>
+    <p class="description mb-0">{{ 'RGPD.FORM.MAIN_DESCRIPTION' | translate }}</p>
+
+    <!-- COMPANY SECTION -->
+    <div class="subtitle1-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.COMPANY.TITLE' | translate }}</h3>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4">
+          <div class="input-group">
+            <label class="input-label">{{ 'RGPD.FORM.COMPANY.LABEL' | translate }}<sup>*</sup></label>
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'designation'">
+            <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+              <div *ngIf="f.designation.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- COMPANY SECTION END-->
+
+    <!-- DATES SECTION -->
+    <div class="subtitle2-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.DATES.TITLE' | translate }}</h3>
+      <label class="input-label">{{ 'RGPD.FORM.DATES.START_LABEL' | translate }}<sup>*</sup></label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4">
+          <div class="input-group">
+            <input type="date" class="form-control" [formControlName]="'datedebut'">
+            <div *ngIf="submitted && f.datedebut.errors" class="invalid-feedback">
+              <div *ngIf="f.datedebut.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="input-label">{{ 'RGPD.FORM.DATES.UPDATE_LABEL' | translate }}</label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4">
+          <div class="input-group">
+            <input type="date" class="form-control" [formControlName]="'datemaj'">
+            <div *ngIf="submitted && f.datemaj.errors" class="invalid-feedback">
+              <div *ngIf="f.datemaj.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- DATES SECTION END -->
+
+    <!-- ACCOUNTABLE SECTION -->
+    <div class="subtitle3-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.ACCOUNTABLE.TITLE' | translate }}</h3>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="input-group">
+            <label class="input-label">{{ 'RGPD.FORM.ACCOUNTABLE.COMPANY_LABEL' | translate }}<sup>*</sup></label>
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'denomination'">
+            <div *ngIf="submitted && f.denomination.errors" class="invalid-feedback">
+              <div *ngIf="f.denomination.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="input-group">
+            <label class="input-label">{{ 'RGPD.FORM.ACCOUNTABLE.CORP_FORM_LABEL' | translate }}<sup>*</sup></label>
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'formesociale'">
+            <div *ngIf="submitted && f.formesociale.errors" class="invalid-feedback">
+              <div *ngIf="f.formesociale.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="input-group">
+            <label class="input-label">{{ 'RGPD.FORM.ACCOUNTABLE.REGISTER_LABEL' | translate }}<sup>*</sup></label>
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'immatriculation'">
+            <div *ngIf="submitted && f.immatriculation.errors" class="invalid-feedback">
+              <div *ngIf="f.immatriculation.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="d-none d-xl-block col-xl-3"></div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="input-group">
+            <label class="input-label">{{ 'RGPD.FORM.ACCOUNTABLE.REG_PLACE_LABEL' | translate }}<sup>*</sup></label>
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'lieuimmatriculation'">
+            <div *ngIf="submitted && f.lieuimmatriculation.errors" class="invalid-feedback">
+              <div *ngIf="f.lieuimmatriculation.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="input-group">
+            <label class="input-label">{{ 'RGPD.FORM.ACCOUNTABLE.ADDRESS_LABEL' | translate }}<sup>*</sup></label>
+            <textarea class="form-control" rows="4" placeholder="{{ 'RGPD.FORM.FULL_ADDRESS' | translate }}"
+                      [formControlName]="'adresse'"></textarea>
+            <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+              <div *ngIf="f.adresse.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ACCOUNTABLE SECTION END -->
+
+    <!-- EMAIL SECTION -->
+    <div class="subtitle4-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.EMAIL.TITLE' | translate }}</h3>
+      <label class="input-label">{{ 'RGPD.FORM.EMAIL.LABEL' | translate }}<sup>*</sup></label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'contactadresseemail'">
+            <div *ngIf="submitted && f.contactadresseemail.errors" class="invalid-feedback">
+              <div *ngIf="f.contactadresseemail.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EMAIL SECTION END -->
+
+    <!-- POSTAL_ADDRESS SECTION -->
+    <div class="subtitle5-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.POSTAL_ADDRESS.TITLE' | translate }}</h3>
+      <label class="input-label">{{ 'RGPD.FORM.POSTAL_ADDRESS.LABEL' | translate }}<sup>*</sup></label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4">
+          <div class="input-group">
+            <textarea class="form-control" rows="4" placeholder="{{ 'RGPD.FORM.FULL_ADDRESS' | translate }}"
+                      [formControlName]="'contactadressepostale'"></textarea>
+            <div *ngIf="submitted && f.contactadressepostale.errors" class="invalid-feedback">
+              <div *ngIf="f.contactadressepostale.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- POSTAL_ADDRESS SECTION END -->
+
+    <!-- FINALITY SECTION -->
+    <div class="subtitle6-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.FINALITY.TITLE' | translate }}</h3>
+      <div class="option1">
+        <p class="description">{{ 'RGPD.FORM.RELEVANT_CHECK' | translate }}</p>
+        <div *ngIf="submitted && f.finalityGroup.errors" class="invalid-feedback">
+          <div *ngIf="f.finalityGroup.errors.requiredOne">{{ 'FORM_ERRORS.REQUIRED_ONE' | translate }}</div>
+        </div>
+        <p class="description">{{ 'RGPD.FORM.FINALITY.DESCRIPTION1' | translate }}</p>
+        <!-- FIRST ROW Solicitations & Legal base -->
+        <div class="row">
+          <!-- LEFT OPTION -->
+          <div class="col-md-7 col-xl-5 mt-3">
+            <label class="customize-check-box">{{ 'RGPD.FORM.FINALITY.MANAGEMENT_OF_REQUESTS_FOR' | translate }} :
+              <input type="checkbox" [formControlName]="'finaliteopt1a'">
+              <span class="checkmark"></span>
+              <div *ngIf="submitted && f.finaliteopt1a.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1a.errors.requiredOne">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.FIRST_CONTACT' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1a1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1a')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.PROVIDING_QUOTES' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1a2'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1a')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.THE_PROVISION_OF_INFORMATION_SERVICES' |
+              translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1a3'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1a')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.THE_PROVISION_OF_INFORMATION_OPERATIONS' |
+              translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1a4'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1a')">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- LEFT OPTION END -->
+          <!-- LEGAL -->
+          <div class="col-md-5 col-xl-5 mt-3 pl-sm-5 ml-pl-0 dashed-border-left">
+            <label class="customize-check-box pl-0">
+              {{ 'RGPD.FORM.FINALITY.APPLICABLE_LEGAL_BASIS' | translate }} :
+              <div *ngIf="submitted && f.finaliteopt1abaselegale.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1abaselegale.errors.requiredOne">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.CONSENT' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1abaselegale1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1a')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1abaselegale2'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1a')">
+              <span class="checkmark"></span>
+            </label>
+            <div class="row" *ngIf="f.finaliteopt1abaselegale2.value">
+              <div class="col-xl-8 ml-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="placeholder text"
+                         [formControlName]="'finaliteopt1abaselegaletexte'">
+                  <div *ngIf="submitted && f.finaliteopt1abaselegaletexte.errors" class="invalid-feedback">
+                    <div *ngIf="f.finaliteopt1abaselegaletexte.errors.required">
+                      {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- LEGAL END -->
+        </div>
+        <!-- SECOND ROW Request process & Legal base -->
+        <div class="row">
+          <!-- LEFT OPTION -->
+          <div class="col-md-7 col-xl-5 mt-3 mt-3">
+            <label class="customize-check-box">
+              {{ 'RGPD.FORM.FINALITY.RECEIVE_AND_PROCESS_YOUR_REQUEST' | translate }} :
+              <input type="checkbox" [formControlName]="'finaliteopt1b'">
+              <span class="checkmark"></span>
+              <div *ngIf="submitted && f.finaliteopt1b.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1b.errors.requiredOne">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.CONTACT' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1b1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1b')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.SUPPLY_OF_QUOTES' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1b2'"
+              (click)="checkParentFromCheckbox($event, 'finaliteopt1b')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">
+              {{ 'RGPD.FORM.FINALITY.THE_PROVISION_OF_INFORMATION_SERVICES' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1b3'"
+              (click)="checkParentFromCheckbox($event, 'finaliteopt1b')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">
+              {{ 'RGPD.FORM.FINALITY.THE_PROVISION_OF_INFORMATION_PRODUCTS' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1b4'"
+              (click)="checkParentFromCheckbox($event, 'finaliteopt1b')">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- LEFT OPTION END -->
+          <!-- LEGAL -->
+          <div class="col-md-5 mt-3 mt-3 pl-sm-5 ml-pl-0 dashed-border-left">
+            <label class="customize-check-box pl-0">
+              {{ 'RGPD.FORM.FINALITY.APPLICABLE_LEGAL_BASIS' | translate }} :
+              <div *ngIf="submitted && f.finaliteopt1bbaselegale1.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1bbaselegale1.errors.requiredOne">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">
+              {{ 'RGPD.FORM.FINALITY.EXECUTION_OF_PRECONTRACTUAL_MEASURES' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1bbaselegale1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1b')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1bbaselegale2'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1b')">
+              <span class="checkmark"></span>
+            </label>
+            <div class="row" *ngIf="f.finaliteopt1bbaselegale2.value">
+              <div class="col-xl-8 ml-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="placeholder text"
+                         [formControlName]="'finaliteopt1bbaselegaletexte'">
+                  <div *ngIf="submitted && f.finaliteopt1bbaselegaletexte.errors" class="invalid-feedback">
+                    <div *ngIf="f.finaliteopt1bbaselegaletexte.errors.required">
+                      {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- LEGAL END -->
+        </div>
+        <!-- THIRD ROW Solicitations management & Legal base -->
+        <div class="row">
+          <!-- LEFT OPTION END -->
+          <div class="col-md-7 col-xl-5 mt-3 mt-3">
+            <label class="customize-check-box">{{ 'RGPD.FORM.FINALITY.MANAGEMENT_OF_REQUESTS_DURING' | translate }} :
+              <input type="checkbox" [formControlName]="'finaliteopt1c'">
+              <span class="checkmark"></span>
+              <div *ngIf="submitted && f.finaliteopt1c.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1c.errors.requiredOne">{{ 'FORM_ERRORS.REQUIRED_ONE' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">
+              {{ 'RGPD.FORM.FINALITY.YOUR_PARTICIPATION_IN_CONTESTS' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1c1'"
+              (click)="checkParentFromCheckbox($event, 'finaliteopt1c')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">
+              {{ 'RGPD.FORM.FINALITY.YOUR_PARTICIPATION_IN_PROMOTIONAL_OPERATIONS' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1c2'"
+              (click)="checkParentFromCheckbox($event, 'finaliteopt1c')">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- LEFT OPTION END -->
+          <!-- LEGAL -->
+          <div class="col-md-5 mt-3 mt-3 pl-sm-5 ml-pl-0 dashed-border-left">
+            <label class="customize-check-box pl-0">
+              {{ 'RGPD.FORM.FINALITY.APPLICABLE_LEGAL_BASIS' | translate }} :
+              <div *ngIf="submitted && f.finaliteopt1cbaselegale.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1cbaselegale.errors.required">{{ 'FORM_ERRORS.REQUIRED_ONE' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.CONSENT' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1cbaselegale1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1c')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1cbaselegale2'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1c')">
+              <span class="checkmark"></span>
+            </label>
+            <div class="row" *ngIf="rgpdForm.value['finaliteopt1cbaselegale2']">
+              <div class="col-xl-8 ml-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="placeholder text"
+                         [formControlName]="'finaliteopt1cbaselegaletexte'">
+                  <div *ngIf="submitted && f.finaliteopt1cbaselegaletexte.errors" class="invalid-feedback">
+                    <div *ngIf="f.finaliteopt1cbaselegaletexte.errors.required">
+                      {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- LEGAL -->
+        </div>
+        <!-- FOURTH ROW Display optimization & Legal base -->
+        <div class="row">
+          <!-- LEFT OPTION -->
+          <div class="col-md-7 col-xl-5 mt-3 mt-3">
+            <label class="customize-check-box">
+              {{ 'RGPD.FORM.FINALITY.MANAGEMENT_OF_THE_OPTIMIZATION_OF_THE_DISPLAY_TOOL' | translate }} :
+              <input type="checkbox" [formControlName]="'finaliteopt1d'">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- LEFT OPTION END -->
+          <!-- LEGAL -->
+          <div class="col-md-5 mt-3 mt-3 pl-sm-5 ml-pl-0 dashed-border-left">
+            <label class="customize-check-box pl-0">{{ 'RGPD.FORM.FINALITY.APPLICABLE_LEGAL_BASIS' | translate }} :
+              <div *ngIf="submitted && f.finaliteopt1dbaselegale.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1dbaselegale.errors.required">{{ 'FORM_ERRORS.REQUIRED_ONE' | translate }}</div>
+              </div></label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.LEGITIMATE_INTEREST' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1dbaselegale1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1d')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1dbaselegale2'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1d')">
+              <span class="checkmark"></span>
+            </label>
+            <div class="row" *ngIf="rgpdForm.value['finaliteopt1dbaselegale2']">
+              <div class="col-xl-8 ml-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="placeholder text"
+                         [formControlName]="'finaliteopt1dbaselegaletexte'">
+                  <div *ngIf="submitted && f.finaliteopt1dbaselegaletexte.errors" class="invalid-feedback">
+                    <div *ngIf="f.finaliteopt1dbaselegaletexte.errors.required">
+                      {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- LEGAL END -->
+        </div>
+        <!-- FIFTH ROW Statistics usage & Legal base -->
+        <div class="row">
+          <!-- LEFT OPTION -->
+          <div class="col-md-7 col-xl-5 mt-3 mt-3">
+            <label class="customize-check-box">
+              {{ 'RGPD.FORM.FINALITY.FOR_THE_DEVELOPMENT_OF_STATISTICS_RELATING_TOOL' | translate }} :
+              <input type="checkbox" [formControlName]="'finaliteopt1e'">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- LEFT OPTION END -->
+          <!-- LEGAL -->
+          <div class="col-md-5 mt-3 mt-3 pl-sm-5 ml-pl-0 dashed-border-left">
+            <label class="customize-check-box pl-0">
+              {{ 'RGPD.FORM.FINALITY.APPLICABLE_LEGAL_BASIS' | translate }} :
+              <div *ngIf="submitted && f.finaliteopt1ebaselegale.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1ebaselegale.errors.required">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+              </div>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.LEGITIMATE_INTEREST' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1ebaselegale1'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1e')">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customize-check-box child">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+              <input type="checkbox" [formControlName]="'finaliteopt1ebaselegale2'"
+                     (click)="checkParentFromCheckbox($event, 'finaliteopt1e')">
+              <span class="checkmark"></span>
+            </label>
+            <div class="row" *ngIf="rgpdForm.value['finaliteopt1ebaselegale2']">
+              <div class="col-xl-8 ml-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="placeholder text"
+                         [formControlName]="'finaliteopt1ebaselegaletexte'">
+                  <div *ngIf="submitted && f.finaliteopt1ebaselegaletexte.errors" class="invalid-feedback">
+                    <div *ngIf="f.finaliteopt1ebaselegaletexte.errors.required">
+                      {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- LEGAL END -->
+        </div>
+        <!-- OTHER ROW -->
+        <label class="customize-check-box mt-3">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAINING' | translate }}
+          <input type="checkbox" [formControlName]="'finaliteopt1f'">
+          <span class="checkmark"></span>
+          <div *ngIf="submitted && f.finaliteopt1f.errors" class="invalid-feedback">
+            <div *ngIf="f.finaliteopt1f.errors.required">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+          </div>
+        </label>
+        <div class="row" *ngIf="rgpdForm.value['finaliteopt1f']">
+          <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="placeholder text"
+                     [formControlName]="'finaliteopt1ftexte'">
+              <div *ngIf="submitted && f.finaliteopt1ftexte.errors" class="invalid-feedback">
+                <div *ngIf="f.finaliteopt1ftexte.errors.required">{{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FINALITY SECTION END -->
+
+    <!-- PERSONAL CATEGORIES SECTION -->
+    <div class="subtitle7-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.PERS_CATEG.TITLE' | translate }}</h3>
+      <p class="description">{{ 'RGPD.FORM.PERS_CATEG.DESCRIPTION' | translate }}</p>
+      <div *ngIf="submitted && f.personalDataGroup.errors" class="invalid-feedback">
+        <div *ngIf="f.personalDataGroup.errors.requiredOne">
+          {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+      </div>
+      <p class="description mb-3">{{'RGPD.FORM.RELEVANT_CHECK' | translate }}</p>
+      <label class="customize-check-box ml-0">{{ 'RGPD.FORM.PERS_CATEG.ID_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'donneeperso1'">
+        <span class="checkmark"></span>
+      </label>
+      <label class="customize-check-box ml-0">{{ 'RGPD.FORM.PERS_CATEG.ANSWER_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'donneeperso2'">
+        <span class="checkmark"></span>
+      </label>
+      <label class="customize-check-box ml-0">{{ 'RGPD.FORM.PERS_CATEG.EQUIPMENT_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'donneeperso3'">
+        <span class="checkmark"></span>
+      </label>
+      <label class="customize-check-box ml-0">{{ 'RGPD.FORM.PERS_CATEG.STATS_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'donneeperso4'">
+        <span class="checkmark"></span>
+      </label>
+      <label class="customize-check-box ml-0">{{ 'RGPD.FORM.PERS_CATEG.OTHER_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'donneeperso5'">
+        <span class="checkmark"></span>
+      </label>
+      <div class="row" *ngIf="rgpdForm.value['donneeperso5']">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'donneeperso5texte'">
+            <div *ngIf="submitted && f.donneeperso5texte.errors" class="invalid-feedback">
+              <div *ngIf="f.donneeperso5texte.errors.required">{{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PERSONAL CATEGORIES SECTION END -->
+
+    <!-- CONSERVATION SECTION -->
+    <div class="subtitle8-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.CONSERVATION.TITLE' | translate }}</h3>
+      <p class="description">{{ 'RGPD.FORM.CONSERVATION.DESCRIPTION' | translate }}</p>
+      <p class="description">{{'RGPD.FORM.CONSERVATION.DESCRIPTION_HELP' | translate }}</p>
+      <div *ngIf="submitted && f.conservationGroup.errors" class="invalid-feedback">
+        <div *ngIf="f.conservationGroup.errors.requiredOne">
+          {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+      </div>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.CONSERVATION.AUDIO_DATA_LABEL' | translate }}
+        <input type="checkbox" [formControlName]="'dureeconservation1'">
+        <span class="checkmark"></span>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" [formControlName]="'dureeconservation1texte'"
+                   [placeholder]="'RGPD.FORM.CONSERVATION.AUDIO_DATA_PLACEHOLDER' | translate"
+                   (focusout)="checkParentFromText($event, 'dureeconservation1')">
+            <div *ngIf="submitted && f.dureeconservation1texte.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation1texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="description ml-4">{{ 'RGPD.FORM.CONSERVATION.AUDIO_DATA_HELP' | translate }}</p>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.CONSERVATION.PERSONAL_DATA_LABEL' | translate }}
+        <input type="checkbox" [formControlName]="'dureeconservation2'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.dureeconservation2.errors" class="invalid-feedback">
+          <div *ngIf="f.dureeconservation2.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <select class="form-control" [formControlName]="'dureeconservation2texte1'"
+                    (change)="checkParentFromSelect('dureeconservation2')">
+              <option disabled selected>{{ 'RGPD.FORM.CONSERVATION.PERSONAL_DATA_PLACEHOLDER' | translate }}</option>
+              <option value="{{ 'RGPD.FORM.CONSERVATION.COLLECT_REASONS.0' | translate }}">
+                {{ 'RGPD.FORM.CONSERVATION.COLLECT_REASONS.0' | translate }}</option>
+              <option value="{{ 'RGPD.FORM.CONSERVATION.COLLECT_REASONS.1' | translate }}">
+                {{ 'RGPD.FORM.CONSERVATION.COLLECT_REASONS.1' | translate }}</option>
+            </select>
+            <div *ngIf="submitted && f.dureeconservation2texte1.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation2texte1.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="input-label ml-4">{{ 'RGPD.FORM.CONSERVATION.PERSONAL_DATA_LABEL2' | translate }}<sup>*</sup></label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'dureeconservation2texte2'"
+                   (focusout)="checkParentFromText($event, 'dureeconservation2')">
+            <div *ngIf="submitted && f.dureeconservation2texte2.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation2texte2.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="input-label ml-4">{{ 'RGPD.FORM.CONSERVATION.PERSONAL_DATA_LABEL3' | translate }}<sup>*</sup></label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'dureeconservation2texte3'"
+                   (focusout)="checkParentFromText($event, 'dureeconservation2')">
+            <div *ngIf="submitted && f.dureeconservation2texte3.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation2texte3.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="description ml-4">{{ 'RGPD.FORM.CONSERVATION.DESCRIPTION3' | translate }}</p>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.CONSERVATION.TECH_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'dureeconservation3'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.dureeconservation3.errors" class="invalid-feedback">
+          <div *ngIf="f.dureeconservation3.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'dureeconservation3texte'"
+                   (focusout)="checkParentFromText($event, 'dureeconservation3')">
+            <div *ngIf="submitted && f.dureeconservation3texte.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation3texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.CONSERVATION.STATS_DATA' | translate }}
+        <input type="checkbox" [formControlName]="'dureeconservation4'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.dureeconservation4.errors" class="invalid-feedback">
+          <div *ngIf="f.dureeconservation4.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'dureeconservation4texte'"
+                   (focusout)="checkParentFromText($event, 'dureeconservation4')">
+            <div *ngIf="submitted && f.dureeconservation4texte.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation4texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+        <input type="checkbox" formControlName="sub8_other"
+               [formControlName]="'dureeconservation5'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.dureeconservation5.errors" class="invalid-feedback">
+          <div *ngIf="f.dureeconservation5.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row" *ngIf="rgpdForm.value['dureeconservation5']">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'dureeconservation5texte'"
+                   (focusout)="checkParentFromText($event, 'dureeconservation5')">
+            <div *ngIf="submitted && f.dureeconservation5texte.errors" class="invalid-feedback">
+              <div *ngIf="f.dureeconservation5texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CONSERVATION SECTION END -->
+
+    <!-- DESTINATION SECTION -->
+    <div class="subtitle9-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.DESTINATION.TITLE' | translate }}</h3>
+      <p class="description">{{ 'RGPD.FORM.DESTINATION.DESCRIPTION' | translate }}</p>
+      <p class="description">{{ 'RGPD.FORM.RELEVANT_CHECK' | translate }}</p>
+      <div *ngIf="submitted && f.destinationGroup.errors" class="invalid-feedback">
+        <div *ngIf="f.destinationGroup.errors.requiredOne">
+          {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+      </div>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.DESTINATION.OUR_STAFF' | translate }}
+        <input type="checkbox" [formControlName]="'destinataire1'">
+        <span class="checkmark"></span>
+      </label>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.DESTINATION.STAFF_OF' | translate }}
+        <input type="checkbox" [formControlName]="'destinataire2'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.destinataire2.errors" class="invalid-feedback">
+          <div *ngIf="f.destinataire2.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control"
+                   [placeholder]="'RGPD.FORM.DESTINATION.STAFF_OF_PLACEHOLDER' | translate"
+                   [formControlName]="'destinataire2texte'"
+                   (focusout)="checkParentFromText($event, 'destinataire2')">
+            <div *ngIf="submitted && f.destinataire2texte.errors" class="invalid-feedback">
+              <div *ngIf="f.destinataire2texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.DESTINATION.SUBCONTRACTOR_STAFF' | translate }}
+        <input type="checkbox" [formControlName]="'destinataire3'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.destinataire3.errors" class="invalid-feedback">
+          <div *ngIf="f.destinataire3.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control"
+                   [placeholder]="'RGPD.FORM.DESTINATION.SUBCONTRACTOR_STAFF_PLACEHOLDER' | translate"
+                   [formControlName]="'destinataire3texte'"
+                   (focusout)="checkParentFromText($event, 'destinataire3')">
+            <div *ngIf="submitted && f.destinataire3texte.errors" class="invalid-feedback">
+              <div *ngIf="f.destinataire3texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="customize-check-box mt-3">{{ 'RGPD.FORM.FINALITY.OTHER_EXPLAIN' | translate }}
+        <input type="checkbox" [formControlName]="'destinataire4'">
+        <span class="checkmark"></span>
+        <div *ngIf="submitted && f.destinataire4.errors" class="invalid-feedback">
+          <div *ngIf="f.destinataire4.errors.required">
+            {{ 'FORM_ERRORS.REQUIRED_ONE_BELOW' | translate }}</div>
+        </div>
+      </label>
+      <div class="row" *ngIf="f.destinataire4.value">
+        <div class="col-md-7 col-lg-6 col-xl-4 ml-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="placeholder text"
+                   [formControlName]="'destinataire4texte'">
+            <div *ngIf="submitted && f.destinataire4texte.errors" class="invalid-feedback">
+              <div *ngIf="f.destinataire4texte.errors.required">
+                {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- DESTINATION SECTION END -->
+
+    <!-- EXPORT SECTION -->
+    <div class="subtitle10-section">
+      <h3 class="sub-title">{{ 'RGPD.FORM.EXPORT.TITLE' | translate }}</h3>
+      <p class="description">{{ 'RGPD.FORM.EXPORT.DESCRIPTION' | translate }}</p>
+      <div *ngIf="submitted && f.transfert.errors" class="invalid-feedback">
+        <div *ngIf="f.transfert.errors.required">
+          {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+      </div>
+      <label class="custom-radio-btn horizontal d-flex align-items-center mt-3">
+        <input type="radio" [value]="false" name="transfert" [formControlName]="'transfert'">
+        <span class="checkmark"></span>
+        <span class="radio-label">{{ 'RGPD.FORM.EXPORT.EXPORTED_OR_NOT.0' | translate }}
+          <span class="font-bold text-underline">{{ 'RGPD.FORM.EXPORT.EXPORTED_OR_NOT.1' | translate }}
+          </span>{{ 'RGPD.FORM.EXPORT.EXPORTED_OR_NOT.3' | translate }}
+        </span>
+      </label>
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-4 mt-3">
+          <label class="custom-radio-btn horizontal d-flex align-items-center mt-0 mb-0">
+            <input type="radio" [value]="true" name="transfert" [formControlName]="'transfert'">
+            <span class="checkmark"></span>
+            <span class="radio-label">{{ 'RGPD.FORM.EXPORT.EXPORTED_OR_NOT.0' | translate }}
+              <span class="font-bold text-underline">{{ 'RGPD.FORM.EXPORT.EXPORTED_OR_NOT.2' | translate }}
+              </span>{{ 'RGPD.FORM.EXPORT.EXPORTED_OR_NOT.3' | translate }}
+            </span>
+          </label>
+          <div *ngIf="submitted && f.transfertPays.errors" class="invalid-feedback ml-4">
+            <div *ngIf="f.transfertPays.errors.required">
+              {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+          </div>
+          <label class="custom-radio-btn child horizontal d-flex align-items-center mt-3 mb-0">
+            <input type="radio" [value]="true" name="transfertPays" [formControlName]="'transfertPays'"
+                   (click)="checkParentFromSelect('transfert')">
+            <span class="checkmark"></span>
+            <span class="radio-label">{{ 'RGPD.FORM.EXPORT.EXPORT_COUNTRIES_LABEL' | translate }}</span>
+          </label>
+          <div class="row" *ngIf="f.transfertPays.value === true">
+            <div class="col-10 ml-5 mt-2">
+              <div class="input-group">
+                <input type="text" class="form-control" [formControlName]="'transfertPaystexte'"
+                       placeholder="{{ 'RGPD.FORM.EXPORT.EXPORT_COUNTRIES_PLACEHOLDER' | translate }}*">
+                <div *ngIf="submitted && f.transfertPaystexte.errors" class="invalid-feedback">
+                  <div *ngIf="f.transfertPaystexte.errors.required">
+                    {{ 'FORM_ERRORS.REQUIRED' | translate }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label class="custom-radio-btn child horizontal d-flex align-items-center mt-3 mb-0">
+            <input type="radio"  [value]="false" name="transfertPays" [formControlName]="'transfertPays'"
+                   (click)="checkParentFromSelect('transfert')">
+            <span class="checkmark"></span>
+            <span class="radio-label">{{ 'RGPD.FORM.EXPORT.EXPORT_COUNTRIES_HIDDEN' | translate }}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- EXPORT SECTION END -->
+
+    <div class="submit-btn-section d-flex justify-content-center align-items-center">
+      <button *ngIf="!processing" class="btn-rounded-outline-secondary btn-with-icon"
+      (click)="saveData()">
+        <i class="icon-save"></i>
+        <span>{{ 'BUTTONS.SAVE_ONLY' | translate }}</span>
+      </button>
+      <button *ngIf="!processing" class="btn-rounded-outline-secondary btn-with-icon ml-3"
+      (click)="submitForm()">
+        <i class="icon-upload"></i>
+        <span>{{ 'BUTTONS.GENERATE' | translate }}</span>
+      </button>
+      <div *ngIf="processing" class="adnai-loader"></div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+/* Project variable must be before Bootstrap
+   imports to be able to overide Bootstrap variables */
+@import "scss/variables/variables";
+
+/* Importing all Bootstrap */
+@import "bootstrap";
+
+/* ... or only util elements */
+//@import "functions";
+//@import "variables";
+//@import "mixins";
+//@import "grid";
+//@import "utilities";
+//@import "forms";
+//@import "alert";
+//@import "modal";
+
+/* Project SCSS after bootstrap import
+   to be able to use BS variables & mixins */
+@import "scss/normalize";
+@import "scss/mixins/mixins";
+@import "scss/general";
+@import "scss/typography/typography";
+@import "scss/navigation/navigation";
+@import "scss/layout/layout";
+@import "scss/forms/forms";
+@import "scss/elements/elements";
+
+@import "scss/hack/hack";
+
+// components
+@import "scss/components/auth";
+@import "scss/components/campaign";
+@import "scss/components/profil";
+@import "scss/components/rgpd";
+@import "scss/components/conversation/conversation";
+@import "scss/components/help";
+@import "scss/components/chat";
+@import "scss/components/recorder";
+@import "scss/components/preview";
+@import "scss/components/imageCropper";
+@import "scss/components/modals/modals";
+@import "scss/components/rightPanel/rightPanel";

@@ -1,0 +1,150 @@
+<div class="conversation-name text-center">- {{currentConversation.name}} -</div>
+<app-conv-breadcrumb (save)="saveCurrentConversation()" (newNode)="addNewNode()" (voiceSelect)="updateVoiceId($event)"
+                     (preview)="showPreview()" (publish)="prePublish()" (setUpdated)="setHasUpdate($event)"
+                     [voiceList]="voiceList" [saveButtonActive]="hasUpdate" [previewButtonActive]="previewable"
+                     [publishButtonActive]="publishable" [saving]="saving" [previewing]="previewing"
+                     [publishing]="publishing" [demoLang]="voicePreviewLang" [voiceId]="voiceId"
+                     [isChooseVoice]="false"></app-conv-breadcrumb>
+
+<div class="conversation-container custom-mt-50" id="conversationContainer" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <div class="chatFlow-designer-wrapper">
+    <div class="designer-panel">
+      <svg xmlns="http://www.w3.org/2000/svg" #conversationRoot [attr.visibility]="(layoutReady()?'visible':'collapse')"
+        (mouseup)="mouseUp($event)" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)"
+        (mouseleave)="mouseLeave($event)" (wheel)="designerWheel($event)" [attr.viewBox]="viewBox()"
+        class="chatFlow-root-svg select-none" [ngClass]="{'isShowOverlay':isShowEditor}">
+        <defs>
+          <linearGradient id="NodeBG">
+            <stop offset="0" stop-color="#CCC" />
+          </linearGradient>
+          <linearGradient id="NodeFG">
+            <stop offset="0" stop-color="black" />
+          </linearGradient>
+          <linearGradient id="NodeHeaderBG">
+            <stop offset="0" stop-color="gray" />
+          </linearGradient>
+          <linearGradient id="NodeHeaderFG">
+            <stop offset="0" stop-color="white" />
+          </linearGradient>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto"
+            markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="darkgray" opacity="0.5" />
+          </marker>
+        </defs>
+        <!-- Common use case: embed HTML text into SVG -->
+        <g *ngFor="let convNodeVM of convFlowNetwork.convNodeVMs" transform="translate(20,20)">
+          <foreignObject [attr.transform]="ngTr(convNodeVM.x(), convNodeVM.y())"
+            [ngClass]="{'opacity-content':isShowEditor && convNodeVM.convNode.Id!==editedNode.convNode.Id}"
+            (mousedown)="convNodeVM.mouseDown($event)" (mouseup)="convNodeVM.mouseUp($event)"
+            (mouseleave)="convNodeVM.mouseLeave($event)" (mouseenter)="convNodeVM.mouseEnter($event)"
+            fill="url(#NodeFG)" class="node-section-title noSelect" x="0" y="0" [attr.width]="convNodeVM.width()-20"
+            [attr.height]="convNodeVM.height()" (dblclick)="openEditor(convNodeVM)" height="0" width="0">
+            <!-- In the context of SVG embedded in an HTML document, the XHTML namespace could be omitted,
+              but it is mandatory in the context of an SVG document -->
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml" [attr.node-id]="convNodeVM.convNode.Id">
+              <xhtml:div onmousedown="return false;//to avoid text selection, creates issue with node drag"
+                class="noSelect chatNode" [class.selected]="convNodeVM.isSelected">
+                <xhtml:div [ngClass]="{'startNode':convNodeVM.convNode.IsStartNode}" class="chatNode-header">
+                  <xhtml:p>
+                    {{ convNodeVM.convNode.Name }}
+                  </xhtml:p>
+                </xhtml:div>
+                <!-- chatNode body -->
+                <xhtml:div class="chatNode-body">
+                  <xhtml:div *ngFor="let sections of convNodeVM.convNode.Sections; let i = index" class="section">
+                    <xhtml:div *ngFor="let section of sections; let j = index">
+                      <xhtml:div *ngIf="section.SectionType==='Text'" class="text">{{section.AddText.text}}</xhtml:div>
+                      <xhtml:div *ngIf="section.SectionType==='Link'" class="link text-center">
+                        {{section.AddLink.text}}
+                        <span class="url-link cursor-default" [title]="section.AddLink.link">{{section.AddLink.link}}</span></xhtml:div>
+                      <xhtml:div *ngIf="section.SectionType==='Image'" class="image d-flex justify-content-center">
+                        <xhtml:div [style]="{'background-image': 'url('+ section.AddImage.src + ')'}"> </xhtml:div>
+                      </xhtml:div>
+                      <xhtml:div *ngIf="section.SectionType==='Audio'" class="audio d-flex align-items-center">
+                        <xhtml:i class="icon-music"> </xhtml:i>
+                        <xhtml:span>{{section.AddAudio.audName}} ({{ section.AddAudio.audSize }} ko)</xhtml:span>
+                      </xhtml:div>
+                      <xhtml:div *ngIf="(convNodeVM.convNode.Sections.length-1)===i && (sections.length-1)===j"
+                        class="answer-display">
+                        <xhtml:div
+                          *ngIf="convNodeVM.convNode.Answers.AnswerType==='MultipleChoice' && convNodeVM.convNode.Answers.AnswerList && convNodeVM.convNode.Answers.AnswerList.length > 0">
+                          <xhtml:div class="answer-title d-flex justify-content-center">
+                            <xhtml:span class="answer-title-text">{{ 'ANSWERS' | translate }}</xhtml:span>
+                          </xhtml:div>
+                          <xhtml:div *ngFor="let answer of convNodeVM.convNode.Answers.AnswerList"
+                            class="text-right answers-content-display" [attr.node-id]="convNodeVM.convNode.Id">
+                            {{ answer.AnswerText }}
+                          </xhtml:div>
+                        </xhtml:div>
+
+                        <xhtml:div *ngIf="convNodeVM.convNode.Answers.AnswerType!=='MultipleChoice' && convNodeVM.convNode.Answers.AnswerList
+                                  && convNodeVM.convNode.Answers.AnswerList.length > 0">
+                          <xhtml:div class="answer-title d-flex justify-content-center">
+                            <xhtml:span class="answer-title-text">{{ 'ANSWERS' | translate }}</xhtml:span>
+                          </xhtml:div>
+                          <xhtml:div class="text-right answers-content-display">
+                            {{ convNodeVM.convNode.Answers.AnswerList[0]?.BuiltinLabel }}
+                          </xhtml:div>
+                        </xhtml:div>
+                      </xhtml:div>
+                    </xhtml:div>
+                  </xhtml:div>
+                  <xhtml:div *ngIf="convNodeVM.isNodeEmpty()" class="chatNode-empty">
+                    <xhtml:span>
+                      {{ 'NODE_EDIT_CLICK' | translate }}
+                    </xhtml:span>
+                  </xhtml:div>
+                </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+          </foreignObject>
+        </g>
+
+        <g *ngFor="let connection of convFlowNetwork.convConnections" transform="translate(15,20)">
+          <path [attr.d]="connection.path()" (mouseenter)="connection.mouseEnter($event)" fill="transparent"
+            [ngClass]="{'opacity-content':isShowEditor}" stroke="#F25F00" stroke-width="3" d="M 0,0"
+            (click)="connection.remove($event)" class="not-allowed-cursor" fill-rule="evenodd"></path>
+        </g>
+
+        <g *ngFor="let convNodeVM of convFlowNetwork.convNodeVMs" transform="translate(20,20)">
+          <g *ngFor="let connector of convNodeVM.chatAnswerConnectors()" transform="translate(-7,0)">
+            <circle r="0" [attr.r]="connector.circleRadius-3" [attr.cx]="connector.x()" [attr.cy]="connector.y()"
+              [attr.fill]="connector.isConnected()?'#F0F0F0':'darkgray'" stroke="#777777" stroke-width="1"
+              (mousedown)="connector.mouseDown($event)" (mouseup)="connector.startDirectConnection($event)"
+              style="cursor: crosshair; padding: 20px"
+              [ngClass]="{'opacity-content':isShowEditor && connector.convNodeVM.convNode.Id!==editedNode.convNode.Id}">
+            </circle>
+          </g>
+          <circle *ngIf="!convNodeVM.convNode.IsStartNode && !convNodeVM.convNode.IsDefaultNode" r="0"
+            [attr.r]="convNodeVM.circleRadius-3" [attr.cx]="convNodeVM.nodeConnectorX()"
+            [attr.cy]="convNodeVM.nodeConnectorY()" fill="darkgray" stroke="#777777" stroke-width="1"
+            transform="translate(-7,0)"
+            [ngClass]="{'opacity-content':isShowEditor && convNodeVM.convNode.Id!==editedNode.convNode.Id}"></circle>
+        </g>
+
+        <g transform="translate(15,20)"
+          [attr.visibility]="convFlowNetwork.convLastConnection.isHidden?'collapse':'visible'"
+          [ngClass]="{'opacity-content':isShowEditor}" class="pointer-events-none">
+          <path [attr.d]="convFlowNetwork.convLastConnection.path()" fill="transparent"
+            [attr.stroke]="convFlowNetwork.convLastConnection.canConnect?'#F25F00':'darkgray'" stroke="darkgray"
+            stroke-width="3" d="M 0,0" class="pointer-events-none" fill-rule="evenodd">
+          </path>
+          <circle r="3" [attr.cx]="convFlowNetwork.convLastConnection.destX"
+            [attr.cy]="convFlowNetwork.convLastConnection.destY" fill="#F25F00"
+            [attr.fill]="convFlowNetwork.convLastConnection.canConnect?'#F25F00':'darkgray'"
+            class="pointer-events-none"></circle>
+        </g>
+      </svg>
+    </div>
+
+    <div *ngIf="isShowEditor" class="right-panel-section">
+      <app-node-editor (close)="closeEditor()" [editedNode]="editedNode" (updateLayout)="updateLayout()"
+        (deleteNode)="deleteNode()" [conversationLang]="currentConversation.languageCode">
+      </app-node-editor>
+    </div>
+  </div>
+</div>
+
+<app-preview *ngIf="preview" (doClose)="closePreview()"
+             [conversationUrl]="previewUrl" [conversationId]="previewCode" [conversationLang]="conversationCode"></app-preview>
+

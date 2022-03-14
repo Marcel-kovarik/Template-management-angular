@@ -1,0 +1,56 @@
+
+
+mat-form-field {
+  width: 100%;
+}
+.mat-form-field-label-wrapper {
+  top:-27px!important;
+  .mat-form-field-label {
+    @include fonts(0.875, $font__main);
+    color: $text-main-color;
+    transform: unset!important;
+  }
+}
+.mat-form-field-wrapper {
+  padding-bottom: 0!important;
+  .mat-select {
+    background-color: white;
+    padding: 16px 0;
+    margin-top: 9px;
+    &.table-select {
+      margin-top: -10px;
+      width: 80%;
+      float: right;
+    }
+    .mat-select-value {
+      padding-left: 15px;
+    }
+  }
+  .mat-form-field-underline {
+    display: none;
+  }
+}
+.mat-form-field.mat-focused .mat-form-field-label,
+.mat-form-field.mat-form-field-invalid .mat-form-field-label{
+  color: $text-main-color!important;
+}
+.mat-form-field .mat-select.mat-select-invalid .mat-select-arrow {
+  color: rgba(0,0,0,.54);
+}
+.mat-button:hover,
+.mat-button::-moz-focus-inner,
+.mat-icon-button::-moz-focus-inner,
+.mat-stroked-button::-moz-focus-inner,
+.mat-flat-button::-moz-focus-inner {
+  border-radius: $border-radius !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $color__warning;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $color__warning;
+}
+.custom-radio-button {
+  margin: 15px 15px 0 0;
+}
+

@@ -1,0 +1,24 @@
+<div class="recorder-container">
+  <div class="mini-buttons" *ngIf="isRecorded()">
+    <button class="cancel-btn-sm" (click)="reset()">
+      <i class="icon-cancel"></i>
+    </button>
+    <button class="play-btn-sm" [ngClass]="{'hidden': isListening()}" (click)="listen()">
+      <i class="icon-play"></i>
+    </button>
+    <button class="stop-btn-sm" [ngClass]="{'hidden': !isListening()}" (click)="stopListening()">
+      <i class="icon-square"></i>
+    </button>
+  </div>
+  <button class="record-btn" [ngClass]="{'hidden': !isDefault()}" (click)="record()">
+    <i class="icon-mic-logo"></i></button>
+
+  <button class="stop-btn" [ngClass]="{'hidden': !isRecording()}"(click)="stopRecording()">
+    <i class="icon-mic-stop"></i></button>
+
+  <button class="send-btn" [ngClass]="{'hidden': !isRecorded(), 'sending': sending }" (click)="send()">
+    <i class="icon-mic-sent"></i></button>
+
+  <div id="{{playerContainerId}}" class="player-container"></div>
+
+</div>

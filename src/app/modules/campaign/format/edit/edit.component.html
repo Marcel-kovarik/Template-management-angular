@@ -1,0 +1,156 @@
+
+<app-breadcrumb [editAction]="false" [crumbs]="crumbs"></app-breadcrumb>
+
+<!-- content -->
+<div class="container-fluid custom-mt-90" *ngIf="!loading">
+  <div class="title-section mb-2 d-flex align-items-center">
+    <p contenteditable="true" [formControl]="creationName" (focusin)="focusIn()"></p>
+    <i *ngIf="!editing" class="icon-edit ml-2 cursor-pointer" (click)="focusIn()"></i>
+    <i *ngIf="editing" class="icon-cancel big-icon ml-2 cursor-pointer" (click)="closeOrUpdate(true)"></i>
+    <i *ngIf="editing" class="icon-sent big-icon ml-2 cursor-pointer" (click)="closeOrUpdate(false)"></i>
+  </div>
+  <div class="title-help-section">{{ 'CREATION.TITLE_HELP' | translate }}</div>
+    <!-- Conversation section -->
+    <div class="row creator-content no-gutters">
+      <div class="col-md-6 col-xl-4 creation-section">
+        <p class="title mb-2">{{ 'CONVERSATION.LABEL' | translate }}</p>
+        <p class="title-help mb-4">{{ 'CONVERSATION.TITLE_HELP' | translate }}</p>
+        <div *ngIf="!creation.conversation" class="card">
+          <p class="card-title">{{ 'CONVERSATION.CREATE_NEW' | translate }}</p>
+          <button *ngIf="!linking" class="btn-rounded-outline-secondary btn-with-icon" (click)="openConversationModal()">
+            <i class="icon-add"></i> {{ 'CONVERSATION.NEW' | translate }}
+          </button>
+          <ng-container *ngIf="!linking && conversationList.length">
+            <form [formGroup]="conversationListForm">
+            <p class="orther-choose">{{ 'CONVERSATION.OR_CHOOSE_EXISTING' | translate }}</p>
+            <div class="form-group">
+              <select class="form-control" id="conversationSelect" (change)="selectConversation($event)">
+                <option value="" disabled selected>{{'PLACEHOLDER_TXT' | translate}}</option>
+                <option *ngFor="let conversation of conversationList" [value]="conversation.id">
+                  {{conversation.name}} - {{conversation.languageCode | uppercase}}
+                  <span>[{{conversation.author}}]</span></option>
+              </select>
+              </div>
+            </form>
+          </ng-container>
+          <div *ngIf="linking" class="text-center">
+            <div class="adnai-loader mt-2"></div>
+          </div>
+        </div>
+        <div *ngIf="creation.conversation" class="card">
+          <p class="card-title">{{ creation.conversation.name }}</p>
+          <div class="d-flex justify-content-between conversation-edit-section">
+            <div class="toggle-section d-flex align-items-center">
+              <span class="statut">{{ 'STATUT' | translate }}</span>
+              <div class="btn-toggle" >
+                <div title="{{'CONVERSATION.MUST_BE_PUBLISHED' | translate}}">
+                  <span class="status text-capitalize">
+                    {{ (conversationInProgress ? 'IN_PROGRESS' : (conversationPublished ? 'PUBLISHED' : 'READY')) | translate }}
+                  </span>
+                  <div class="d-flex justify-content-center align-items-center completed"
+                  [ngClass]="{'completed': !conversationInProgress, 'in-progress': conversationInProgress}">
+                    <i [ngClass]="{'icon-sent-big': !conversationInProgress, 'icon-inprogress': conversationInProgress}"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="edit-section d-flex flex-column dddd cursor-pointer">
+              <div class="wrapper-action-btn">
+<!--                <app-actions *ngIf="formatEditOpen==='conv'" [id]="'conv'"-->
+<!--                             (edit)="editConversation()" (delete)="deleteConversation()"></app-actions>-->
+                <button class="card-action-btn" (click)="editConversation()">
+                  <i class="icon-edit"></i>
+                  {{ 'EDIT' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Format section -->
+    <div class="creator-content format-section">
+      <div class="row creation-section">
+        <p class="title mb-2 col-md-12">{{ 'FORMAT.FORMAT' | translate }}(s)</p>
+        <p class="title-help col-md-12 mb-4">{{ 'FORMAT.TITLE_HELP' | translate }}</p>
+        <div class="col-md-6 col-xl-4" *ngFor="let format of formats">
+          <div class="card">
+            <p class="card-title">{{ format.name }}</p>
+            <div class="d-flex justify-content-between conversation-edit-section">
+              <div class="toggle-section d-flex align-items-center">
+                <span class="statut">{{ 'STATUT' | translate }}</span>
+                <div class="btn-toggle">
+                  <div>
+                    <span class="status">{{ getFormatStates(format.state) | translate }}</span>
+                    <div class="d-flex justify-content-center align-items-center"
+                    [ngClass]="stateService.hasReady(format.state) ? 'completed' : 'in-progress'">
+                      <i [className]="stateService.hasReady(format.state) ? 'icon-sent-big' : 'icon-inprogress'"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="edit-section d-flex flex-column">
+                <div class="wrapper-action-btn">
+                  <app-actions *ngIf="formatEditOpen===format.id" [id]="format.id"
+                               (edit)="edit($event)" (delete)="delete($event)"></app-actions>
+                  <button class="card-action-btn" (click)="openEdit(format.id)">
+                    <i class="icon-more"></i>
+                    {{ 'BUTTONS.ACTIONS' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="stateService.hasPublished(format.state)" class="integration-section">
+              <p class="title">{{ 'INTEGRATION' | translate }}</p>
+              <span>{{ 'IFRAME' | translate }}</span>
+              <div class="tag-scripts javascript-synchronous-code">
+                <i class="icon-list" title="{{'CLIPBOARD_COPY' | translate}}"
+                   (click)="copyTag($event)" [cdkCopyToClipboard]="format.iframeTag"></i>
+                <code [innerText]="format.iframeTag"></code>
+              </div>
+              <span>{{ 'JAVASCRIPT_ASYNCHRONOUS' | translate }}</span>
+              <div class="tag-scripts javascript-synchronous-code">
+                <i class="icon-list" title="{{'CLIPBOARD_COPY' | translate}}"
+                   (click)="copyTag($event)" [cdkCopyToClipboard]="format.asyncTag"></i>
+                <code [innerText]="format.asyncTag"></code>
+              </div>
+              <span>{{ 'JAVASCRIPT_SYNCHRONOUS' | translate }}</span>
+              <div class="tag-scripts ifram-code">
+                <i class="icon-list" title="{{'CLIPBOARD_COPY' | translate}}"
+                   (click)="copyTag($event)" [cdkCopyToClipboard]="format.syncTag"></i>
+                <code [innerText]="format.syncTag"></code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- create new format -->
+        <div class="col-md-6 col-xl-4 ">
+          <div class="card">
+            <p class="card-title">{{ 'FORMAT.CREATE_NEW' | translate }}</p>
+            <button class="btn-rounded-outline-secondary btn-with-icon" (click)="goFormatList()">
+              <i class="icon-add"></i> {{ 'FORMAT.NEW' | translate }}
+            </button>
+<!--            <p class="orther-choose">{{ 'FORMAT.DUPLICATE' | translate }}</p>-->
+<!--            <div class="form-group">-->
+<!--              <select class="form-control" id="formatSelect">-->
+<!--                <option>placeholder text</option>-->
+<!--                <option>2</option>-->
+<!--                <option>3</option>-->
+<!--                <option>4</option>-->
+<!--                <option>5</option>-->
+<!--              </select>-->
+<!--            </div>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Loader -->
+<div class="text-center" *ngIf="loading">
+  <div class="adnai-loader page-loader"></div>
+</div>
+

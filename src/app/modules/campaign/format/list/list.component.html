@@ -1,0 +1,96 @@
+<app-breadcrumb [editAction]="false" [crumbs]="crumbs"></app-breadcrumb>
+
+<!-- formats section -->
+<div class="formats-section custom-mt-90">
+  <div class="row">
+    <!-- filter section -->
+    <div class="col-md-3 filter-section">
+      <div class="card">
+        <p class="filter">{{ 'FILTERS' | translate }}</p>
+        <div class="divider"></div>
+        <div class="child-part">
+          <p>{{ 'TYPES' | translate }}</p>
+          <label class="customize-check-box">{{ 'DISPLAY' | translate }}
+            <input type="checkbox" value="display" (change)="onCheckboxChange($event)">
+            <span class="checkmark"></span>
+          </label>
+          <label class="customize-check-box">{{ 'SKIN' | translate }}
+            <input type="checkbox" value="skin" (change)="onCheckboxChange($event)">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="child-part">
+          <p>{{ 'FEATURES' | translate }}</p>
+          <label class="customize-check-box">{{ 'VIDEO' | translate }}
+            <input type="checkbox" value="video" (change)="onCheckboxChange($event)">
+            <span class="checkmark"></span>
+          </label>
+          <label class="customize-check-box">{{ 'LOREM_IPSUM' | translate }}
+            <input type="checkbox" value="loremIpsum" (change)="onCheckboxChange($event)">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- format list -->
+    <div class="col-md-9 format-list">
+      <div class="row" *ngIf="!loading">
+        <div *ngFor="let item of formatList | formatListFilter:filterRule" class="col-md-6 col-lg-4"
+             (click)="openModal(formatModal, item)">
+          <div class="format-item position-relative d-flex justify-content-center align-items-center cursor-pointer">
+            <div class="format-info d-flex justify-content-center align-items-center flex-column">
+              <i [ngClass]="item.code | formatType: 'icon'"></i>
+              <h2>{{ item.name }}</h2>
+              <span>{{ item.formatType }}</span>
+            </div>
+            <div class="format-preview position-absolute d-flex flex-column justify-content-center align-items-center">
+<!--              <i class="icon-see"></i>-->
+<!--              <span>{{ 'PREVIEW' | translate }}</span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- format modal section -->
+<ng-template #formatModal let-modal>
+  <form [formGroup]="formatForm" (ngSubmit)="formatAdd()">
+    <div class="modal-header">
+      <h4 class="modal-title text-capitalize">{{ 'FORMAT.NEW' | translate }}</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <div class="input-group">
+          <label for="formatName" class="input-label">{{ 'FORMAT.NAME' | translate }}</label>
+          <input id="formatName" type="text" class="form-control" formControlName="name">
+        </div>
+        <div *ngIf="formatSubmitted && formatForm.controls.name.errors" class="error">
+          <div *ngIf="formatForm.controls.name.errors.required">{{'YOUR_FORMAT_NAME_REQUIRED' | translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer modal-btn-group w-100 d-flex">
+      <div class="btn-cancel-section">
+        <button type="button" class="btn btn-with-icon w-100 justify-content-center"
+          (click)="modal.dismiss('Cross click')">
+          <span class="btn-left-border w-100 d-flex justify-content-center align-items-center">
+            <i class="icon-cancel"></i>
+            <span>{{ 'BUTTONS.CANCEL' | translate }}</span>
+          </span>
+        </button>
+      </div>
+      <div class="btn-save-section">
+        <button type="submit" class="btn btn-with-icon w-100 justify-content-center">
+          <span class="w-100 d-flex justify-content-center align-items-center">
+            <i class="icon-sent"></i>
+            <span>{{ 'BUTTONS.VALIDATE' | translate }}</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </form>
+</ng-template>

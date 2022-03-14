@@ -1,0 +1,62 @@
+<div class="content-header d-flex justify-content-between align-items-center">
+  <div class="content-menu-list d-flex align-items-center overflow-hidden">
+    <button class="btn btn-with-icon btn-back" (click)="backClicked()">
+      <i class="icon-back"></i>
+      <span>{{ 'BUTTONS.BACK' | translate }}</span>
+    </button>
+    |
+    <a class="align-items-center ml-2" [routerLink]="['/campaigns/list']">
+      <span>{{ 'CAMPAIGNS' | translate }}</span></a>
+
+    <ng-container>
+      <div *ngFor="let crumb of crumbs; let i = index" class="d-flex">
+        <span class="ml-1 mr-1 d-flex align-items-end" [style]="{marginBottom: '-3px'}">></span>
+        <a *ngIf="crumb.route && crumb.route !== ''" class="align-items-center cursor-pointer" [routerLink]="[crumb.route]">
+          <span [innerHTML]="crumb.text"></span></a>
+        <a *ngIf="!crumb.route || crumb.route === ''"><span [innerHTML]="crumb.text"></span></a>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="editAction" class="edit-save-section d-flex">
+    <div>
+      <button class="btn btn-with-icon btn-save" (click)="toggleSettings()">
+        <i class="icon-settings"></i>
+        <span>{{ 'BUTTONS.ADVANCED_SETTINGS' | translate }}</span>
+      </button>
+    </div>
+    <div>
+      <button *ngIf="!saving" class="btn btn-with-icon btn-save" [ngClass]="{'disabled': !hasUpdate}"
+              (click)="saveClicked()">
+        <i class="icon-save"></i>
+        <span>{{ 'BUTTONS.SAVE' | translate }}</span>
+      </button>
+      <div *ngIf="saving" class="adnai-loader loader-sm mr-4"></div>
+    </div>
+    <div (mouseover)="displayErrors(true)" (mouseleave)="displayErrors(false)">
+      <button *ngIf="!publishing" class="btn btn-with-icon btn-save border cursor-pointer"
+              [ngClass]="{'disabled': missingKeys.length}" (click)="publishConversation()">
+        <i class="icon-publish"></i>
+        <span>{{ 'BUTTONS.PUBLISH' | translate }}</span>
+      </button>
+      <div *ngIf="publishing" class="adnai-loader loader-sm mr-4"></div>
+      <div *ngIf="displayErrorContainer && missingKeys.length" class="errors-list-container">
+        <label>{{'FORMAT.MISSING.TITLE' | translate}}</label>
+        <ul class="ml-4">
+          <li *ngFor="let error of missingKeys">
+            <span class="cursor-pointer text-underline"
+                  *ngIf="error.includes('MISSING.CONVERSATION')" [innerHTML]="error | translate"
+                  (click)="openConversationModal()"></span>
+            <span class="cursor-pointer text-underline"
+                  *ngIf="error.includes('CONV_PUBLICATION')" [innerHTML]="error | translate"
+                  (click)="goToConversation()"></span>
+            <span *ngIf="!error.includes('MISSING.CONVERSATION') && !error.includes('CONV_PUBLICATION')"
+                  [innerHTML]="error | translate"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-campaign-advanced-settings *ngIf="advancedSettings" [edited]="edited"
+                                (closeMe)="hideSettings()" [formatId]="formatId"></app-campaign-advanced-settings>

@@ -1,0 +1,8 @@
+@mixin navbar-divider($height, $width, $bg_color) {
+  content: "";
+  background-color: $bg_color;
+  position: absolute;
+  display: block;
+  height: $height;
+  width: $width;
+}

@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between" *ngFor="let section of sections"
+     [cdkDragDisabled]="(section.SectionType==='Link')" cdkDrag>
+  <div class="d-flex align-items-center justify-content-center list-icon">
+    <i [ngClass]="{'icon-list moving-cursor': section.SectionType!=='Link', 'icon-link': section.SectionType==='Link'}"></i>
+  </div>
+  <div class="text section-content" *ngIf="section.SectionType==='Text'">
+    <div>{{ section.AddText.text }}</div>
+  </div>
+  <div class="text section-content" *ngIf="section.SectionType==='Link'">
+    <div><a [href]="section.AddLink.link" [title]="section.AddLink.link"
+            target="_blank">{{ section.AddLink.text }}</a></div>
+  </div>
+  <div class="image section-content" *ngIf="section.SectionType==='Image'">
+    <div class="d-flex justify-content-center align-items-center image-border w-100">
+      <div [ngStyle]="{'background-image': 'url('+ section.AddImage.src + ')'}"></div>
+    </div>
+  </div>
+  <div class="audio section-content" *ngIf="section.SectionType==='Audio'">
+    <div class="d-flex align-items-center">
+      <i class="icon-play" *ngIf="!playing[section._id]"
+         (click)="audioControls(section._id,'play', section.AddAudio.src)"></i>
+      <i class="icon-rewind" *ngIf="playing[section._id]"
+         (click)="audioControls(section._id,'restart')"></i>
+      <i class="icon-pause" *ngIf="playing[section._id]"
+         (click)="audioControls(section._id,'pause')"></i>
+      <span>{{ section.AddAudio.audName }} ({{ section.AddAudio.audSize }} ko)</span>
+    </div>
+  </div>
+  <div class="action-icons d-flex flex-column align-items-center justify-content-around">
+    <i *ngIf="section.SectionType==='Text' || section.SectionType==='Link'" class="icon-edit" (click)="edit(key, section._id)"></i>
+    <i class="icon-delete" (click)="remove(key, section._id)"></i>
+  </div>
+</div>

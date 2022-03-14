@@ -1,0 +1,12 @@
+<div class="confirm-modal-content">
+  <div class="modal-header">
+    <i class="icon-send-round"></i>
+  </div>
+  <div class="modal-body">
+    <span>Your format is now completed. You can go back to {{ action }}</span>
+  </div>
+  <div class="modal-footer">
+    <button (click)="closeFn.emit()" type="button" class="confirm-btn my-btn primary btn-with-icon">
+      <i class="icon-sent-big"></i> Ok</button>
+  </div>
+</div>

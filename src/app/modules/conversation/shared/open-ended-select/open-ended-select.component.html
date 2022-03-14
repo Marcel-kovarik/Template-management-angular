@@ -1,0 +1,15 @@
+<div class="custom-select-menu position-relative">
+  <div class="selected-item d-flex align-items-center justify-content-between" (click)="isSubMenu=true;">
+    <span>{{ selectedItem.name | translate }}</span>
+    <span class="menu-down-icon" [ngStyle]="{'transform': isSubMenu ? 'rotate(180deg)' : 'rotate(0deg)'}"></span>
+  </div>
+
+  <!-- GENERIC SELECT -->
+  <div *ngIf="isSubMenu" class="select-menu-list position-absolute">
+    <ng-container *ngFor="let item of selectList">
+      <div *ngIf="item.value !== ''" (click)="selectGeneric(item.value)">{{ item.name | translate }}</div>
+    </ng-container>
+  </div>
+  <!-- GENERIC SELECT END -->
+
+</div>

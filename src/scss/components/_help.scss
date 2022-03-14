@@ -1,0 +1,47 @@
+.need-help {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  .main-button {
+    @include fonts(0.75, $font__main, 700);
+    border-radius: 30px!important;
+    padding: 0px 20px 0px 55px;
+    line-height: 47px;
+    > i {
+      position: absolute;
+      font-size: 35px;
+      top: 6px;
+      left: 38px;
+    }
+  }
+  .chatbot-container {
+    @include border-radius(10px);
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+    width: 300px;
+    height: 467px;
+    .bot-header {
+      @include border-radius-top(10px);
+      background-color: $color__primary;
+      height: 44px;
+      > button {
+        width: 36px;
+        height: 26px;
+        background-color: $color__secondary;
+        float: right;
+        border: none;
+        margin-right: 10px;
+        border-top-left-radius: 0!important;
+        border-top-right-radius: 0!important;
+        > i {
+          font-size: 15px;
+          top: 4px;
+          right: 21px;
+        }
+      }
+    }
+    .conversation {
+      padding-top: 5px;
+    }
+  }
+}

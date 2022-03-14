@@ -1,0 +1,81 @@
+<div class="card format-table-section">
+  <div class="content">
+    <h2 class="title">{{format}} - {{ 'CHECK_LIST' | translate }}</h2>
+    <p class="description">{{ 'HERE_ELEMENT_YOU_NEED_TO_CREATE_YOUR_FORMAT' | translate }}</p>
+    <div class="table-section">
+      <table class="table check-list">
+        <tbody>
+          <ng-container *ngFor="let resource of checklist; let i = index">
+            <tr>
+              <td class="center action" (click)="editTrigger(resource)">
+                <i [ngClass]="(edited[resource.id] || server[resource.id]) ? 'icon-send-round' : 'icon-circle'"></i>
+              </td>
+              <td class="cursor-pointer list-description" (click)="editTrigger(resource)">
+                <p class="mb-0">{{resource.name | titlecase}} <sup *ngIf="resource.mandatory">*</sup></p>
+                <p class="mb-0 description">{{resource.description}}</p>
+              </td>
+              <td class="cursor-pointer" (click)="editTrigger(resource)">{{resource | checklist: 'size'}}</td>
+              <td class="cursor-pointer" (click)="editTrigger(resource)">{{resource | checklist: 'weight'}}</td>
+              <!-- if resource has child -->
+              <td *ngIf="resource.child; else noChildResource" class="cursor-pointer dropChild text-right" (click)="editTrigger(resource)">
+                <i [@openClose]="(dropChild[resource.id]) ? 'up' : 'down'" class="icon-down"></i>
+              </td>
+              <ng-template #noChildResource>
+                <!-- if resource is screenSection (Popover need to be showed in this td) -->
+                <td *ngIf="resource.opener === 'screenSection'; else defaluteResource" 
+                  class="cursor-pointer" [id]="resource.settingsKeys"
+                  [ngbPopover]="screenSecResource" [autoClose]="'outside'" placement="right" #screenSec="ngbPopover" (hidden)="popverOverHidden()">
+                  <span>{{resource | checklist: 'type'}}</span>
+                  <ng-template #screenSecResource>
+                    <app-color (closeFn)="screenSec.close()" (update)="updateResourceTrigger($event)"
+                    [data]="formatData" [resource]="getResource(resource.id)" [title]="resource.name"></app-color>
+                  </ng-template>
+                </td>
+                <!-- defalute resource  -->
+                <ng-template #defaluteResource>
+                  <td class="cursor-pointer" (click)="editTrigger(resource)">{{resource | checklist: 'type'}}</td>
+                </ng-template>
+              </ng-template>
+            </tr>
+            <ng-template [ngIf]="resource.child">
+              <tr *ngFor="let childResource of resource.child; let k = index"
+                [@openClose]="(dropChild[resource.id]) ? 'open' : 'closed'">
+                <td></td>
+                <td class="cursor-pointer action list-description" (click)="editTrigger(childResource)">
+                  <i [ngClass]="(edited[resource.id + '_' + childResource.id] || server[resource.id + '_' + childResource.id]) ? 'icon-send-round' : 'icon-circle'"></i>
+                  <div>
+                    <p class="mb-0">{{childResource.name | titlecase}} <sup *ngIf="childResource.mandatory">*</sup></p>
+                    <p class="mb-0 description">{{childResource.description}}</p>
+                  </div>
+                </td>
+                <td class="cursor-pointer" (click)="editTrigger(childResource)"></td>
+                <td class="cursor-pointer" (click)="editTrigger(childResource)"></td>
+                <!-- if resource is screenSection (Popover need to be showed in this td) -->
+                <td *ngIf="childResource.opener === 'screenSection'; else childDefaluteResource"
+                    [ngbPopover]="screenSecResource" [autoClose]="'outside'" placement="right" #screenSec="ngbPopover"
+                    [id]="childResource.settingsKeys" class="cursor-pointer addIcon" (hidden)="popverOverHidden()">
+                  <p>
+                    <i class="icon-add"></i><span>{{resource | checklist: 'type'}}</span>
+                  </p>
+                  <ng-template #screenSecResource>
+                    <app-image (closeFn)="screenSec.close()" (update)="updateResourceTrigger($event, resource)" [title]="resource.name"
+                    [data]="formatData" [resource]="getResource(resource.id, childResource.id)"></app-image>
+                  </ng-template>
+                </td>
+                <!-- defalute resource  -->
+                <ng-template #childDefaluteResource>
+                  <td class="cursor-pointer addIcon" (click)="editTrigger(childResource)">
+                    <p>
+                      <i class="icon-add"></i><span>{{resource | checklist: 'type'}}</span>
+                    </p>
+                  </td>
+                </ng-template>
+              </tr>
+            </ng-template>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-right required mb-0"><sup>*</sup>{{ 'REQUIRED' | translate }}</p>
+  </div>
+</div>

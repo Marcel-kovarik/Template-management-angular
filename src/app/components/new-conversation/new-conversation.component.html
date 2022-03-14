@@ -1,0 +1,48 @@
+<form [formGroup]="conversationForm" (ngSubmit)="conversationAdd()">
+  <div class="modal-header">
+    <h4 class="modal-title text-capitalize">{{ 'CONVERSATION.NEW' | translate }}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="input-group">
+        <label for="promptModal" class="input-label">{{ 'CONVERSATION.NAME' | translate }}</label>
+        <input id="promptModal" type="text" class="form-control" [formControlName]="'name'">
+      </div>
+      <div *ngIf="submitted && conversationForm.controls.name.errors" class="error clearfix">
+        <div *ngIf="conversationForm.controls.name.errors.required">{{'FORM_ERRORS.REQUIRED' |
+          translate}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>{{ 'CONVERSATION.LANG' | translate }}</label>
+      <select class="form-control" [formControlName]="'languageCode'">
+        <option value="" disabled selected>{{ 'CONVERSATION.LANG_SELECT' | translate }}</option>
+        <option *ngFor="let language of languages" [value]="language.languageCode">
+          {{language.name}} ({{language.languageCode}})</option>
+      </select>
+      <div *ngIf="submitted && conversationForm.controls.languageCode.errors" class="error">
+        <div *ngIf="conversationForm.controls.languageCode.errors.required">{{'FORM_ERRORS.REQUIRED' |
+          translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer modal-btn-group w-100 d-flex">
+    <div class="btn-cancel-section">
+      <button type="button" class="btn btn-with-icon w-100 justify-content-center"
+              (click)="close('cancelled')">
+          <span class="btn-left-border w-100 d-flex justify-content-center align-items-center">
+            <i class="icon-cancel"></i>
+            <span>{{ 'BUTTONS.CANCEL' | translate }}</span>
+          </span>
+      </button>
+    </div>
+    <div class="btn-save-section">
+      <button type="submit" class="btn btn-with-icon w-100 justify-content-center">
+          <span class="w-100 d-flex justify-content-center align-items-center">
+            <i class="icon-sent"></i>
+            <span>{{ 'BUTTONS.VALIDATE' | translate }}</span>
+          </span>
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,109 @@
+.recorder-container {
+  .player-container {display: none;}
+  display: flex;
+  flex-direction: row;
+  width: 140px;
+  height: 50px;
+  button {
+    padding: 0;
+    background-color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    @include border-radius(25px);
+    box-shadow: 0px 0px 2px $conversation-rec-bg;
+    text-align: center;
+    > i {
+      font-size: 45px;
+      color: $color__secondary;
+      position: relative;
+      top: -1px;
+      left: 11px;
+    }
+    &.hidden {
+      display: none;
+    }
+    &.stop-btn:before {
+      content: "";
+      display: block;
+      position: absolute;
+      margin: 9.5px 13px 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 13px;
+      animation: record 1.7s infinite;
+    }
+    &.sending {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        margin: -2px 1px 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+        box-shadow: inset 0px 3px 4px 1px rgba(236, 100, 16, 0.9);
+        animation: rotate 1.2s linear infinite;
+      }
+    }
+  }
+  .mini-buttons {
+    margin: 10px 0 0 5px;
+    display: flex;
+    button {
+      width: 30px;
+      height: 30px;
+      @include border-radius(16px);
+      margin-right: 8px;
+      > i {
+        font-size: 22px;
+        font-weight: bold;
+        top: 1px;
+        left: 13px;
+      }
+      &.cancel-btn-sm {
+        > i {
+          font-size: 34px;
+          top: -1px;
+          left: 11px;
+        }
+      }
+      &.stop-btn-sm {
+        > i {
+          font-size: 19px;
+          top: 2px;
+          left: 11px;
+        }
+      }
+    }
+  }
+}
+@-webkit-keyframes record
+{
+  0% {-webkit-box-shadow: 0 0 0 0 rgba(236,100,16,0.4);}
+  70% {-webkit-box-shadow: 0 0 0 20px rgba(236,100,16,0);}
+  100% {-webkit-box-shadow: 0 0 0 0 rgba(236,100,16,0);}
+}
+@keyframes record
+{
+  0% {-moz-box-shadow: 0 0 0 0 rgba(236,100,16, 0.4);box-shadow: 0 0 0 0 rgba(236,100,16,0.4);}
+  70% {-moz-box-shadow: 0 0 0 20px rgba(236,100,16,0);box-shadow: 0 0 0 20px rgba(236,100,16,0);}
+  100% {-moz-box-shadow: 0 0 0 0 rgba(236,100,16, 0);box-shadow: 0 0 0 0 rgba(236,100,16,0);}
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

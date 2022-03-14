@@ -1,0 +1,26 @@
+<div class="conversation-edit">
+    <h2 class="title">{{ title | translate }}</h2>
+    <label class="bg-img-upload d-flex justify-content-start align-items-center">
+      <i class="icon-screen"></i> <span>{{ 'UPLOAD_FROM_COMPUTER' | translate }}</span>
+      <input type="file" accept=".mp4" (change)="updateFile($event)">
+    </label>
+    <div class="edit-divider error">{{ errorMessage }}</div>
+    <p class="description text-capitalize">{{ 'TYPE' | translate }}: <span>{{ resource.resourceType }}</span></p>
+    <p class="description text-capitalize">{{ 'SIZE' | translate }}:
+      <span class="format-bold">{{ resource.width }}x{{ resource.height}}px</span></p>
+    <div class="divider"></div>
+    <div *ngIf="dual" class="d-flex flex-column align-items-center justify-content-center">
+      <div id="colorPicker"></div>
+      <div class="d-flex picker-value">
+        <span>{{ 'CODE_HEX' | translate }}</span>
+        <input type="text" (change)="updateHex($event)" [value]="bgColor" style="border: 2px solid rebeccapurple">
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center validate-btn-section">
+      <button type="button" class="btn-rounded-outline-secondary btn-with-icon" (click)="closeTrigger()">
+        <i class="icon-sent"></i>
+        {{ 'VALIDATE' | translate | titlecase }}
+      </button>
+    </div>
+  </div>
+

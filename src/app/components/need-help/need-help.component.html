@@ -1,0 +1,15 @@
+<div class="need-help">
+  <button *ngIf="!clicked" class="btn btn-secondary main-button" (click)="triggerBot()">
+    <i class="icon-sms-off"></i>
+    {{'HELP.BUTTON_LABEL' | translate }}</button>
+  <div *ngIf="clicked" class="chatbot-container">
+    <div class="bot-header">
+      <button (click)="triggerBot()">
+        <i class="icon-cancel-big"></i></button>
+    </div>
+    <div class="conversation">
+      <app-chat [data]="conversation"></app-chat>
+    </div>
+  </div>
+</div>
+

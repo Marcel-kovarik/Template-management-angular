@@ -1,0 +1,57 @@
+<div class="right-panel-section advanced-settings">
+  <div class="h-100 position-relative">
+
+    <!-- ADVANCED SETTINGS HEAD -->
+    <div class="rp-header position-relative d-flex justify-content-center align-items-center">
+      <div class="close-icon position-absolute cursor-pointer" (click)="hideMe()">
+        <i class="icon-cancel-big"></i>
+      </div>
+      <div class="rp-title d-flex align-items-center">
+        <span>{{ 'ADVANCE_SETTINGS.TITLE' | translate }}</span>
+      </div>
+    </div>
+    <!-- ADVANCED SETTINGS HEAD END -->
+
+    <div class="rp-body position-relative">
+      <div class="answer-edit padding-top-none">
+        <div *ngIf="loaded" class="answer-edit-list mt-0 ml-3 mr-3">
+
+          <!-- ERROR MSG SECTION -->
+          <div class="synonyms-section border-0">
+            <div class="d-flex align-items-center title-section select-none"
+                 [attr.aria-expanded]="!collapsedStatus.isErrorCustom" (click)="macros.toggle()">
+              <i class="icon-front" [ngClass]="{'is-collapsed': !collapsedStatus.isErrorCustom}"></i>
+              <h3 class="m-0">{{ 'ADVANCE_SETTINGS.CUSTOM_MSG.TITLE' | translate }}</h3>
+            </div>
+            <div #macros="ngbCollapse" [(ngbCollapse)]="collapsedStatus.isErrorCustom" class="content">
+              <p class="description" [innerHTML]="'ADVANCE_SETTINGS.CUSTOM_MSG.DESCRIPTION' | translate"></p>
+              <div *ngFor="let item of errorMsgList; let i = index" class="completed-synonyms-item">
+                <label>{{ 'ADVANCE_SETTINGS.CUSTOM_MSG.LABELS.' + item.key.toUpperCase() | translate }}</label>
+                <div class="d-flex align-items-center justify-content-between">
+                  <i class="icon-list"></i>
+                  <div class="content">{{ item.text }}</div>
+                  <i class="icon-edit cursor-pointer" (click)="editMessage(i)"></i>
+                </div>
+              </div>
+              <div class="add-text-container" *ngIf="textSectionDisplay">
+                <app-add-text [textSection]="textSection" [removeButton]="{text: 'BUTTONS.CANCEL', icon: 'icon-cancel-big'}"
+                              (deleteText)="closeEditor()" (removeAudio)="deleteAudio()"
+                              (sectionAdd)="sectionAdd($event)" (updateParent)="sectionUpdate($event)"></app-add-text>
+              </div>
+            </div>
+          </div>
+          <!-- ERROR MSG END -->
+
+          <!-- RESET SETTINGS -->
+          <div class="synonyms-section delete text-center">
+            <span class="p-3 cursor-pointer" (click)="resetSettings()">
+              <i class="icon-delete"></i>
+              {{ 'ADVANCE_SETTINGS.RESET_SETTINGS' | translate }}</span>
+          </div>
+          <!-- RESET SETTINGS END -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

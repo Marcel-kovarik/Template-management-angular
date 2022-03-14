@@ -1,0 +1,71 @@
+/****** COLORS ******/
+$color__primary:    #062D40;
+$color__secondary:  #EC6410;
+$color__success:    #4DCD4B;
+$color__danger:     #CA0000;
+$color__warning:    #E5371A;
+$color__info:       #6CC6F2;
+
+$color__dark:       #0D0D0D;
+$color__light:      #F7F7F7;
+$color__grey:       #777777;
+$color__light-grey: #C9C9C9;
+
+/****** BACKGROUND ******/
+$body-bg-color:       #F9F9F9;
+$screen-bg-color:     #FFFFFF;
+$table-bg-color:      #F2F2F2;
+$table-active-bg:     #E4E1E1;
+$hr-bg-color:         #CCCCCC;
+$pre-bg-color:        #EEEEEE;
+$ins-bg-color:        #FFF9C0;
+$blockquote-bg-color: #F1F1F1;
+$code-bg-color:       #2B2929;
+$nodeeditor-bg-color: #E8E8E8;
+$conversation-rec-bg: #E0E0E0;
+
+/****** TABLE *****/
+$table-border-color: #E7E7E7;
+/****** TEXT ******/
+$text-main-color:       $color__dark;
+$text-secondary-color:  $color__primary;
+$text-grey:             $color__grey;
+$text-light:            $color__light;
+
+/****** INPUT ******/
+$input-text-color:        $text-main-color;
+$input-focus-color:       rgba(2, 29, 41, 0.48);
+$input-border-color:      $color__grey;
+$input-background-color:  $blockquote-bg-color;
+
+/****** BUTTONS ******/
+$btn-color:         $color__light;
+$btn-bg-color:      $color__primary;
+$btn-border-color:  $color__primary;
+
+/****** LINKS ******/
+$link-color:         $color__grey;
+$link-hover-color:   darken($color__grey, 20%);
+$link-visited-color: $link-color;
+
+$color__border-button: $color__warning;
+$color__border-button-hover: $color__warning;
+$color__border-button-focus: $color__warning;
+$color__border-input: #DBDBDB;
+$color__border-abbr: #dbdbdb;
+
+$color__table-highlight: #e7e7e7;
+
+/****** POPOVER ******/
+$color-popover-bg-color: #DADADA;
+$color-popover-color: #979797;
+
+/****** LOADING ******/
+$color-loading: #F25F00;
+
+/****** Answers *****/
+$color__answersBg: #C3C3C3;
+$color__synonymsBorder: #D8D8D8;
+
+/** IMAGE CROPPPER **/
+$color__cropper-text: #323232
